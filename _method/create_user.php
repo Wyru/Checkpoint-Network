@@ -10,7 +10,6 @@
 /*  TODO: [Nixon Silva]
  * - Implementar função que impede o cadastro quando um e-mail já está 
  * registrado no banco de dados.
- * 
 */
 
 include 'mysql_connect.php';
