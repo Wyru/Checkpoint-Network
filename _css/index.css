@@ -83,8 +83,44 @@ header img{
 	margin-bottom: 5px;
 }
 #criarConta p{
-	margin-left: 10px;
 	color: #ffffff;
+        font-family: AlegreyaSans-ExtraBold;
+        font-size: 20px;
+        margin:10px 0px 0px 0px;
+        padding: 0px;
+}
+.cadastro{
+    margin-top: 5px;
+    margin-left: 10%;
+    
+}
+#criarConta input, select{
+    margin-top: 0;
+    align-self: center;
+    width: 80%;
+    margin-bottom: 15px;
+}
+#criarConta button{
+    display: flex;
+    align-self: center;
+    border: 2px solid #000;
+    border-radius: 10px;
+    font-family: AlegreyaSans-ExtraBold;
+    font-size: 15px;
+    margin-top: 0px;
+    padding: 5px 15px 5px 15px;
+    
+
+}
+#criarConta button:hover{
+    transition: 0.3s;
+    border: 2px solid #1ad1ff;
+    border-radius: 10px;
+    font-family: AlegreyaSans-ExtraBold;
+    font-size: 15px;
+    margin-top: 0px;
+    padding: 5px 15px 5px 15px;
+
 }
 #bemVindo{
 	text-align: center;
@@ -105,7 +141,7 @@ header img{
 footer{
 	clear: both;
 	height: 5%;
-	width:100%;
+	width: 100%;
 
 }
 footer p{
@@ -114,3 +150,4 @@ footer p{
 	padding: 0px;
 
 }
+

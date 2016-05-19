@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="_css/Criar Conta.css">
+	<link rel="stylesheet" type="text/css" href="_css/index.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -32,19 +32,24 @@
     
 	<section id="criarConta">
             <form class = "cadastro" action="./_method/create_user.php" method="POST">
-                <p>Nome: <input type="text" name="name"/></p>
-                <p>E-Mail: <input type="email" name="email"/></p>
-                <p>Senha: <input type="password" name="password_1"/></p>
-                <p>Repetir Senha: <input type="password" name="password_2"/></p>
-                <p>Sexo: 
+                <p>Nome: </p>
+                 <input type="text" name="name"/>
+                <p>E-Mail: </p>
+                <input type="email" name="email"/>
+                <p>Senha:</p>
+                <input type="password" name="password_1"/>
+                <p>Repetir Senha: </p>
+                <input type="password" name="password_2"/>
+                <p>Sexo: </p>
                 <select name="sex">
                     <option value="male">Masculino</option>
                     <option value="female">Feminino</option>
                     <option value="other">Outro</option>
                 </select> 
-                </p>
-                <p>Data de Nascimento: <input type="text" id="datepicker" name="date"></p>
-                <p><button type="submit">Enviar</button><p>
+                
+                <p>Data de Nascimento: </p>
+                <input type="text" id="datepicker" name="date">
+                <p><button type="submit">Enviar</button></p>
             </form>
 	</section>
 	<footer>
