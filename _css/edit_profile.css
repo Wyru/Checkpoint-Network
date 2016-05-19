@@ -1,0 +1,33 @@
+#navBar{
+	display: fixed;
+	width: 100%;
+	height: 70px;
+	margin-top: 20px;
+	background-color:#990000;
+	margin: 0px;
+
+}
+#navBar ul{
+	border-top: 1px solid black;
+	display: flex;
+	margin-left: 100px;
+	padding: 0px 0px 0px 100px;
+	margin-top: 23px;
+
+}
+#navBar ul li{
+	padding: 0px;
+	margin-right: 10px;
+	list-style: none;
+}
+
+#navBar ul li div{
+	padding: 10px 10px 1px 10px;
+
+}
+#navBar ul li div a{
+	text-decoration: none;
+	color: white;
+	font-family: AlegreyaSans-Medium;
+
+}
