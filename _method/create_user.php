@@ -65,6 +65,7 @@ if ($count_rows >= 1)
         alert('Endereço de E-mail já cadastrado!');
         window.location.href='../index.html';
     </script>";
+    mysqli_close ($conn);
     exit;
 }
 
