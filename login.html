@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="_css/Criar Conta.css">
+	<link rel="stylesheet" type="text/css" href="_css/Entrar.css">
 	<meta charset="utf-8">
 	<title>Criar Conta</title>
 </head>
@@ -10,8 +10,8 @@
 		<img src="_imagens/logo.png">
 		<nav>
 			<ul>
-				<li><a href="Criar Conta.html">Criar Conta</a></li>
-				<li><a href="Entrar.html">Entrar</a></li>
+				<li><a href="index.html">Criar Conta</a></li>
+				<li><a href="login.html">Entrar</a></li>
 				<li><a href="Página Inicial.html">Página Inicial</a></li>
 			</ul>
 		</nav>
@@ -24,13 +24,11 @@
 	</section>
 
 	<section id="criarConta">
-		<p>Nome:</p>
-		<p>Email:</p>
-		<p>Senha:</p>
-		<p>Repetir Senha:</p>
-		<p>Sexo:</p>
-		<p>Data de Nascimento:</p>
-		<p>Ao clicar em Abrir uma conta, você concorda com os nossos Termos e que leu a nossa Política de Dados, incluindo o nosso Uso de Cookies. </p>
+            <form class="cadastro" action="./_method/verify_login.php" method="POST">
+                <p>E-Mail: <input type="email" name="email"/></p>
+                <p>Senha:  <input type="password" name="password_1"/></p>
+                <p><button type="submit">Enviar</button><p>
+            </form>
 	</section>
 
 	<footer>
