@@ -14,6 +14,7 @@ if (!$_SESSION["login_status"])
     header ("location:login.html");
     exit;
 }
+
 ?>
 
 <!--Página Meu Perfil-->
@@ -34,8 +35,8 @@ if (!$_SESSION["login_status"])
             </div>
 
             <div id= "navBar">
-                <form class = "search" action="#" method="POST">
-                    <input type="" name="" placeholder=" Pesquisar">
+                <form class = "search" action="search_profile.php" method="POST">
+                    <input type="text" name="value" placeholder=" Pesquisar">
                 </form>
                 <ul>
                     <li> 
@@ -153,7 +154,6 @@ if (!$_SESSION["login_status"])
                         // Encerra conexão após a query
                         mysqli_close ($conn);
                     ?>
-
                 </div>
 
             </section>
