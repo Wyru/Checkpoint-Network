@@ -7,11 +7,6 @@
  * logo em seguida caso sejam informações válidas.
  */
 
-/*  TODO: [Nixon Silva]
- * - Implementar função que impede o cadastro quando um e-mail já está 
- * registrado no banco de dados.
-*/
-
 include 'mysql_connect.php';
 
 // Verifica se os valores digitados são válidos
@@ -58,6 +53,20 @@ $input_pass     = mysql_real_escape_string ($input_pass);
 $input_pass_2   = mysql_real_escape_string ($input_pass_2);
 $input_sex      = mysql_real_escape_string ($input_sex);
 $input_date     = mysql_real_escape_string ($input_date);
+
+// Verificação de se o e-mail já está cadastrado
+$not_double     = mysqli_query($conn, 
+        "SELECT * FROM `users` WHERE `email` LIKE '".$input_email."'");
+$count_rows     = mysqli_num_rows ($not_double);
+if ($count_rows >= 1)
+{
+    // Se tiver, informa ao usuário o erro
+    echo "<script> 
+        alert('Endereço de E-mail já cadastrado!');
+        window.location.href='../index.html';
+    </script>";
+    exit;
+}
 
 // Inserção no banco de dados
 $result = mysqli_query($conn, "INSERT INTO `users`(`username`, `email`, `password`, `sex`, `birthday`) VALUES ('".$input_name."','".$input_email."','".$input_pass."', '".$input_sex."', '".$input_date."')");

@@ -7,10 +7,6 @@
  * logo em seguida caso sejam informações válidas.
  */
 
-/*  TODO: [Nixon Silva]
- * - Implementar funcionalidade que identifica se o e-mail não está cadastrado
- * ou se é somente a senha inserida que está incorreta (e-mail está cadastrado)
-*/
 
 include 'mysql_connect.php';
 
@@ -65,8 +61,10 @@ if ($count_rows == 1)
     $_SESSION["favorite_game"]  = $actual_rows[11];
     $_SESSION["user_type"]      = $actual_rows[12];
     $_SESSION["profile_pic"]    = $actual_rows[13];
+    $_SESSION["login_status"]   = true;
     // Redireciona à pagina de perfil inicial
-    
+    header("location:my_profile.php");
+    exit;
 }
 else if ($count_rows == 0)
 {
