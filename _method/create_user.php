@@ -80,7 +80,15 @@ else
 {
     // Inicia a sessão do usuário
     session_start ();
-    echo "Cadastro efetuado com sucesso!";   
+    // Atribui seus dados para a sessão
+    $_SESSION["name"]           = $input_name;
+    $_SESSION["email"]          = $input_email;
+    $_SESSION["password"]       = $input_pass;
+    $_SESSION["sex"]            = $input_sex;
+    $_SESSION["birthday"]       = $input_date;
+    $_SESSION["login_status"]   = true;
+    header("location:../my_profile.php");
+    exit;
 }
 
 // Termina a conexão com o banco de dados
