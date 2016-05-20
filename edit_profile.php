@@ -75,25 +75,24 @@ if (!$_SESSION["login_status"])
                     </li>
                 </ul>			
             </div>
-
         </header>
         <section>
             <div id = "profile">
                 <h1>Perfil</h1>
                 <form method="POST" action="./_method/edit_user.php">
-                    <p>Nome:<input type="text" name="new_name"><?php echo $_SESSION["name"] ?></input></p>
+                    <p>Nome:<input type="text" name="new_name" value="<?php echo $_SESSION["name"] ?>"></p>
                     <p>Sexo:<select name="sex">
                         <option value="male">Masculino</option>
                         <option value="female">Feminino</option>
                         <option value="other">Outro</option>
                     </select></p>
-                    <p>Data de Nascimento: <input type="text" id="datepicker" name="new_date"><?php echo $_SESSION["birthday"] ?></p>
-                    <p>PSN:<input type="text" name="new_psn"><?php echo $_SESSION["psn"] ?></input></p>
-                    <p>Steam:<input type="text" name="new_steam"><?php echo $_SESSION["steam"] ?></input></p>
-                    <p>Live:<input type="text" name="new_live"><?php echo $_SESSION["xbox_live"] ?></input></p>
-                    <p>Nintendo ID:<input type="text" name="new_nintendo" value=".."><?php echo $_SESSION["nintendo"] ?></input></p>
+                    <p>Data de Nascimento: <input type="text" id="datepicker" name="new_date" value="<?php echo $_SESSION["birthday"] ?>"></p>
+                    <p>PSN:<input type="text" name="new_psn" value="<?php echo $_SESSION["psn"] ?>"></p>
+                    <p>Steam:<input type="text" name="new_steam" value="<?php echo $_SESSION["steam"] ?>"></p>
+                    <p>Live:<input type="text" name="new_live" value="<?php echo $_SESSION["xbox_live"] ?>"></p>
+                    <p>Nintendo ID:<input type="text" name="new_nintendo" value="<?php echo $_SESSION["nintendo"] ?>"></p>
                     <p>Biografia:<textarea name="new_biography"><?php echo $_SESSION["biography"] ?></textarea></p>
-                    <p>Jogo Favorito:<input type="text" name="new_game"><?php echo $_SESSION["favorite_game"] ?></input></p><br>
+                    <p>Jogo Favorito:<input type="text" name="new_game" value="<?php echo $_SESSION["favorite_game"] ?>"></p><br>
                     <p>Senha Atual:<input type="password" name = "curr_password"/></p>
                     <p><button type="submit">Efetivar Alterações</button></p>
                 </form>
@@ -102,21 +101,18 @@ if (!$_SESSION["login_status"])
             <div id="account">
                 <h1>Conta</h1>
                 <div id="email">
-
+                    
                 </div>
                 <div id="password">
 
                 </div>
                 <div id="sex">
-
+                    
                 </div>
                 <div id="birthday">
-
+                    
                 </div>
-
-
             </div>
-
         </section>
 
     </body>
