@@ -31,13 +31,13 @@
 	<section id="criarConta">
             <form class = "cadastro" action="./_method/create_user.php" method="POST">
                 <p>Nome: </p>
-                 <input type="text" name="name" required="true"/>
+                <input type="text" name="name" required/>
                 <p>E-Mail: </p>
-                <input type="email" name="email"/>
+                <input type="email" name="email" required/>
                 <p>Senha:</p>
-                <input type="password" name="password_1"/>
+                <input type="password" name="password_1" required/>
                 <p>Repetir Senha: </p>
-                <input type="password" name="password_2"/>
+                <input type="password" name="password_2" required/>
                 <p>Sexo: </p>
                 <select name="sex">
                     <option value="male">Masculino</option>
