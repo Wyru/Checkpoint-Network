@@ -24,6 +24,13 @@ if (!$_SESSION["login_status"])
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="_css/edit_profile.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script>$(function() 
+        {
+          $("#datepicker").datepicker();
+        }); </script>
         <meta charset="utf-8">
         <title>Editar Perfil</title>
     </head>
@@ -80,11 +87,11 @@ if (!$_SESSION["login_status"])
                         <option value="female">Feminino</option>
                         <option value="other">Outro</option>
                     </select></p>
-                    <p>Data de Nascimento: <input type="text" id="datepicker" name="new_date"/></p>
+                    <p>Data de Nascimento: <input type="text" id="datepicker" name="new_date"><?php echo $_SESSION["birthday"] ?></p>
                     <p>PSN:<input type="text" name="new_psn"><?php echo $_SESSION["psn"] ?></input></p>
                     <p>Steam:<input type="text" name="new_steam"><?php echo $_SESSION["steam"] ?></input></p>
                     <p>Live:<input type="text" name="new_live"><?php echo $_SESSION["xbox_live"] ?></input></p>
-                    <p>Nintendo ID:<input type="text" name="new_nintendo"><?php echo $_SESSION["nintendo"] ?></input></p>
+                    <p>Nintendo ID:<input type="text" name="new_nintendo" value=".."><?php echo $_SESSION["nintendo"] ?></input></p>
                     <p>Biografia:<textarea name="new_biography"><?php echo $_SESSION["biography"] ?></textarea></p>
                     <p>Jogo Favorito:<input type="text" name="new_game"><?php echo $_SESSION["favorite_game"] ?></input></p><br>
                     <p>Senha Atual:<input type="password" name = "curr_password"/></p>
