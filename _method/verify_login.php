@@ -44,6 +44,8 @@ $actual_rows    = mysqli_fetch_row ($query_result);
 
 if ($count_rows == 1)
 {
+    // Verifica se não é um usuário desativado
+    
     // Inicia a sessão do usuário
     session_start ();
     // Atribui seus dados para a sessão

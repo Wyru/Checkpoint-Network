@@ -1,4 +1,13 @@
+/*
+		Autor: Willian Saymon;
+		Data de Criação: 18/05/2016;
+		Data de update: 20/05/2016;
+		Descrição: Código css para a página de perfil do usuário(my_profile.php);
+*/
+
+
 /*Parte responsável por adicionar fontes */
+
 @font-face{
 	font-family: AlegreyaSans-ExtraBold;
 	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
@@ -8,12 +17,15 @@
 	font-family: AlegreyaSans-Medium;
 	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Medium.ttf");
 }
+@font-face{
+	font-family: AlegreyaSans-Light;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
+}
 
 body{
-
-
-	background-color:#f2f2f2 ;
+	background-color:#54c8d5 ;
 }
+
 /*Foto de perfil, barra de pesquisa e navegador*/
 header{
 
@@ -27,7 +39,7 @@ header{
 	position: absolute;
 	width: 200px;
 	height: 200px;
-	background-color:#990000;
+	background-color:#203677;
 	border-radius: 100%;
 	margin: -30px 0px 0px -30px;
 
@@ -55,7 +67,7 @@ header{
 	width: 100%;
 	height: 100px;
 	margin-top: 20px;
-	background-color:#990000;
+	background-color:#203677;
 
 }
 
@@ -83,6 +95,11 @@ header{
 	margin-right: 10px;
 	list-style: none;
 }
+#navBar li:hover{
+	transition: 0.5s;
+	background-color: #001e77;
+
+}
 
 #navBar ul li div{
 	padding: 10px 10px 1px 10px;
@@ -94,12 +111,20 @@ header{
 	font-family: AlegreyaSans-Medium;
 
 }
+#navBar a img{
+	height: 25px;
+	width: 25px;
+	padding-right: 3px;
+	margin-top: -10px;
+	margin-bottom: -4px;
+
+}
 /*Conteudo da página*/
 
 #left{
 
 	float: left;
-	width: 25%;
+	width: 20%;
 	margin-top: 125px;
 	border-right: 1px solid black;
 
@@ -108,15 +133,78 @@ header{
 	margin-top: 70px;
 }
 #aboutMe p a {
+	float: right;
+	margin-right: 15px;
+	margin-top: -30px;
 	text-decoration: none;
+	font-family: AlegreyaSans-ExtraBold;
+	color: #ffffff;
+	background-color: #203677;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+#aboutMe p a:hover {
+	transition: 0.5s;
+	background-color: #001e77;
+}
+
+#aboutMe .data {
+	padding:15px 5px 0px 5px;
+
+
+}
+#aboutMe .data h3{
+	font-size: 15px;
 	font-family: AlegreyaSans-Medium;
 
-}
-#content{
-	float: left;
-	width: 60%;
-	background-color: black;
-	margin-top: 130px;
-	margin-left: 5px;
+
 }
 
+#content{
+	float: right;
+	margin-right: 15%;
+	width: 60%;
+	margin-top: 130px;
+}
+#share{
+	float: left;
+	width: 100%;
+	background-color: #203677;
+	border-radius: 5px;
+
+
+}
+#share textarea{
+	font-family: AlegreyaSans-Light;
+	margin-left: 3%;
+	margin-right: 3%;
+	width: 93%;
+}
+#share button{
+	float:right; 
+	margin-right: 3%;
+	font-family: AlegreyaSans-ExtraBold;
+	color: #ffffff;
+	background-color: #203677;
+	padding: 5px 10px 5px 10px;
+	border-radius: 5px;
+	margin-top: -15px;
+	margin-bottom: 5px;
+	border
+}
+
+#share button:hover{
+	transition: 0.2s;
+	background-color: #001e77;
+
+}
+#timeLine{
+	margin-top: 20px;
+
+	float: left;
+	width: 100%;
+	background-color: #8cced5;
+	border-radius: 5px;
+
+}
