@@ -35,7 +35,8 @@ if (!$_SESSION["login_status"])
                 // Imprime os resultados
                 while ($rows)
                 {
-                    echo "<p>" .$rows[1] . "</p>";
+                    $id = $rows[0];
+                    echo "<p><a href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a></p>";
                     echo "<br>";
                     $rows = $result->fetch_row();
                 }
