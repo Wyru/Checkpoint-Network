@@ -21,7 +21,6 @@ if (!$_SESSION["login_status"])
 
 <!DOCTYPE html>
 <html>
-    <<<<<<< HEAD
     <head>
         <link rel="stylesheet" type="text/css" href="_css/edit_profile.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">

@@ -8,8 +8,6 @@
 // Inicia sessão
 session_start ();
                      
-
-session_start();
 // Verifica se a variável de login está ativada
 if (!$_SESSION["login_status"])
 {
