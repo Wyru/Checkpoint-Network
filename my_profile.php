@@ -1,6 +1,9 @@
 <<<<<<< HEAD
 <!--Página Meu Perfil-->
 
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,37 +25,37 @@
 			<ul>
 				<li> 
 					<div>
-						<a href="#"> <img src="_imagens/_icones/home.png">Página Inicial</a>
+						<a href="#">Página Inicial</a>
 					</div>
 				</li>
 				<li> 
 					<div>
-						<a href="my_profile.php"><img src="_imagens/_icones/profile.png">Meu Perfil</a>
+						<a href="#">Meu Perfil</a>
 					</div>
 				</li>
 				<li> 
 					<div>
-						<a href="#"><img src="_imagens/_icones/screenshots.png">Screenshots</a>
+						<a href="#">Screenshots</a>
 					</div>
 				</li>
 				<li> 
 					<div>
-						<a href="#"><img src="_imagens/_icones/gamePlay.png">Gameplays</a>
+						<a href="#">Gameplays</a>
 					</div>
 				</li>
 				<li> 
 					<div>
-						<a href="#"><img src="_imagens/_icones/games.png">Game List</a>
+						<a href="#">Game List</a>
 					</div>
 				</li>
 				<li> 
 					<div>
-						<a href="#"><img src="_imagens/_icones/guilds.png">Guildas</a>
+						<a href="#">Guildas</a>
 					</div>
 				</li>
 				<li> 
 					<div>
-						<a href="#"><img src="_imagens/_icones/friends.png">Amigos</a>
+						<a href="#">Amigos</a>
 					</div>
 				</li>
 			</ul>			
