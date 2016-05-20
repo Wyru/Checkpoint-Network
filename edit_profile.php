@@ -7,51 +7,59 @@
 </head>
 <body>
 	<header>
-	<div id= "navBar">
-			<ul>
-				<li> 
-					<div>
-						<a href="#">Página Inicial</a>
-					</div>
-				</li>
-				<li> 
-					<div>
-						<a href="#">Meu Perfil</a>
-					</div>
-				</li>
-				<li> 
-					<div>
-						<a href="#">Screenshots</a>
-					</div>
-				</li>
-				<li> 
-					<div>
-						<a href="#">Gameplays</a>
-					</div>
-				</li>
-				<li> 
-					<div>
-						<a href="#">Game List</a>
-					</div>
-				</li>
-				<li> 
-					<div>
-						<a href="#">Guildas</a>
-					</div>
-				</li>
-				<li> 
-					<div>
-						<a href="#">Amigos</a>
-					</div>
-				</li>
-			</ul>			
-		</div>
-		
-	</header>
-	<section>
+            <div id="profilePic">
+                <img src="http://tedxnashville.com/wp-content/uploads/2015/11/profile.png"/>
+                <p><?php echo $_SESSION["name"]; ?></p>
+            </div>
+
+            <div id= "navBar">
+                <form class = "search" action="search_profile.php" method="POST">
+                    <input type="text" name="value" placeholder=" Pesquisar">
+                </form>
+                <ul>
+                    <li> 
+                        <div>
+                            <a href="home.php"><img src="_imagens/_icones/home.png">Página Inicial</a>
+                        </div>
+                    </li>
+                    <li> 
+                        <div>
+                            <a href="my_profile.php"><img src="_imagens/_icones/profile.png">Meu Perfil</a>
+                        </div>
+                    </li>
+                    <li> 
+                        <div>
+                            <a href="my_photos.php"><img src="_imagens/_icones/screenshots.png">Screenshots</a>
+                        </div>
+                    </li>
+                    <li> 
+                        <div>
+                            <a href="my_videos"><img src="_imagens/_icones/gamePlay.png">Gameplays</a>
+                        </div>
+                    </li>
+                    <li> 
+                        <div>
+                            <a href="my_games"><img src="_imagens/_icones/games.png">Game List</a>
+                        </div>
+                    </li>
+                    <li> 
+                        <div>
+                            <a href="my_groups"><img src="_imagens/_icones/guilds.png">Guildas</a>
+                        </div>
+                    </li>
+                    <li> 
+                        <div>
+                            <a href="my_friends"><img src="_imagens/_icones/friends.png">Amigos</a>
+                        </div>
+                    </li>
+                </ul>			
+            </div>
+        </header>
+        
+	<section id="editables">
 		<div id = "profile">
 			<h1>Perfil</h1>
-			<div id="profilePic">
+			<div id="profilePhoto">
 				
 			</div>
 			<div id="name">

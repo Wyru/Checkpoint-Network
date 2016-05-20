@@ -1,12 +1,86 @@
-#navBar{
-	display: fixed;
+/*
+		Autor: Willian Saymon;
+		Data de Criação: 18/05/2016;
+		Data de update: 20/05/2016;
+		Descrição: Código css para a página de perfil do usuário(my_profile.php);
+*/
+
+
+/*Parte responsável por adicionar fontes */
+
+@font-face{
+	font-family: AlegreyaSans-ExtraBold;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Medium;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Medium.ttf");
+}
+@font-face{
+	font-family: AlegreyaSans-Light;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
+}
+
+body{
+	background-color:#54c8d5 ;
+}
+
+/*Foto de perfil, barra de pesquisa e navegador*/
+header{
+
+	position: fixed;
+	height: 175px;
 	width: 100%;
-	height: 70px;
-	margin-top: 20px;
-	background-color:#990000;
-	margin: 0px;
+
 
 }
+#profilePic{
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background-color:#203677;
+	border-radius: 100%;
+	margin: -30px 0px 0px -30px;
+
+}
+
+#profilePic img {
+	margin-left: 50px;
+	margin-top: 50px;
+	width: 100px;
+	height: 100px;
+
+}
+/*Nome*/
+#profilePic p{
+	text-align: center;
+	z-index: 3;
+	color: #fff;
+	margin-top: 5px;
+	font-family: AlegreyaSans-Medium;
+
+
+}
+/*Menu da Navegação do Perfil*/
+#navBar{
+	width: 100%;
+	height: 100px;
+	margin-top: 20px;
+	background-color:#203677;
+
+}
+
+.search{
+	padding: 20px 5px 5px 200px;
+}
+
+.search input{
+
+	width: 95%;
+	border-radius: 10px;
+}
+
 #navBar ul{
 	border-top: 1px solid black;
 	display: flex;
@@ -15,10 +89,16 @@
 	margin-top: 23px;
 
 }
+
 #navBar ul li{
 	padding: 0px;
 	margin-right: 10px;
 	list-style: none;
+}
+#navBar li:hover{
+	transition: 0.5s;
+	background-color: #001e77;
+
 }
 
 #navBar ul li div{
@@ -30,4 +110,16 @@
 	color: white;
 	font-family: AlegreyaSans-Medium;
 
+}
+#navBar a img{
+	height: 25px;
+	width: 25px;
+	padding-right: 3px;
+	margin-top: -10px;
+	margin-bottom: -4px;
+
+}
+#editables{
+	display: inline-block;
+	margin-top: 200px;
 }

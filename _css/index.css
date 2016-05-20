@@ -1,4 +1,11 @@
+/*
+		Autor: Willian Saymon;
+		Data de Criação: 15/05/2016;
+		Data de update: 20/05/2016;
+		Descrição: Código css para a página de criar conta(index.html) e entrar(login.html);
+*/
 
+/* Adiciona fontes*/
 @font-face{
 	font-family: AlegreyaSans-ExtraBold;
 	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
