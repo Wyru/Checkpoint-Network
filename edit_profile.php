@@ -73,7 +73,7 @@ if (!$_SESSION["login_status"])
         <section>
             <div id = "profile">
                 <h1>Perfil</h1>
-                <form method="POST" action="./method/edit_user.php">
+                <form method="POST" action="./_method/edit_user.php">
                     <p>Nome:<input type="text" name="new_name"><?php echo $_SESSION["name"] ?></input></p>
                     <p>Sexo:<select name="sex">
                         <option value="male">Masculino</option>
@@ -88,6 +88,7 @@ if (!$_SESSION["login_status"])
                     <p>Biografia:<textarea name="new_biography"><?php echo $_SESSION["biography"] ?></textarea></p>
                     <p>Jogo Favorito:<input type="text" name="new_game"><?php echo $_SESSION["favorite_game"] ?></input></p><br>
                     <p>Senha Atual:<input type="password" name = "curr_password"/></p>
+                    <p><button type="submit">Efetivar Alterações</button></p>
                 </form>
                 </div>
             </div>
