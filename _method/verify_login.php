@@ -45,7 +45,14 @@ $actual_rows    = mysqli_fetch_row ($query_result);
 if ($count_rows == 1)
 {
     // Verifica se não é um usuário desativado
-    
+    if ($actual_rows[14] == 1)
+    {
+        echo "<script> 
+            alert('Usuário desativado!');
+            window.location.href='../login.html';
+        </script>";
+        exit;        
+    }
     // Inicia a sessão do usuário
     session_start ();
     // Atribui seus dados para a sessão

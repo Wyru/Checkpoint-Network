@@ -26,9 +26,8 @@ if (!$_SESSION["login_status"])
     </head>
     <body>
         <?php
-            
             include './_method/mysql_connect.php';
-            $result = mysqli_query($conn, "SELECT * FROM `users` WHERE `username` LIKE '%".$_POST['value']."%'");
+            $result = mysqli_query($conn, "SELECT * FROM `users` WHERE `username` LIKE '%".$_POST['value']."%' AND `REMOVED` = 0");
             if ($result)
             {
                 $rows = $result->fetch_row();

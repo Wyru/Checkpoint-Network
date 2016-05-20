@@ -35,7 +35,7 @@ if (!$_SESSION["login_status"])
             $user_id = $_GET['user_id'];
             $user_id = stripslashes ($user_id);
             $user_id = mysql_real_escape_string ($user_id);
-            
+
             $result = mysqli_query ($conn, "SELECT * FROM `users` WHERE `id` = " .$user_id. "");
             
             if ($result)

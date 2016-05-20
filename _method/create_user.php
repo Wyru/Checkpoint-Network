@@ -78,14 +78,25 @@ if (!$result)
 }
 else
 {
+    // Retira a ID desse novo usuário cadastrado
+    $user_id = mysqli_insert_id($conn);
     // Inicia a sessão do usuário
     session_start ();
     // Atribui seus dados para a sessão
+    $_SESSION["id"]             = $user_id;
     $_SESSION["name"]           = $input_name;
     $_SESSION["email"]          = $input_email;
     $_SESSION["password"]       = $input_pass;
     $_SESSION["sex"]            = $input_sex;
     $_SESSION["birthday"]       = $input_date;
+    $_SESSION["psn"]            = NULL;
+    $_SESSION["steam"]          = NULL;
+    $_SESSION["xbox_live"]      = NULL;
+    $_SESSION["nintendo"]       = NULL;
+    $_SESSION["biography"]      = NULL;
+    $_SESSION["favorite_game"]  = NULL;
+    $_SESSION["user_type"]      = NULL;
+    $_SESSION["profile_pic"]    = NULL;
     $_SESSION["login_status"]   = true;
     header("location:../my_profile.php");
     exit;
