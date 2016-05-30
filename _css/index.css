@@ -14,7 +14,7 @@ body{
 }
 #navBar{
     background-color: rgba(0,0,0,0.8);
-    margin-top: 1%;
+    margin-top: 5px;
     padding: 10px 0px 0px 0px;
     
 }
@@ -32,9 +32,11 @@ body{
     
 }
 #logo{
+    position: absolute;
     
-    margin-left: 1%;
-    max-height: 80px;
+    top: 1px;
+    left: 10px;
+    max-height: 120px;
     width: auto;   
 }
 #wellcome{

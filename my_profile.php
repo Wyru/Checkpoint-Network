@@ -1,4 +1,4 @@
-<?php
+    <?php
 /* Autores: Nixon Silva e Will Saymon
  * Data: 19/05/2016
  * Função: Código de tratamento básico para páginas de exibição de perfil do usuário
@@ -6,79 +6,38 @@
  */
 
 // Inicia sessão
-session_start ();
+//session_start ();
                      
 // Verifica se a variável de login está ativada
-if (!$_SESSION["login_status"])
+/*if (!$_SESSION["login_status"])
 {
     // Envia para a página de login caso não esteja	
     header("location:login.html");
     exit;
 }
-
+*/
 ?>
 
 <!--Página Meu Perfil-->
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="_css/my_profile.css">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="_bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="_css/my_profile.css">
+        <!--Não adicione nada antes disso-->
         <title>Meu Perfil</title>
     </head>
     <body>
         <header>
-            <div id="profilePic">
-                <img src="http://tedxnashville.com/wp-content/uploads/2015/11/profile.png"/>
-                <p><?php echo $_SESSION["name"]; ?></p>
-            </div>
-
-            <div id= "navBar">
-                <form class = "search" action="search_profile.php" method="POST">
-                    <input type="text" name="value" placeholder=" Pesquisar">
-                </form>
-                <ul>
-                    <li> 
-                        <div>
-                            <a href="home.php"><img src="_imagens/_icones/home.png">Página Inicial</a>
-                        </div>
-                    </li>
-                    <li> 
-                        <div>
-                            <a href="my_profile.php"><img src="_imagens/_icones/profile.png">Meu Perfil</a>
-                        </div>
-                    </li>
-                    <li> 
-                        <div>
-                            <a href="my_photos.php"><img src="_imagens/_icones/screenshots.png">Screenshots</a>
-                        </div>
-                    </li>
-                    <li> 
-                        <div>
-                            <a href="my_videos"><img src="_imagens/_icones/gamePlay.png">Gameplays</a>
-                        </div>
-                    </li>
-                    <li> 
-                        <div>
-                            <a href="my_games"><img src="_imagens/_icones/games.png">Game List</a>
-                        </div>
-                    </li>
-                    <li> 
-                        <div>
-                            <a href="my_groups"><img src="_imagens/_icones/guilds.png">Guildas</a>
-                        </div>
-                    </li>
-                    <li> 
-                        <div>
-                            <a href="my_friends"><img src="_imagens/_icones/friends.png">Amigos</a>
-                        </div>
-                    </li>
-                </ul>			
-            </div>
+            <?php 
+                include("header_default.php");
+            ?>
         </header>
-        <section id = "profileBody">
-            <div id="left">
+        <section  class="container"id = "profileBody">
+            <div class="col-md-3 pull-left">
                 <section id="aboutMe">
                     <p><a href="edit_profile.php">Editar Perfil</a></p>
                     <div class="data">
@@ -127,7 +86,7 @@ if (!$_SESSION["login_status"])
                     </div>
                 </section>
             </div>
-            <section id="content">
+            <section class="col-md-8 pull-right">
                 <div id="share">
                     <form action="./_method/new_post.php" method="POST">
                         <p> <textarea name="comment" id="comment">Compartilhe-nos sua jogatina!</textarea></p>
@@ -158,5 +117,10 @@ if (!$_SESSION["login_status"])
                 </div>
             </section>
         </section>
+        <!--Não coloque  nada abaixo disso-->
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>  
     </body>
 </html>
