@@ -33,7 +33,10 @@ if (!$_SESSION["login_status"])
     <body >
         
         <header >
-            <?php include("default_header.php"); ?>
+            <?php 
+            $var_name = $_SESSION["name"];
+            include("default_header.php"); 
+            ?>
         </header>
         
         <section  class="container-fluid">
