@@ -35,6 +35,8 @@ if (!$_SESSION["login_status"])
             ?>
         </header>
         <section class="col-md-8 pull-right" id="main">
+            <p><br></p>
+            <p><br></p>
             <?php
             // Exibição dos amigos
             // TODO: Separar por páginas
@@ -50,7 +52,8 @@ if (!$_SESSION["login_status"])
                 $rows_2 = mysqli_fetch_row($query_2);
                 $friend_name = $rows_2[1];
                 echo "<p>";
-                echo "<br><a href = 'show_profile.php?user_id=".$friend_id."'=".$rows[0]."'>".$friend_name."</a><br>";
+                echo "<br><a href = 'show_profile.php?user_id=".$friend_id."'>".$friend_name."</a><br>";
+                echo "<a href = './_method/undo_friend.php?user_id=" .$friend_id. "'>Desfazer Amizade</a>";
                 echo "</p>";
                 $i++;    
             }
