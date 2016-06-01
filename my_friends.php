@@ -51,10 +51,10 @@ if (!$_SESSION["login_status"])
                 $query_2 = mysqli_query($conn, $query_name);
                 $rows_2 = mysqli_fetch_row($query_2);
                 $friend_name = $rows_2[1];
-                echo "<p>";
+                echo "<div id = 'user'><p>";
                 echo "<br><a href = 'show_profile.php?user_id=".$friend_id."'>".$friend_name."</a><br>";
                 echo "<a href = './_method/undo_friend.php?user_id=" .$friend_id. "'>Desfazer Amizade</a>";
-                echo "</p>";
+                echo "</p></div>";
                 $i++;    
             }
             // Encerra conexão após a query

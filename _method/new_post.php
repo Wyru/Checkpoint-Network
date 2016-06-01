@@ -38,7 +38,7 @@ $post_content   = stripslashes ($post_content);
 $post_content   = mysql_real_escape_string ($post_content);
 
 // Insere os valores no banco de dados
-$result = mysqli_query ($conn, "INSERT INTO `posts`(`user_id`, `content`) VALUES ('".$_SESSION["id"]."', '".$post_content."')");
+$result = mysqli_query ($conn, "INSERT INTO `posts`(`user_id`, `content`, `origin`) VALUES ('".$_SESSION["id"]."', '".$post_content."', '".$_SESSION["id"]."')");
 
 if (!$result)
 {

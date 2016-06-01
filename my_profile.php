@@ -127,7 +127,16 @@ if (!$_SESSION["login_status"])
                             $content = $rows[2];
                             $timestamp = $rows[3];
                             echo "<p>";
-                            echo $timestamp . "    <a href = './_method/delete_post.php?post_id=".$rows[0]."'>Deletar</a><br>";
+                            echo $timestamp . "    <a href = './_method/delete_post.php?post_id=".$rows[0]."'>Deletar</a> ";
+                            $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows[5]. "";
+                            $result_3 = mysqli_query($conn, $query_name);
+                            $name = mysqli_fetch_row($result_3);
+                            if ($name[1] != $_SESSION["name"])
+                                echo "From user:" .$name[1]. "<br>";
+                            else
+                            {
+                                echo "Por si mesmo.";
+                            }
                             echo "</p>";
                             echo "<p>";
                             echo $content . "<br>";
