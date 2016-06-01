@@ -1,0 +1,72 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 01/06/2016, 19:18:10
+    Author     : Will Saymon
+*/
+@font-face{
+	font-family: AlegreyaSans-ExtraBold;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Medium;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Medium.ttf");
+}
+@font-face{
+	font-family: AlegreyaSans-Light;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
+}
+
+
+#title{
+    
+    border-bottom: 2px #1d1d1d solid;
+    margin-bottom: 5px;
+    
+
+        
+}
+#title h1{
+    color: #1d1d1d;
+    font-size: 50px;
+    margin-left:60px;
+    font-family: AlegreyaSans-Medium;
+}
+#main{
+    margin-top: 60px;
+    
+}
+#user{
+    font-family: AlegreyaSans-Medium;
+    background-color: #1d1d1d;
+    padding:5px 5px 10px 5px; 
+    margin:5px 20px 10px 40px;
+    border-radius:5px;
+    
+    
+    
+}
+#user img{
+    height: 60px;
+    width: 60px;
+}
+#user a{
+    color:white;
+    font-family: AlegreyaSans-Light;
+}
+
+#friend_request{
+    background-color: #1d1d1d;
+    color:white;  
+    border-radius: 5px;
+}
+
+#friend_request h3{
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 1px #980000 solid;
+}

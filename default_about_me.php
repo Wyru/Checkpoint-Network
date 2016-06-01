@@ -15,11 +15,12 @@
     <body>
             
         <section class="col-md-12" id="aboutMe">
+                    <div id="data">
                         <div class="row" >
                             <div class="col-md-12">
                                 <h3>Bio: </h3>
-                                <div id="data">
-                                    <?php echo $_SESSION["biography"]; ?>
+                                <div id="Bio">
+                                    <?php echo $rows[10]; ?>
                                 </div>   
                             </div>
 
@@ -27,15 +28,15 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>Game Preferido:</h3>
-                                <div id="data">
-                                    <?php echo $_SESSION["favorite_game"]; ?>
+                                <div id="favoGame">
+                                    <?php echo $rows[11]; ?>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>Plataforma Preferida:</h3>
-                                <div id="data">
+                                <div id="favoPlat">
 
                                 </div>
                             </div>
@@ -43,32 +44,32 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>Steam ID: </h3>
-                                <div id="data">
-                                    <?php echo $_SESSION["steam"]; ?>
+                                <div id="steamId">
+                                    <?php echo $rows[7]; ?>
                                 </div>
                             </div >
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>PSN ID: </h3>
-                                <div id="data">
-                                    <?php echo $_SESSION["psn"]; ?>
+                                <div id="psnId">
+                                    <?php echo $rows[6]; ?>
                                 </div>
                             </div >
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>Xbox Live ID: </h3>
-                                <div id="data">
-                                    <?php echo $_SESSION["xbox_live"]; ?>
+                                <div id="xboxLive">
+                                    <?php echo $rows[8]; ?>
                                 </div>
                             </div >
                         </div>
                         <div class="row">
                             <div class="col-md-12"> 
                                 <h3>Nintendo Network ID: </h3>
-                                <div id="data">
-                                    <?php echo $_SESSION["nintendo"]; ?>
+                                <div id="nintendoNetworkID">
+                                    <?php echo $rows[9]; ?>
                                 </div>
                             </div >
                         </div >
