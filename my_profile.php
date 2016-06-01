@@ -6,16 +6,16 @@
  */
 
 // Inicia sessão
-//session_start ();
+session_start ();
                      
 // Verifica se a variável de login está ativada
-/*if (!$_SESSION["login_status"])
+if (!$_SESSION["login_status"])
 {
     // Envia para a página de login caso não esteja	
     header("location:login.html");
     exit;
 }
-*/
+
 ?>
 
 <!--Página Meu Perfil-->
@@ -45,7 +45,7 @@
                             <div class="col-md-12">
                                 <h3>Bio: </h3>
                                 <div id="Bio">
-
+                                    <?php echo $_SESSION["biography"]; ?>
                                 </div>   
                             </div>
 
@@ -54,7 +54,7 @@
                             <div class="col-md-12">
                                 <h3>Game Preferido:</h3>
                                 <div id="favoGame">
-
+                                    <?php echo $_SESSION["favorite_game"]; ?>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                             <div class="col-md-12">
                                 <h3>Steam ID: </h3>
                                 <div id="steamId">
-
+                                    <?php echo $_SESSION["steam"]; ?>
                                 </div>
                             </div >
                         </div>
@@ -78,7 +78,7 @@
                             <div class="col-md-12">
                                 <h3>PSN ID: </h3>
                                 <div id="psnId">
-
+                                    <?php echo $_SESSION["psn"]; ?>
                                 </div>
                             </div >
                         </div>
@@ -86,7 +86,7 @@
                             <div class="col-md-12">
                                 <h3>Xbox Live ID: </h3>
                                 <div id="xboxLive">
-
+                                    <?php echo $_SESSION["xbox_live"]; ?>
                                 </div>
                             </div >
                         </div>
@@ -94,7 +94,7 @@
                             <div class="col-md-12"> 
                                 <h3>Nintendo Network ID: </h3>
                                 <div id="nintendoNetworkID">
-
+                                    <?php echo $_SESSION["nintendo"]; ?>
                                 </div>
                             </div >
                         </div >
@@ -120,16 +120,20 @@
                     $result = mysqli_query($conn, "SELECT * FROM `posts` WHERE `user_id` = '" . $_SESSION["id"] . "'  ORDER BY  `time` DESC");
                     // Imprime os dez resultados de forma decrescente
                     $i = 0;
-                    while ($rows = mysqli_fetch_row($result) and $i < 10) {
-                        $content = $rows[2];
-                        $timestamp = $rows[3];
-                        echo "<p>";
-                        echo $timestamp . "<br>";
-                        echo "</p>";
-                        echo "<p>";
-                        echo $content . "<br>";
-                        echo "</p>";
-                        $i++;
+                    while ($rows = mysqli_fetch_row($result) and $i < 10) 
+                    {
+                        if ($rows[4] == 0)
+                        {
+                            $content = $rows[2];
+                            $timestamp = $rows[3];
+                            echo "<p>";
+                            echo $timestamp . "    <a href = './_method/delete_post.php?post_id=".$rows[0]."'>Deletar</a><br>";
+                            echo "</p>";
+                            echo "<p>";
+                            echo $content . "<br>";
+                            echo "</p>";
+                            $i++;    
+                        }
                     }
                     // Encerra conexão após a query
                     mysqli_close($conn);

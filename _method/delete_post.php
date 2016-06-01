@@ -28,13 +28,13 @@ $post_id = mysql_real_escape_string($post_id);
 
 // Atualização do banco de dados
 $query_name = "UPDATE `posts` SET `deleted` = 1 WHERE id = '".$post_id."'";
+$query = mysqli_query($conn, $query_name);
 
-if (!$query_name)
+if ($query)
 {
-    echo "<script> 
-        alert('Erro ao desativar conta! Contate o administrador para mais informações');
-        window.location.href='../edit_profile.php';
-    </script>";
+    // Manda para a página do usuário
+    header("location:../my_profile.php");
+    mysqli_close($conn);
 }
 else
 {
@@ -42,7 +42,9 @@ else
     echo "<script> 
             alert('Erro ao remover postagem!');
             window.location.href='../my_profile.php';
-    </script>";   
+    </script>";
+    mysqli_close($conn);
 }
+
 
 ?>

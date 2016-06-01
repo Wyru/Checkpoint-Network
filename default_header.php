@@ -27,10 +27,9 @@
                 
                 <div class=" pull-right">
                     
-                    <form class="navbar-form navbar-left" role="search" >
-                      
+                    <form class="navbar-form navbar-left" role="search" action="search_profile.php" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Pesquisar" id="search">
+                            <input type="text" class="form-control" placeholder="Pesquisar" id="search" name="value">
                         </div>
                     </form>
                     <ul class="nav navbar-nav" id="navBarLinks">
