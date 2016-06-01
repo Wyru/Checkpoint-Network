@@ -33,6 +33,12 @@ else
     header("location:../profile.php");
 }
 
+// De onde veio a requisição para nova postagem?
+
+$from_where = $_POST['where'];
+$from_where = stripslashes($from_where);
+$from_where = mysql_real_escape_string($from_where);
+
 // Evita tentativas de MySQL injection
 $post_content   = stripslashes ($post_content);
 $post_content   = mysql_real_escape_string ($post_content);
@@ -53,6 +59,14 @@ if (!$result)
 mysqli_close ($conn);
 
 // Retorna à página do perfil
-header("location:../my_profile.php");
+if ($from_where == $_SESSION["id"])
+{
+    header("location:../my_profile.php");
+}
+else
+{
+    header("location:../show_profile.php?user_id=" .$from_where. "");
+}
+
 
 ?>
