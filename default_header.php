@@ -34,7 +34,7 @@
                     </form>
                     <ul class="nav navbar-nav" id="navBarLinks">
                         <li><a href="home.php"><i class="fa fa-home fa-lg" aria-hidden="true"></i>Página Inicial</a></li>
-                        <li><a href="my_profile.php"><i class="fa fa-user fa-lg" aria-hidden="true"></i>Meu Perfil</a></li>
+                        <li><a href="show_profile.php?user_id=<?php echo $_SESSION["id"]; ?>"><i class="fa fa-user fa-lg" aria-hidden="true"></i>Meu Perfil</a></li>
                         <li><a href="my_screenshots.php"><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i>Screenshots</a></li>
                         <li><a href="my_gameplays.php"><i class="fa fa-film fa-lg" aria-hidden="true"></i> Gameplays</a></li>
                         <li><a href="my_games.php"><i class="fa fa-gamepad fa-lg" aria-hidden="true"></i> Games</a></li>
