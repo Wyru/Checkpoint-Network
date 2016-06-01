@@ -3,7 +3,7 @@
 Autor: Will Saymon
 Data de Criação: 28/05/2016
 Data de Alteração: 28/05/2016
-Descrição: Página que mostrará todos os vídeos postados pelo usuário.
+Descrição: Página que mostras as ultimas publicações dos amigos do ususário.
 -->
 <html>
     <head>   
@@ -11,7 +11,7 @@ Descrição: Página que mostrará todos os vídeos postados pelo usuário.
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="_bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="_css/my_gameplays.css">
+        <link rel="stylesheet" type="text/css" href="_css/home.css">
         <!--Não adicione nada antes disso-->
         
     </head>
@@ -22,22 +22,43 @@ Descrição: Página que mostrará todos os vídeos postados pelo usuário.
             ?>
              
         </header> 
-        
-        <div class="container-fluid" id="content">
-            <div class="col-md-offset-1">
-                <h1 id="title"><i class="fa fa-film fa-lg"></i>Gameplays</h1>
+        <section class="container-fluid">
+            <div class="col-md-2 pull-left" id="left">
+                
+                    <p>Alguma coisa aqui</p>
+                    
+
+                
+                
             </div>
-            <div class="jumbotron">
+            <div class="col-md-2 pull-right" id="right">
                 
+                   <?php include("default_notifications.php");?>
+   
+            </div>
+            <div class="col-md-8 pull-right" id="main">
+                <div class="row">
+                    <?php include("default_publish.php"); ?>
+                </div>
                 
-                
-                <!--Faça a magia acontecer aqui Nixon!!!-->
+                <div class="col-md-12">
+                    <p> Publicações:</p>
+                    
+                    
+                    <!--Faça a magia acontecer aqui Nixon!!!-->
+                    
+                    
+                    
+                    
+                </div>
                 
                 
                 
             </div>
             
-        </div>
+            
+        </section>
+        
               
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

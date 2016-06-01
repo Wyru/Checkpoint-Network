@@ -11,17 +11,33 @@ Descrição: Página que mostrará todas as fotos postadas pelo usuário.
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="_bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="_css/index.css">
+        <link rel="stylesheet" type="text/css" href="_css/my_screenshots.css">
         <!--Não adicione nada antes disso-->
         
     </head>
     <body>
         <header>
             <?php
-                include("header_default.php");
+                include("default_header.php");
             ?>
-             
-        </header>  
+            
+        </header> 
+        <div class="container-fluid" id="content">
+            <div class="col-md-offset-1">
+                <h1 id="title"><i class="fa fa-picture-o fa-lg"></i>Screenshots</h1>
+            </div>
+            <div class="jumbotron">
+                
+                
+                
+                <!--Faça a magia acontecer aqui Nixon!!!-->
+                
+                
+                
+            </div>
+            
+        </div>
+        
               
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

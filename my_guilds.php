@@ -11,14 +11,14 @@ Descrição: Tela em que será mostrado todos as guildas de que o jogador faz pa
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="_bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="_css/index.css">
+        <link rel="stylesheet" type="text/css" href="_css/guilds.css">
         <!--Não adicione nada antes disso-->
         
     </head>
     <body>
         <header>
             <?php
-                include("header_default.php");
+                include("default_header.php");
             ?>
              
         </header>  

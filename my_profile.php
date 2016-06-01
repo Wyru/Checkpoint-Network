@@ -30,71 +30,91 @@
         <!--Não adicione nada antes disso-->
         <title>Meu Perfil</title>
     </head>
-    <body>
-        <header>
-            <?php 
-                include("header_default.php");
-            ?>
+    <body >
+        
+        <header >
+            <?php include("default_header.php"); ?>
         </header>
-        <section  class="container"id = "profileBody">
-            <div class="col-md-3 pull-left">
+        
+        <section  class="container-fluid">
+            <div class="col-md-2 pull-left" id="left">
                 <section id="aboutMe">
-                    <p><a href="edit_profile.php">Editar Perfil</a></p>
-                    <div class="data">
-                        <div >
-                            <h3>Bio: </h3>
-                            <div id="Bio">
+                    
+                    <div id="data">
+                        <div class="row" >
+                            <div class="col-md-12">
+                                <h3>Bio: </h3>
+                                <div id="Bio">
 
+                                </div>   
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>Game Preferido:</h3>
+                                <div id="favoGame">
+
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <h3>Game Preferido:</h3>
-                            <div id="favoGame">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>Plataforma Preferida:</h3>
+                                <div id="favoPlat">
 
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <h3>Plataforma Preferida:</h3>
-                            <div id="favoPlat">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>Steam ID: </h3>
+                                <div id="steamId">
 
-                            </div>
+                                </div>
+                            </div >
                         </div>
-                        <div>
-                            <h3>Steam ID: </h3>
-                            <div id="steamId">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>PSN ID: </h3>
+                                <div id="psnId">
 
-                            </div>
+                                </div>
+                            </div >
                         </div>
-                        <div>
-                            <h3>PSN ID: </h3>
-                            <div id="psnId">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>Xbox Live ID: </h3>
+                                <div id="xboxLive">
 
-                            </div>
+                                </div>
+                            </div >
                         </div>
-                        <div>
-                            <h3>Xbox Live ID: </h3>
-                            <div id="xboxLive">
+                        <div class="row">
+                            <div class="col-md-12"> 
+                                <h3>Nintendo Network ID: </h3>
+                                <div id="nintendoNetworkID">
 
-                            </div>
-                        </div>
-                        <div>
-                            <h3>Nintendo Network ID: </h3>
-                            <div id="nintendoNetworkID">
-
-                            </div>
-                        </div>
+                                </div>
+                            </div >
+                        </div >
                     </div>
                 </section>
             </div>
-            <section class="col-md-8 pull-right">
-                <div id="share">
-                    <form action="./_method/new_post.php" method="POST">
-                        <p> <textarea name="comment" id="comment">Compartilhe-nos sua jogatina!</textarea></p>
-                        <p><button type="submit">Enviar</button></p>
-                    </form>
-                </div>
+            
+            <section class="col-md-2 pull-right" id="right">
+                <?php include("default_notifications.php");?>
+            </section>
+            
+            <section class="col-md-8 pull-right" id="main">
+                
+                <?php include("default_publish.php");?>
+                
+                
                 <div style=" clear:both; width:100%"></div>
-                <div id = "timeLine">
+                
+                
+                <div class="container" id = "timeLine">
                     <?php
                     include './_method/mysql_connect.php';
                     $result = mysqli_query($conn, "SELECT * FROM `posts` WHERE `user_id` = '" . $_SESSION["id"] . "'  ORDER BY  `time` DESC");
@@ -116,6 +136,7 @@
                     ?>
                 </div>
             </section>
+            
         </section>
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

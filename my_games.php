@@ -11,17 +11,19 @@ Descrição: Página que mostra todos os games adicionados pelo jogador em sua c
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="_bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="_css/index.css">
+        <link rel="stylesheet" type="text/css" href="_css/games.css">
         <!--Não adicione nada antes disso-->
         
     </head>
     <body>
         <header>
             <?php
-                include("header_default.php");
-            ?>
-             
-        </header>  
+                include("default_header.php");
+            ?>     
+        </header> 
+        
+            
+       
               
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

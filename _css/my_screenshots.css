@@ -1,0 +1,42 @@
+/*
+		Autor: Willian Saymon;
+		Data de Criação: 18/05/2016;
+		Data de update: 20/05/2016;
+		Descrição: Código css para a página principal do usuário(home.php);
+*/
+
+
+/*Parte responsável por adicionar fontes */
+
+@font-face{
+	font-family: AlegreyaSans-ExtraBold;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Medium;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Medium.ttf");
+}
+@font-face{
+	font-family: AlegreyaSans-Light;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
+}
+
+#title{
+    color: #1d1d1d;
+    font-size: 50px;
+    border-bottom: 2px #1d1d1d solid;
+    margin-bottom: 5px;
+    font-family: AlegreyaSans-Medium;
+    margin-left: 60px;
+}
+
+#content{
+    margin-top: 80px;
+    
+    
+}
+#content .jumbotron{
+    margin-top: 35px;
+    background-color: #1d1d1d;
+}
