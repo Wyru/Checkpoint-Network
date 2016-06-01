@@ -72,7 +72,7 @@ if ($count_rows == 1)
     $_SESSION["profile_pic"]    = $actual_rows[13];
     $_SESSION["login_status"]   = true;
     // Redireciona à pagina de perfil inicial
-    header("location:../my_profile.php");
+    header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
     exit;
 }
 else if ($count_rows == 0)

@@ -152,6 +152,11 @@ if (!$_SESSION["login_status"])
                             $timestamp = $rows2[3];
                             echo "<p>";
                             echo $timestamp;
+                            $himself = $_SESSION["id"];
+                            if ($user_id == $himself)
+                            {
+                                echo " <a href = './_method/delete_post.php?post_id=".$rows2[0]."'>Deletar</a> ";
+                            }
                             $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
                             $result_3 = mysqli_query($conn, $query_name);
                             $name = mysqli_fetch_row($result_3);

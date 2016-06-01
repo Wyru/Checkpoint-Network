@@ -98,7 +98,7 @@ else
     $_SESSION["user_type"]      = NULL;
     $_SESSION["profile_pic"]    = NULL;
     $_SESSION["login_status"]   = true;
-    header("location:../my_profile.php");
+    header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
     exit;
 }
 

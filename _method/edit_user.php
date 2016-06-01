@@ -173,7 +173,7 @@ if ($query_result)
     $_SESSION["biography"]          = $new_biography;
     $_SESSION["favorite_game"]      = $new_game;
     // Redireciona à pagina de perfil inicial
-    header("location:../my_profile.php");
+    header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
     // Encerra a conexão com o banco de dados
     mysqli_close ($conn);
     exit;

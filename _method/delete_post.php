@@ -33,7 +33,7 @@ $query = mysqli_query($conn, $query_name);
 if ($query)
 {
     // Manda para a página do usuário
-    header("location:../my_profile.php");
+    header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
     mysqli_close($conn);
 }
 else
@@ -41,8 +41,7 @@ else
     // Retorna o erro na deleção do post
     echo "<script> 
             alert('Erro ao remover postagem!');
-            window.location.href='../my_profile.php';
-    </script>";
+            window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
     mysqli_close($conn);
 }
 

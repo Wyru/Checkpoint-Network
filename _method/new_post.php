@@ -59,14 +59,7 @@ if (!$result)
 mysqli_close ($conn);
 
 // Retorna à página do perfil
-if ($from_where == $_SESSION["id"])
-{
-    header("location:../my_profile.php");
-}
-else
-{
-   header("location:../show_profile.php?user_id=" .$from_where. "");
-}
+header("location:../show_profile.php?user_id=" .$from_where. "");
 
 
 ?>

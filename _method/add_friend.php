@@ -24,10 +24,9 @@ $friend_id = mysql_real_escape_string ($friend_id);
 
 if ($friend_id == $_SESSION["id"])
 {
-     echo "<script>
-            alert('Operação não permitida!');
-            window.location.href='../my_profile.php';
-        </script>";
+    echo "<script> 
+        alert('Erro ao remover postagem!');
+        window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
      mysqli_close($conn);
      exit;
 }
@@ -39,9 +38,8 @@ $exists = mysqli_query ($conn, $query_1);
 if ($exists)
 {
     echo "<script> 
-        alert('Amizade já existente!');
-        window.location.href='../my_profile.php';
-    </script>";
+        alert('Erro ao remover postagem!');
+        window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
 }
 else
 {
@@ -51,22 +49,20 @@ else
     $result_1 = mysqli_query ($conn, $query_2);
     if (!$result_1)
     {
-        echo "<script>
-            alert('Erro durante a consulta ao banco de dados!');
-            window.location.href='../my_profile.php';
-        </script>";
+        echo "<script> 
+            alert('Erro ao remover postagem!');
+            window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
     }
     $result_2 = mysqli_query ($conn, $query_3);
     if (!$result_2)
     {
-        echo "<script>
-            alert('Erro durante a consulta ao banco de dados!');
-            window.location.href='../my_profile.php';
-        </script>";
+        echo "<script> 
+            alert('Erro ao remover postagem!');
+            window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
     }
 }
 
-header("location:../my_profile.php");
+header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
 mysqli_close ($conn);
 
 ?>

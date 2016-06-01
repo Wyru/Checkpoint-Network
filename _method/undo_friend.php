@@ -36,7 +36,7 @@ if (!$query_1 or !$query_2)
     </script>";
 }
 
-header("location:../my_profile.php");
+header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
 mysqli_close ($conn);
 
 ?>
