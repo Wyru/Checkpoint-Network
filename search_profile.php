@@ -46,6 +46,8 @@ if (!$_SESSION["login_status"])
                     $exists = mysqli_query ($conn, $friendship_exists);
                     if ($exists)
                         echo "<p><a href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a> Já é um amigo!</p>";
+                    else if ($id == $_SESSION["id"])
+                        echo "<p><a href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a> </p>";
                     else
                         echo "<p><a href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a> <a href ='./_method/add_friend.php?friend_id=".$rows[0]."'>Add friend</a></p>";
                     echo "<br>";

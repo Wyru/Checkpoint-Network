@@ -21,6 +21,17 @@ include './_method/mysql_connect.php';
 $friend_id = $_GET['friend_id'];
 $friend_id = stripslashes ($friend_id);
 $friend_id = mysql_real_escape_string ($friend_id);
+
+if ($friend_id == $_SESSION["id"])
+{
+     echo "<script>
+            alert('Operação não permitida!');
+            window.location.href='../my_profile.php';
+        </script>";
+     mysqli_close($conn);
+     exit;
+}
+
 // Verifica se a amizade já não existe
 $query_1 = "SELECT * FROM `friends` WHERE `user_id` = " .$_SESSION["id"]. " AND WHERE `friend_id` = " . $friend_id . "";
 $exists = mysqli_query ($conn, $query_1);

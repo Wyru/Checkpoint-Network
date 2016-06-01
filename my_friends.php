@@ -1,10 +1,23 @@
+ <?php
+/* Autores: Will Saymon e Nixon Silva
+ * Data: 28/05/2016
+ * Função: Tela em que exibirá os amigos do usuário
+ */
+
+// Inicia sessão
+session_start ();
+                     
+// Verifica se a variável de login está ativada
+if (!$_SESSION["login_status"])
+{
+    // Envia para a página de login caso não esteja	
+    header("location:login.html");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
-<!--
-Autor: Will Saymon
-Data de Criação: 28/05/2016
-Data de Alteração: 28/05/2016
-Descrição: Tela em que será mostrado todos os amigos do jogador.
--->
 <html>
     <head>   
         <meta charset="utf-8">
@@ -22,7 +35,6 @@ Descrição: Tela em que será mostrado todos os amigos do jogador.
             ?>
              
         </header>  
-              
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
