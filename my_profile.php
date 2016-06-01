@@ -135,7 +135,7 @@ if (!$_SESSION["login_status"])
                             $result_3 = mysqli_query($conn, $query_name);
                             $name = mysqli_fetch_row($result_3);
                             if ($name[1] != $_SESSION["name"])
-                                echo "De usuário:" .$name[1]. "<br>";
+                                echo "De usuário: <a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a><br>";
                             else
                             {
                                 echo "Por si mesmo.";
