@@ -42,9 +42,9 @@ if (!$_SESSION["login_status"])
                 while ($rows)
                 {
                     $id = $rows[0];
-                    $friendship_exists = "SELECT * FROM `friends` WHERE `user_id` = " .$_SESSION["id"]. " AND WHERE `friend_id` = " . $id . "";
+                    $friendship_exists = "SELECT * FROM `friends` WHERE `user_id` = " .$_SESSION["id"]. " AND `friend_id` = " . $id . "";
                     $exists = mysqli_query ($conn, $friendship_exists);
-                    if ($exists)
+                    if (mysqli_fetch_row($exists))
                         echo "<p><a href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a> Já é um amigo!</p>";
                     else if ($id == $_SESSION["id"])
                         echo "<p><a href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a> </p>";

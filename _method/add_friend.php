@@ -16,7 +16,7 @@ if (!$_SESSION["login_status"])
 }
 
 // Conecta ao banco de dados
-include './_method/mysql_connect.php';
+include 'mysql_connect.php';
 // Proteção contra MySQL injection
 $friend_id = $_GET['friend_id'];
 $friend_id = stripslashes ($friend_id);
