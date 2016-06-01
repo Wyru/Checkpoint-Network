@@ -152,6 +152,13 @@ if (!$_SESSION["login_status"])
                             $timestamp = $rows2[3];
                             echo "<p>";
                             echo $timestamp;
+                            $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
+                            $result_3 = mysqli_query($conn, $query_name);
+                            $name = mysqli_fetch_row($result_3);
+                            if ($name[1] != $rows[1])
+                                echo "De usuário: <a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a><br>";
+                            else
+                                echo "Por si mesmo<br>";
                             echo "</p>";
                             echo "<p>";
                             echo $content . "<br>";

@@ -44,7 +44,7 @@ $post_content   = stripslashes ($post_content);
 $post_content   = mysql_real_escape_string ($post_content);
 
 // Insere os valores no banco de dados
-$result = mysqli_query ($conn, "INSERT INTO `posts`(`user_id`, `content`, `origin`) VALUES ('".$_SESSION["id"]."', '".$post_content."', '".$_SESSION["id"]."')");
+$result = mysqli_query ($conn, "INSERT INTO `posts`(`user_id`, `content`, `origin`) VALUES ('".$from_where."', '".$post_content."', '".$_SESSION["id"]."')");
 
 if (!$result)
 {
@@ -65,7 +65,7 @@ if ($from_where == $_SESSION["id"])
 }
 else
 {
-    header("location:../show_profile.php?user_id=" .$from_where. "");
+   header("location:../show_profile.php?user_id=" .$from_where. "");
 }
 
 

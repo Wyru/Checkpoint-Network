@@ -135,7 +135,7 @@ if (!$_SESSION["login_status"])
                             $result_3 = mysqli_query($conn, $query_name);
                             $name = mysqli_fetch_row($result_3);
                             if ($name[1] != $_SESSION["name"])
-                                echo "From user:" .$name[1]. "<br>";
+                                echo "De usuário:" .$name[1]. "<br>";
                             else
                             {
                                 echo "Por si mesmo.";
