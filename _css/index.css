@@ -1,160 +1,75 @@
-/*
-		Autor: Willian Saymon;
-		Data de Criação: 15/05/2016;
-		Data de update: 20/05/2016;
-		Descrição: Código css para a página de criar conta(index.html) e entrar(login.html);
-*/
-
-/* Adiciona fontes*/
 @font-face{
 	font-family: AlegreyaSans-ExtraBold;
 	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
 }
-
-
+*{
+    font-family: AlegreyaSans-ExtraBold;
+}
 body{
-	background-image: url("../_imagens/The-Legend-of-Zelda.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-
-
-}
-
-header{
-	position: fixed;
-	width: 100%;
-	top: 20px;
-	right: 0px;
-	left: 0px;
-}
-
-header nav {
-	width: 100%;
-	position: relative!important;
-	z-index: 1;
-	display: flex;
-	justify-content: flex-end;
-	margin: 5px 0px 5px 0px;
-	padding: 2px;
-	background-color: rgba(0,0,0,0.6);
+    background-image: url("../_imagens/The-Legend-of-Zelda.jpg");
+    background-size: cover;
+    background-repeat:no-repeat;
+    margin-bottom: 30px;
 
 }
-header nav ul{
-	margin-right: 10px;
-}
-header nav ul li{
-
-	text-decoration: none;
-	font-family: AlegreyaSans-ExtraBold;
-	font-size: 30px;
-	display: inline;
-	padding: 18px;
-	margin-left: 10px;
-	margin-right: 10px;
-	z-index: 1;
-
-
-}
-header nav ul li a{
-
-	text-decoration: none;
-	color: #ffffff;
-
-}
-
-header  nav ul li a:hover {
-	transition: 0.5s;
-
-
-}
-header  nav ul li:hover{
-	transition: 0.5s;
-	background-color: rgba(0,0,0,0.8);
-
-}
-header img{
-	z-index: 2;
-	position: absolute;
-	margin-top: -9px;
-	margin-left: 10px;
-
-}
-#criarConta{
-	border-radius: 5px;
-	float: right;
-	width: 400px;
-	height: 500px;
-	background-color: rgba(0,0,0,0.6);
-	margin-top:100px;
-	margin-right: 20px;
-	margin-bottom: 5px;
-}
-#criarConta p{
-	color: #ffffff;
-        font-family: AlegreyaSans-ExtraBold;
-        font-size: 20px;
-        margin:10px 0px 0px 0px;
-        padding: 0px;
-}
-.cadastro{
+#navBar{
+    background-color: rgba(0,0,0,0.8);
     margin-top: 5px;
-    margin-left: 10%;
+    padding: 10px 0px 0px 0px;
     
 }
-#criarConta input, select{
-    margin-top: 0;
-    align-self: center;
-    width: 80%;
-    margin-bottom: 15px;
-}
-#criarConta button{
-    display: flex;
-    align-self: center;
-    border: 2px solid #000;
-    border-radius: 10px;
-    font-family: AlegreyaSans-ExtraBold;
-    font-size: 15px;
-    margin-top: 0px;
-    padding: 5px 15px 5px 15px;
+#menuNavBar{
+    margin-top: 16px;
+    margin-right: 1.6%;
+    font-size: 25px;
     
-
 }
-#criarConta button:hover{
-    transition: 0.3s;
-    border: 2px solid #1ad1ff;
+#menuNavBar li{
+    margin-right: 20px;
+}
+#menuNavBar li a{
+    color: #ffffff;
+    
+}
+#logo{
+    position: absolute;
+    
+    top: 1px;
+    left: 10px;
+    max-height: 120px;
+    width: auto;   
+}
+#wellcome{
+    font-size: 2em;
+    color: white;
+    text-align: justify;
+    text-shadow: black 1px 1px 10px;
+    padding-top: 50px;
+    
+}
+#register{
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+    padding: 10px;
     border-radius: 10px;
-    font-family: AlegreyaSans-ExtraBold;
-    font-size: 15px;
-    margin-top: 0px;
-    padding: 5px 15px 5px 15px;
-
 }
-#bemVindo{
-	text-align: center;
-	width: 60%;
-	margin-top: 130px;
-	margin-left: 20px;
-	float: left;
+#register label{
+    margin-top: 5px;
+    margin-bottom: 2px;
 }
-#bemVindo p{
-
-	color: #ffffff;
-	font-size: 40px;
-	font-family: AlegreyaSans-ExtraBold;
-	text-shadow: #000 0px 0px 10px;
-
+#register button{
+    margin-top: 5px;
 }
-
-footer{
-	clear: both;
-	height: 5%;
-	width: 100%;
-
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  color: white;
+  background-color: rgba(0,0,0,0.6);
 }
-footer p{
-	border-top: 1px solid black;
-	color: #ffffff;
-	padding: 0px;
-
+html {
+  position: relative;
+  min-height: 100%;
 }
-

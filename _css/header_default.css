@@ -1,0 +1,104 @@
+/*
+		Autor: Willian Saymon;
+		Data de Criação: 18/05/2016;
+		Data de update: 20/05/2016;
+		Descrição: Código css para o header padrão da páginas(header_default.php);
+*/
+
+
+/*Parte responsável por adicionar fontes */
+
+@font-face{
+	font-family: AlegreyaSans-ExtraBold;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Medium;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Medium.ttf");
+}
+@font-face{
+	font-family: AlegreyaSans-Light;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
+}
+
+#header{
+    background-color: #1d1d1d;
+    margin-left: 100px;
+    margin-top: 0px;
+    font-family: AlegreyaSans-Medium;
+    box-shadow:0px 0px 7px black;
+}
+#profilePic{
+    position: absolute;
+    top:-15px;
+    left:-110px;
+    background-color:#1d1d1d;
+    box-shadow:0px 0px 7px black;
+    border-radius: 100%;
+    height: 200px;
+    width:  200px;
+}
+
+#profilePic #pic{
+    position: absolute;
+    top:50px;
+    left: 50px;
+    background-color: rgb(255,0,0);
+    border-radius: 5px;
+    height: 100px;
+    width:  100px;
+    
+}
+#config{
+    color:#980000;
+    position: absolute;
+    width: auto;
+    height: 22px;
+    padding: 0px;
+    top: 50px;
+    left: 20px;
+}
+#exit{
+    color:#980000;
+    position: absolute;
+    width: auto;
+    height: 22px;
+    padding: 0px;
+    top: 82px;
+    left: 20px;
+}
+
+#profilePic i:hover{
+    transition: .5s;
+    color:red;
+}
+
+#userName{
+    text-align: center;
+    margin-top: 140px;
+    font-family: AlegreyaSans-ExtraBold;
+    color: white; 
+}
+#navBarLinks i{
+    color: #980000;
+    margin-right: 3px;
+  
+}
+#navBarLinks a{
+    color: #d1d1d1;   
+}
+#navBarLinks a:hover{
+    transition: 0.3s;
+    color:white;
+    background-color:black;
+}
+#navBarLinks a:hover i{
+    transition: 0.3s;
+    color: red;
+}
+#search{
+    width: 280px;;
+    
+}
+

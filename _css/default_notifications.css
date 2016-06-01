@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 31/05/2016, 21:14:53
+    Author     : Will Saymon
+*/
+#notifications{
+    color:white;
+    background-color: #1d1d1d;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px #000;
+}
+#notifications h3{
+    text-align: center;
+    font-size: 15px;
+    border-bottom: 1px white solid;
+    margin-bottom: 6px;
+    color: #d1d1d1;
+    
+}
+#notifications h3 i{
+    color:#980000;
+    
+}
