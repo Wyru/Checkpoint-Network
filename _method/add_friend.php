@@ -66,6 +66,7 @@ else
     }
 }
 
+header("location:../my_profile.php");
 mysqli_close ($conn);
 
 ?>

@@ -1,4 +1,4 @@
-    <?php
+<?php
 /* Autores: Nixon Silva e Will Saymon
  * Data: 19/05/2016
  * Função: Código de tratamento básico para páginas de exibição de perfil do usuário
