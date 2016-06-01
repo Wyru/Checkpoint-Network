@@ -1,3 +1,23 @@
+<?php
+/* Autores: Nixon Silva e Will Saymon
+ * Data: 19/05/2016
+ * Função: Código de tratamento básico para páginas de exibição de perfil do usuário
+ * logado.
+ */
+
+// Inicia sessão
+session_start ();
+                     
+// Verifica se a variável de login está ativada
+if (!$_SESSION["login_status"])
+{
+    // Envia para a página de login caso não esteja	
+    header("location:login.html");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <!--
 Autor: Will Saymon

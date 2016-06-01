@@ -7,7 +7,7 @@
 /* TODO: Escrever rotina de redefinição de senha
  * 
  */
-/*
+
 // Inicia sessão
 session_start ();
 // Verifica se a variável de login está ativada
@@ -17,7 +17,7 @@ if (!$_SESSION["login_status"])
     header ("location:login.html");
     exit;
 }
- */
+ 
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +68,8 @@ if (!$_SESSION["login_status"])
                         </select>
                     <label for="datepicker">Data de Nascimento:</label> 
                     <input class="form-control" type="text" id="datepicker" name="new_date" value="<?php echo $_SESSION["birthday"] ?>"></p>
-                 
+                    <label for="Password">Senha:</label>
+                    <input class="form-control" id="Password" type="password" name="password_1" value="<?php echo $_SESSION["password_1"] ?>">
                 </div>
                 <div class="col-lg-6">
                     <p>PSN:<input type="text" name="new_psn" value="<?php echo $_SESSION["psn"] ?>"></p>
@@ -82,13 +83,7 @@ if (!$_SESSION["login_status"])
                         <p><button type="submit">Efetivar Alterações</button></p>
                     </div>
                 </form>
-                
-
-                
-                    
-                    
-                    
-                
+  
             </div>
         </section>
     </body>
