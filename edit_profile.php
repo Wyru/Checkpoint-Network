@@ -67,19 +67,30 @@ if (!$_SESSION["login_status"])
                             <option value="other">Outro</option>
                         </select>
                     <label for="datepicker">Data de Nascimento:</label> 
-                    <input class="form-control" type="text" id="datepicker" name="new_date" value="<?php echo $_SESSION["birthday"] ?>"></p>
-                    <label for="Password">Senha:</label>
-                    <input class="form-control" id="Password" type="password" name="password_1" value="<?php echo $_SESSION["password_1"] ?>">
+                    <input class="form-control" type="text" id="datepicker" name="new_date" value="<?php echo $_SESSION["birthday"] ?>">
+                    
                 </div>
                 <div class="col-lg-6">
-                    <p>PSN:<input type="text" name="new_psn" value="<?php echo $_SESSION["psn"] ?>"></p>
-                    <p>Steam:<input type="text" name="new_steam" value="<?php echo $_SESSION["steam"] ?>"></p>
-                    <p>Live:<input type="text" name="new_live" value="<?php echo $_SESSION["xbox_live"] ?>"></p>
-                    <p>Nintendo ID:<input type="text" name="new_nintendo" value="<?php echo $_SESSION["nintendo"] ?>"></p>
-                    <p>Biografia:<textarea name="new_biography"><?php echo $_SESSION["biography"] ?></textarea></p>
-                    <p>Jogo Favorito:<input type="text" name="new_game" value="<?php echo $_SESSION["favorite_game"] ?>"></p><br>    
+                    <label for="bio">Biografia:</label>
+                    <textarea class="form-control" id="bio" rows="5" name="new_biography"><?php echo $_SESSION["biography"] ?></textarea></p>
+                    <label for="favoGame">Jogo Preferida:</label>
+                    <input class="form-control" type="text" id="favoGame" name="new_game" value="<?php echo $_SESSION["favorite_game"] ?>"></p><br>  
+                    <label for="favoPlat">Plataforma Preferida:</label>
+                    <input class="form-control" type="text" id="favoPlat" name="new_console" value="<?php echo $_SESSION["favorite_plat"] ?>"></p><br>
+                    <label for="psn">PSN:</label>
+                    <input class="form-control" type="text" id="psn" name="new_psn" value="<?php echo $_SESSION["psn"] ?>"></p>
+                    <label for="steam">Steam:</label>
+                    <input class="form-control" type="text" name="new_steam" id="steam" value="<?php echo $_SESSION["steam"] ?>"></p>
+                    <label for="live">Xbox Live:</label>
+                    <input class="form-control" type="text" name="new_live" id="live" value="<?php echo $_SESSION["xbox_live"] ?>"></p>
+                    <label for="nintendo">Nintendo ID:</label>
+                    <input class="form-control" type="text" name="new_nintendo" id="nintendo" value="<?php echo $_SESSION["nintendo"] ?>"></p>
+                    
                 </div>
                     <div class="col-lg-12">
+                        <h3>Coloque sua senha para salvar as mudanças</h3>
+                        <label for="Password">Senha:</label>
+                    <input class="form-control" id="Password" type="password" name="curr_password" >
                         <p><button type="submit">Efetivar Alterações</button></p>
                     </div>
                 </form>
