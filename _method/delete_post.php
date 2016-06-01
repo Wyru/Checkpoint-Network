@@ -30,10 +30,14 @@ $post_id = mysql_real_escape_string($post_id);
 $query_name = "UPDATE `posts` SET `deleted` = 1 WHERE id = '".$post_id."'";
 $query = mysqli_query($conn, $query_name);
 
-if ($query)
+$query_name2 = "SELECT * FROM `posts` WHERE `id` = '" .$post_id. "'";
+$query2 = mysqli_query($conn, $query_name2);
+$rowsNEW = mysqli_fetch_row($query2);
+
+if ($query and $query2)
 {
     // Manda para a página do usuário
-    header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
+    header("location:../show_profile.php?user_id=" .$rowsNEW[1]. "");
     mysqli_close($conn);
 }
 else
@@ -41,7 +45,7 @@ else
     // Retorna o erro na deleção do post
     echo "<script> 
             alert('Erro ao remover postagem!');
-            window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
+            window.location.href='../show_profile.php?user_id=" .$rowsNEW[1]. "' </script>";
     mysqli_close($conn);
 }
 
