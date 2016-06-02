@@ -31,7 +31,7 @@ if (!$_SESSION["login_status"])
     <body>
         <header>
             <?php
-                $var_name = $rows[1];
+                $var_name = $_SESSION["name"];
                 include("default_header.php");
             ?>
         </header>

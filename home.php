@@ -38,6 +38,7 @@ Descrição: Página que mostras as ultimas publicações dos amigos do ususári
     <body>
         <header>
             <?php
+                $var_name = $_SESSION["name"];
                 include("default_header.php");
             ?>
              
