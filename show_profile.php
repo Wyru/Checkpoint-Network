@@ -95,7 +95,7 @@ if (!$_SESSION["login_status"])
                                         $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
                                         $result_3 = mysqli_query($conn, $query_name);
                                         $name = mysqli_fetch_row($result_3);
-                                        if ($name[1] != $rows[1])
+                                        if ($name[1] != $rows[1] and $name[0])
                                             echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > ".$rows[1]."</p>";
                                         else
                                             echo $rows[1];
