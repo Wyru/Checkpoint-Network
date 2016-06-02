@@ -74,11 +74,7 @@ if (!$_SESSION["login_status"])
             <section class="col-md-8 pull-right" id="main">
                 
                 <?php include("default_publish.php");?>
-                
-                
-                <div style=" clear:both; width:100%"></div>
-                
-                
+
                 <div class="container" id = "timeLine">
                     <?php
                     include './_method/mysql_connect.php';
@@ -89,26 +85,34 @@ if (!$_SESSION["login_status"])
                     {
                         if ($rows2[4] == 0)
                         {
-                            $content = $rows2[2];
-                            $timestamp = $rows2[3];
-                            echo "<p>";
-                            echo $timestamp;
-                            $himself = $_SESSION["id"];
-                            $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
-                            $result_3 = mysqli_query($conn, $query_name);
-                            $name = mysqli_fetch_row($result_3);
-                            if ($name[0] == $himself or $rows[0] == $himself) 
-                            {
-                                echo " <a href = './_method/delete_post.php?post_id=".$rows2[0]."'>Deletar</a> ";
-                            }
-                            if ($name[1] != $rows[1])
-                                echo "De usuário: <a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a><br>";
-                            else
-                                echo "Por si mesmo<br>";
-                            echo "</p>";
-                            echo "<p>";
-                            echo $content . "<br>";
-                            echo "</p>";
+                            echo "<div class='col-lg-12' id='publ'>
+                                <div class='row'>";
+                                    echo "<div class='col-lg-12' id='publHeader'>";
+                                        $content = $rows2[2];
+                                        $timestamp = $rows2[3];
+                                        echo "<img  class='responsive pull-left'id='userPic' src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
+                                        $himself = $_SESSION["id"];
+                                        $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
+                                        $result_3 = mysqli_query($conn, $query_name);
+                                        $name = mysqli_fetch_row($result_3);
+                                        if ($name[1] != $rows[1])
+                                            echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > ".$rows[1]."</p>";
+                                        else
+                                            echo $rows[1];
+                                        echo "<div>".$timestamp."</div>";
+                                        if ($name[0] == $himself or $rows[0] == $himself) 
+                                        {
+                                            echo " <a class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."'>Deletar</a> ";
+                                        }
+                                    echo "</div>";
+                                echo "</div>";
+                                echo "<div class='row'>";
+                                    echo "<div class='col-lg-12' id='publBody'>";
+                                         echo $content;
+                                    echo "</div>";
+                                echo "</div>";
+                            echo "</div>";
+                    
                             $i++;    
                         }
                     }

@@ -49,11 +49,50 @@
 }
 
 #timeLine{
-	margin-top: 20px;
-        color: white;
+
 	float: left;
 	width: 100%;
-	background-color: #1d1d1d;
-	border-radius: 5px;
+
 
 }
+#publ{
+    background-color: #1d1d1d;
+    margin: 15px 0px 0px 0px;
+    
+    border-radius: 5px;
+    color: white;
+}
+#publHeader{
+    border-bottom: 1px black solid;
+    padding: 10px 5px 5px 5px;
+}
+#publBody{
+    border-bottom: 1px black solid;
+    padding: 10px 5px 5px 5px;
+    
+}
+
+#publ #userPic{
+    margin-right: 5px;
+    height: 50px;
+    width: 50px;
+}
+
+#publ .btn-primary {
+    padding: 5px 10px 5px 10px;
+    color: #d1d1d1;
+    border: 0px;
+    border-radius: 10px;
+    background-color: #980000;
+    margin-bottom: 7px;
+    margin-top: -20px;  
+    font-size: 10px;
+}
+#publ .btn-primary:hover{
+    transition: 0.5s;
+    color:white;
+    background-color: red;
+    text-decoration: none;
+
+}
+
