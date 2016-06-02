@@ -86,43 +86,50 @@ if (!$_SESSION["login_status"])
                         if ($rows2[4] == 0)
                         {
                             echo "<div class='col-lg-12' id='publ'>
-                                <div class='row'>";
-                                    echo "<div class='col-lg-12' id='publHeader'>";
-                                        $content = $rows2[2];
-                                        $timestamp = $rows2[3];
-                                        echo "<img  class='responsive pull-left'id='userPic' src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
-                                        $himself = $_SESSION["id"];
-                                        $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
-                                        $result_3 = mysqli_query($conn, $query_name);
-                                        $name = mysqli_fetch_row($result_3);
-
-                                       
-                                        if ($name[1] != $rows[1] and $name[0])
-                                            echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > ".$rows[1]."</p>";
-
-                                        else
-                                            echo "<a href = 'show_profile.php?user_id=".$name[0]."'>".$rows[1]."</a>";
-                                        echo "<div id='dayAndTime'>".$timestamp."</div>";
-                                        if ($name[0] == $himself or $rows[0] == $himself) 
-                                        {
-                                            echo " <a class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."'>Deletar</a> ";
-                                        }
-                                    echo "</div>";
-                                echo "</div>";
-                                echo "<div class='row'>";
-                                    echo "<div class='col-lg-12' id='publBody'>";
-                                         echo $content;
-                                    echo "</div>";
-                                echo "</div>";
-                                echo "<div class='row'>";
-                                    echo "<div class='col-lg-12' id='publFooter'>";
-                                         echo "<button class='btn-primary'>Curtir</button>
-                                               <button class='btn-primary'>Comentar</button>
-                                               <button class='btn-primary'>Compartilhar</button>";
-                                    echo "</div>";
-                                echo "</div>";
+                            <div class='row'>";
+                            echo "<div class='col-lg-12' id='publHeader'>";
+                            $content = $rows2[2];
+                            $timestamp = $rows2[3];
+                            $likes = $rows2[6];
+                            echo "<img  class='responsive pull-left'id='userPic' src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
+                            $himself = $_SESSION["id"];
+                            $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
+                            $result_3 = mysqli_query($conn, $query_name);
+                            $name = mysqli_fetch_row($result_3);
+                            if ($name[1] != $rows[1] and $name[0])
+                                echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > ".$rows[1]."</p>";
+                            else
+                                echo "<a href = 'show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a>";
+                            echo "<div id='dayAndTime'>".$timestamp."</div>";
+                            if ($name[0] == $himself or $rows[0] == $himself) 
+                            {
+                                echo " <a class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."'>Deletar</a> ";
+                            }
                             echo "</div>";
-                    
+                            echo "</div>";
+                            echo "<div class='row'>";
+                            echo "<div class='col-lg-12' id='publBody'>";
+                            echo $content;
+                            echo "</div>";
+                            echo "</div>";
+                            echo "<div class='row'>";
+                            echo "<div class='col-lg-12' id='publFooter'>";
+                            echo "<form role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."' method='POST'>";
+                            echo "<input type='hidden' name='origin_id' value=".$user_id.">";
+                            echo "<button type='submit' class='btn-primary'>Curtir</button>";
+                            echo "</form>";
+                            echo "<button class='btn-primary'>Comentar</button>";
+                            echo "<button class='btn-primary'>Compartilhar</button>";
+                            echo "    ";
+                            if ($likes == 1)
+                                echo $likes . " pessoa curtiu essa postagem!";
+                            else if ($likes == 0)
+                                echo "Essa postagem não possui curtidas.";
+                            else
+                                echo $likes . " pessoas curtiram essa postagem!";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
                             $i++;    
                         }
                     }
@@ -133,7 +140,6 @@ if (!$_SESSION["login_status"])
             </section>
             
         </section>
-
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
