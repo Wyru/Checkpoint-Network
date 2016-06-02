@@ -19,7 +19,7 @@
             <nav class="navbar navbar-fixed-top" role="navigation" id="header">
                 <div  class=" pull-left"id="profilePic">
                     <a href="edit_profile.php" title="Configurações"><i class="fa fa-cog fa-2x" id="config"></i></a>
-                    <a title="Sair"><i class="fa fa-power-off fa-2x" id="exit"></i></a>
+                    <a title="Sair" class='btn-primary pull-right'href = './_method/logout.php'><i class="fa fa-power-off fa-2x" id="exit"></i></a>
                     <a href="my_profile.php"><img class="resposive" id="pic" src="http://tedxnashville.com/wp-content/uploads/2015/11/profile.png"/></a>
                     <p id="userName"><?php echo $var_name; ?></p>
                  </div>

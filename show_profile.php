@@ -95,8 +95,13 @@ if (!$_SESSION["login_status"])
                                         $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
                                         $result_3 = mysqli_query($conn, $query_name);
                                         $name = mysqli_fetch_row($result_3);
+<<<<<<< HEAD
                                         if ($name[1] != $rows[1])
                                             echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > <a href = 'show_profile.php?user_id=".$name[$rows[1]]."'>".$rows[1]."</a></p>";
+=======
+                                        if ($name[1] != $rows[1] and $name[0])
+                                            echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > ".$rows[1]."</p>";
+>>>>>>> origin/php_integration_v03
                                         else
                                             echo "<a href = 'show_profile.php?user_id=".$name[0]."'>".$rows[1]."</a>";
                                         echo "<div id='dayAndTime'>".$timestamp."</div>";
