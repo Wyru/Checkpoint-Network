@@ -1,6 +1,6 @@
 <?php
 
-/* Autor: Nixon Silva e Will Saymon
+/* Autor: Nixon Silva, Will Saymon e Rogério Júnior
  * Data: 19/05/2016
  * Função: Busca usuários e dispõe link para a visita do perfil dos
  * mesmos
@@ -39,6 +39,7 @@ if (!$_SESSION["login_status"])
     <body>
         <header class="col-lg-12">
             <?php 
+                $var_name = $_SESSION["name"];
                 include("default_header.php");
             ?>
         </header>
