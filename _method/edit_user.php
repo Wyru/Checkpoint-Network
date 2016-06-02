@@ -132,7 +132,21 @@ else
             $new_biography  = $_SESSION["biography"];
         else
             $new_biography  = NULL;
-    }   
+    }
+    
+    if (!empty($_POST['new_console']))
+    {
+        $new_console  = $_POST['new_console'];
+        $new_console  = stripslashes ($new_console);
+        $new_console  = mysql_real_escape_string ($new_console);
+    }
+    else
+    {
+        if (!empty($_SESSION["plaftorm"]))
+            $new_console  = $_SESSION["platform"];
+        else
+            $new_console  = NULL;
+    }
     
     if (!empty($_POST['new_game']))
     {
@@ -155,7 +169,7 @@ else
 $query_name = "UPDATE `users` SET `username`='".$new_name."',"
         . "`sex`='".$new_sex."',`birthday`='".$new_date."',`psn`='".$new_psn."',`steam`='".$new_steam."',"
         . "`xbox_live`='".$new_live."',`nintendo`='".$new_nintendo."',`biography`='".$new_biography."',"
-        . "`favorite_game`='".$new_game."' WHERE id = '".$my_id."'";
+        . "`favorite_game`='".$new_game."', `platform`='".$new_console."' WHERE id = '".$my_id."'";
 echo $query_name;
 echo "<br>";
 $query_result = mysqli_query($conn, $query_name);
@@ -172,6 +186,7 @@ if ($query_result)
     $_SESSION["nintendo"]           = $new_nintendo;
     $_SESSION["biography"]          = $new_biography;
     $_SESSION["favorite_game"]      = $new_game;
+    $_SESSION["platform"]           = $new_console;
     // Redireciona à pagina de perfil inicial
     header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
     // Encerra a conexão com o banco de dados

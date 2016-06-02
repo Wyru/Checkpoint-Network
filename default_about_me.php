@@ -1,5 +1,3 @@
-
-
 <!--Página Meu Perfil-->
 <!DOCTYPE html>
 <html>
@@ -15,65 +13,92 @@
     <body>
             
         <section class="col-md-12" id="aboutMe">
-                    <div id="data">
-                        <div class="row" >
-                            <div class="col-md-12">
-                                <h3>Bio: </h3>
-                                <div id="dataBio">
-                                    <?php echo $rows[10]; ?>
-                                </div>   
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>Game Preferido:</h3>
-                                <div id="dataBio">
-                                    <?php echo $rows[11]; ?>
+                <?php
+                    if($rows[10]){
+                    echo "<div id='data'>
+                            <div class='row' >
+                                <div class='col-md-12'>
+                                    <h3>Bio: </h3>
+                                    <div id='dataBio'>
+                                        " . $rows[10] . "
+                                    </div>   
+                                </div>
+                            </div>";
+                            }
+                ?>
+                <?php
+                    if($rows[11]){
+                        echo "<div class='row'>
+                                <div class='col-md-12'>
+                                    <h3>Game Preferido:</h3>
+                                    <div id='dataBio'>
+                                        " . $rows[11] . "
+                                    </div>
+                                </div>
+                            </div>";
+                        }
+                ?>
+            <?php
+                if($rows[16]){
+                        echo "<div class='row'>
+                                <div class='col-md-12'>
+                                    <h3>Plataforma Preferida:</h3>
+                                    <div id='dataBio'>
+                                         " . $rows[16] . "
+                                    </div>
+                                </div>
+                            </div>";
+                }
+            ?>    
+            <?php        
+                    if($rows[7]){
+                        echo "<div class='row'>
+                                <div class='col-md-12'>
+                                    <h3>Steam ID: </h3>
+                                    <div id='dataBio'>
+                                       " . $rows[7] . "
+                                    </div>
+                                </div >
+                            </div>";
+                    }
+                ?>
+                <?php
+                    if($rows[6]){
+                        echo "<div class='row'>
+                                <div class='col-md-12'>
+                                    <h3>PSN ID: </h3>
+                                    <div id='dataBio'>
+                                    " . $rows[6] . "
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>Plataforma Preferida:</h3>
-                                <div id="dataBio">
-
+                        </div>";
+                    }
+                ?>
+                <?php
+                    if($rows[8]){
+                        echo "<div class='row'>
+                                <div class='col-md-12'>
+                                    <h3>Xbox Live ID: </h3>
+                                    <div id='dataBio'>
+                                        " . $rows[8] . "
+                                    </div>
+                                </div >
+                            </div>";
+                    }
+                ?>
+                <?php
+                    if($rows[9]){
+                        echo "<div class='row'>
+                                <div class='col-md-12'> 
+                                    <h3>Nintendo Network ID: </h3>
+                                    <div id='dataBio'>
+                                        " . $rows[9] . "
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>Steam ID: </h3>
-                                <div id="dataBio">
-                                    <?php echo $rows[7]; ?>
-                                </div>
-                            </div >
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>PSN ID: </h3>
-                                <div id="dataBio">
-                                    <?php echo $rows[6]; ?>
-                                </div>
-                            </div >
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>Xbox Live ID: </h3>
-                                <div id="dataBio">
-                                    <?php echo $rows[8]; ?>
-                                </div>
-                            </div >
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12"> 
-                                <h3>Nintendo Network ID: </h3>
-                                <div id="dataBio">
-                                    <?php echo $rows[9]; ?>
-                                </div>
-                            </div >
-                        </div >
-                    </div>
+                        </div>";
+                    }
+                ?>
                 </section>
 
             

@@ -45,7 +45,7 @@ $actual_rows    = mysqli_fetch_row ($query_result);
 if ($count_rows == 1)
 {
     // Verifica se não é um usuário desativado
-    if ($actual_rows[14] == 1)
+    if ($actual_rows[15] == 1)
     {
         echo "<script> 
             alert('Usuário desativado!');
@@ -69,7 +69,8 @@ if ($count_rows == 1)
     $_SESSION["biography"]      = $actual_rows[10];
     $_SESSION["favorite_game"]  = $actual_rows[11];
     $_SESSION["user_type"]      = $actual_rows[12];
-    $_SESSION["profile_pic"]    = $actual_rows[13];
+    $_SESSION["profile_pic"]    = $actual_rows[14];
+    $_SESSION["platform"]       = $actual_rows[16];
     $_SESSION["login_status"]   = true;
     // Redireciona à pagina de perfil inicial
     header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");

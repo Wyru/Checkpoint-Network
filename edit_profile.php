@@ -76,7 +76,7 @@ if (!$_SESSION["login_status"])
                     <label for="favoGame">Jogo Preferida:</label>
                     <input class="form-control" type="text" id="favoGame" name="new_game" value="<?php echo $_SESSION["favorite_game"] ?>"></p><br>  
                     <label for="favoPlat">Plataforma Preferida:</label>
-                    <input class="form-control" type="text" id="favoPlat" name="new_console" value="<?php echo $_SESSION["favorite_plat"] ?>"></p><br>
+                    <input class="form-control" type="text" id="favoPlat" name="new_console" value="<?php echo $_SESSION["platform"] ?>"></p><br>
                     <label for="psn">PSN:</label>
                     <input class="form-control" type="text" id="psn" name="new_psn" value="<?php echo $_SESSION["psn"] ?>"></p>
                     <label for="steam">Steam:</label>
