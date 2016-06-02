@@ -96,10 +96,10 @@ if (!$_SESSION["login_status"])
                                         $result_3 = mysqli_query($conn, $query_name);
                                         $name = mysqli_fetch_row($result_3);
                                         if ($name[1] != $rows[1])
-                                            echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > ".$rows[1]."</p>";
+                                            echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > <a href = 'show_profile.php?user_id=".$name[$rows[1]]."'>".$rows[1]."</a></p>";
                                         else
-                                            echo $rows[1];
-                                        echo "<div>".$timestamp."</div>";
+                                            echo "<a href = 'show_profile.php?user_id=".$name[0]."'>".$rows[1]."</a>";
+                                        echo "<div id='dayAndTime'>".$timestamp."</div>";
                                         if ($name[0] == $himself or $rows[0] == $himself) 
                                         {
                                             echo " <a class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."'>Deletar</a> ";
@@ -109,6 +109,13 @@ if (!$_SESSION["login_status"])
                                 echo "<div class='row'>";
                                     echo "<div class='col-lg-12' id='publBody'>";
                                          echo $content;
+                                    echo "</div>";
+                                echo "</div>";
+                                echo "<div class='row'>";
+                                    echo "<div class='col-lg-12' id='publFooter'>";
+                                         echo "<button class='btn-primary'>Curtir</button>
+                                               <button class='btn-primary'>Comentar</button>
+                                               <button class='btn-primary'>Compartilhar</button>";
                                     echo "</div>";
                                 echo "</div>";
                             echo "</div>";
@@ -123,6 +130,7 @@ if (!$_SESSION["login_status"])
             </section>
             
         </section>
+
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

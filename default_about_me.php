@@ -19,7 +19,7 @@
                         <div class="row" >
                             <div class="col-md-12">
                                 <h3>Bio: </h3>
-                                <div id="Bio">
+                                <div id="dataBio">
                                     <?php echo $rows[10]; ?>
                                 </div>   
                             </div>
@@ -28,7 +28,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>Game Preferido:</h3>
-                                <div id="favoGame">
+                                <div id="dataBio">
                                     <?php echo $rows[11]; ?>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>Plataforma Preferida:</h3>
-                                <div id="favoPlat">
+                                <div id="dataBio">
 
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>Steam ID: </h3>
-                                <div id="steamId">
+                                <div id="dataBio">
                                     <?php echo $rows[7]; ?>
                                 </div>
                             </div >
@@ -52,7 +52,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>PSN ID: </h3>
-                                <div id="psnId">
+                                <div id="dataBio">
                                     <?php echo $rows[6]; ?>
                                 </div>
                             </div >
@@ -60,7 +60,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h3>Xbox Live ID: </h3>
-                                <div id="xboxLive">
+                                <div id="dataBio">
                                     <?php echo $rows[8]; ?>
                                 </div>
                             </div >
@@ -68,7 +68,7 @@
                         <div class="row">
                             <div class="col-md-12"> 
                                 <h3>Nintendo Network ID: </h3>
-                                <div id="nintendoNetworkID">
+                                <div id="dataBio">
                                     <?php echo $rows[9]; ?>
                                 </div>
                             </div >

@@ -91,7 +91,7 @@ if (!$_SESSION["login_status"])
                         <h3>Coloque sua senha para salvar as mudanças</h3>
                         <label for="Password">Senha:</label>
                     <input class="form-control" id="Password" type="password" name="curr_password" >
-                        <p><button type="submit">Efetivar Alterações</button></p>
+                        <p><button type="submit">Salvar</button></p>
                     </div>
                 </form>
   
