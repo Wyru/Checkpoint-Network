@@ -96,13 +96,14 @@ if (!$_SESSION["login_status"])
                             $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
                             $result_3 = mysqli_query($conn, $query_name);
                             $name = mysqli_fetch_row($result_3);
-                            if ($name[1] != $rows[1] and $name[0])
+                            if ($name[1] != $rows[1] and $name[0]){
                                 echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > ".$rows[1]."</p>";
-                            else
+                            }
+                            else{
                                 echo "<a href = 'show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a>";
+                            }
                             echo "<div id='dayAndTime'>".$timestamp."</div>";
-                            if ($name[0] == $himself or $rows[0] == $himself) 
-                            {
+                            if ($name[0] == $himself or $rows[0] == $himself){
                                 echo " <a class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."'>Deletar</a> ";
                             }
                             echo "</div>";
@@ -121,12 +122,15 @@ if (!$_SESSION["login_status"])
                             echo "<button class='btn-primary'>Comentar</button>";
                             echo "<button class='btn-primary'>Compartilhar</button>";
                             echo "    ";
-                            if ($likes == 1)
+                            if ($likes == 1){
                                 echo $likes . " pessoa curtiu essa postagem!";
-                            else if ($likes == 0)
+                            }
+                            else if ($likes == 0){
                                 echo "Essa postagem não possui curtidas.";
-                            else
+                            }
+                            else{
                                 echo $likes . " pessoas curtiram essa postagem!";
+                            }
                             echo "</div>";
                             echo "</div>";
                             echo "</div>";
