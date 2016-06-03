@@ -100,7 +100,17 @@ body{
     color: red;
 }
 #search{
-    width: 280px;;
+    width: 200px;;
     
 }
-
+.input-group-btn .btn-primary {
+    color: #d1d1d1;
+    background-color: #980000; 
+    border-color: #980000;
+}
+ .input-group-btn .btn-primary:hover{
+    transition: 0.5s;
+    color:white;
+    background-color: red;
+     border-color: #980000;
+}

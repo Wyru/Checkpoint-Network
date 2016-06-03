@@ -44,7 +44,7 @@ if (!$_SESSION["login_status"])
             ?>
         </header>
         <section class="container" id="main">
-            <div class="col-lg-12">
+            
                 <?php
                     include './_method/mysql_connect.php';
                     $value = $_POST['value'];
@@ -60,13 +60,74 @@ if (!$_SESSION["login_status"])
                             $id = $rows[0];
                             $friendship_exists = "SELECT * FROM `friends` WHERE `user_id` = " .$_SESSION["id"]. " AND `friend_id` = " . $id . "";
                             $exists = mysqli_query ($conn, $friendship_exists);
-                            if (mysqli_fetch_row($exists))
-                                echo "<p><a href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a> Já é um amigo!</p>";
-                            else if ($id == $_SESSION["id"])
-                                echo "<p><a href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a> </p>";
-                            else
-                                echo "<p><a href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a> <a href ='./_method/add_friend.php?friend_id=".$rows[0]."'>Add friend</a></p>";
-                            echo "<br>";
+                            if (mysqli_fetch_row($exists)){
+                                echo"<div class='col-lg-12' id='results'>";
+                                    echo"<div class='row'id = 'resultsHeader'>";
+                                        echo"<div class='col-lg-12'>";
+                                            echo "<a class='pull-left' href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a>";
+                                            echo "<p class='pull-right' >Já é um amigo!</p>";
+                                        echo"</div>";
+                                    echo "</div>";
+                                    echo"<div class='row' id='resultsBody'>";
+                                        echo"<div class='col-lg-2'>";
+                                            echo "<img src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
+                                        echo"</div>";
+                                        echo"<div class='col-lg-10'>";
+                                            echo "<p>Bio:</p>";
+                                            echo "<p>Games:</p>";
+                                            echo "<p>Possuem X games em comum</p>";
+                                        echo"</div>";
+                                    echo "</div>";
+                                    
+                                echo"</div>";
+                            }
+                            else if ($id == $_SESSION["id"]){
+                                
+                                
+                                echo"<div class='col-lg-12' id='results'>";
+                                    echo"<div class='row'id = 'resultsHeader'>";
+                                        echo"<div class='col-lg-12'>";
+                                            echo "<a href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a>";
+                                            
+                                        echo"</div>";
+                                    echo "</div>";
+                                    echo"<div class='row' id='resultsBody'>";
+                                        echo"<div class='col-lg-2'>";
+                                            echo "<img src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
+                                        echo"</div>";
+                                        echo"<div class='col-lg-10'>";
+                                            echo "<p>Bio:</p>";
+                                            echo "<p>Games:</p>";
+                                            echo "<p>Possuem X games em comum</p>";
+                                        echo"</div>";
+                                    echo "</div>";
+                                    
+                                echo"</div>";
+                                
+                            }
+                            else{
+                                
+                                
+                                echo"<div class='col-lg-12' id='results'>";
+                                    echo"<div class='row'id = 'resultsHeader'>";
+                                        echo"<div class='col-lg-12'>";
+                                            echo "<a class='pull-left'href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a>";
+                                            echo"<a class='btn-primary pull-right'href ='./_method/add_friend.php?friend_id=".$rows[0]."'>Adicionar aos amigos</a>";
+                                        echo"</div>";
+                                    echo "</div>";
+                                    echo"<div class='row' id='resultsBody'>";
+                                        echo"<div class='col-lg-2'>";
+                                            echo "<img src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
+                                        echo"</div>";
+                                        echo"<div class='col-lg-10'>";
+                                            echo "<p>Bio:</p>";
+                                            echo "<p>Games:</p>";
+                                            echo "<p>Possuem X games em comum</p>";
+                                        echo"</div>";
+                                    echo "</div>";
+                                echo"</div>";                           
+                            }
+                            
                             $rows = $result->fetch_row();
                         }
                         // Encerra conexão após a query
@@ -78,7 +139,7 @@ if (!$_SESSION["login_status"])
                         exit;
                     }
                 ?>
-            </div>
+            
         
         </section>
         

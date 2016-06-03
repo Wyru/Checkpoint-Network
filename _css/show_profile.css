@@ -88,6 +88,13 @@
    color: #d1d1d1;
    font-size:10px;
 }
+#numLikes{
+   margin-top: 5px;
+   margin-left: 5px;
+   color: #d1d1d1;
+   font-size:10px;
+    
+}
 
 #publ .btn-primary {
     padding: 5px 10px 5px 10px;
@@ -95,9 +102,12 @@
     border: 0px;
     border-radius: 10px;
     background-color: #980000;
+    margin-left: 5px;
+    margin-right: 5px;
     margin-bottom: 7px;
     margin-top: -20px;  
-    font-size: 10px;
+    font-size: 10px
+    
 }
 #publ .btn-primary:hover{
     transition: 0.5s;

@@ -7,11 +7,66 @@ and open the template in the editor.
     Created on : 02/06/2016, 17:41:47
     Author     : Will Saymon
 */
+@font-face{
+	font-family: AlegreyaSans-ExtraBold;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Medium;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Medium.ttf");
+}
+@font-face{
+	font-family: AlegreyaSans-Light;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
+}
 
 #main{
     margin-top: 80px;
-    padding: 20px 120px 10px 120px; 
-    
-    
+    padding: 20px 120px 10px 120px;     
+}
+#results{
+  background-color: #1d1d1d;
+  margin: 10px;
+  padding: 15px;
+  border-radius:5px;
+}
+#results img{
+    height: 100px;
+    width: 100px;
+}
+#resultsHeader{
+    margin-bottom: 10px;
+    border-bottom: 1px black solid;
+}
+#resultsHeader a{
+    font-family: AlegreyaSans-Medium;
+    font-size: 20px;
+    color:white;
+}
+#resultsHeader p{
+    font-family: AlegreyaSans-Medium;
+    font-size: 15px;
+    color:white;
 }
 
+#resultsHeader .btn-primary {
+    padding: 5px 10px 5px 10px;
+    color: #d1d1d1;
+    border: 0px;
+    border-radius: 10px;
+    background-color: #980000;
+    margin-top: -7px;
+    
+    font-size: 15px;
+}
+resultsHeader .btn-primary:hover{
+    transition: 0.5s;
+    color:white;
+    background-color: red;
+    text-decoration: none;
+}
+#resultsBody{
+    color:white;
+    
+}
