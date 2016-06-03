@@ -2,7 +2,7 @@
 		Autor: Willian Saymon;
 		Data de Criação: 18/05/2016;
 		Data de update: 20/05/2016;
-		Descrição: Código css para a página de perfil do usuário(my_profile.php);
+		Descrição: Código css para a página principal do usuário(home.php);
 */
 
 
@@ -22,21 +22,11 @@
 	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
 }
 
-#content{
-    
-    margin-top: 100px; 
-    
-    
+#left{
+    margin-top: 200px;
 }
-#title{
-    color: #1d1d1d;
-    font-size: 50px;
-    border-bottom: 2px #1d1d1d solid;
-    margin-bottom: 5px;
-    font-family: AlegreyaSans-ExtraBold;
-    margin-left: 10px;
+#right{
+    margin-top: 70px;
+    
 }
 
-textArea{
-    resize: none;
-}
