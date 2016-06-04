@@ -12,7 +12,7 @@ session_start ();
 if (!$_SESSION["login_status"])
 {
     // Envia para a página de login caso não esteja	
-    header("location:login.html");
+    header("location:index.html");
     exit;
 }
 

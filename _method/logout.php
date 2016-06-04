@@ -7,5 +7,5 @@
     session_start();
     unset($_SESSION);
     session_destroy();
-    header('location:../login.html');
+    header('location:../index.html');
 ?>
