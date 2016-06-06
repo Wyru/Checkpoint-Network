@@ -186,27 +186,26 @@ else
         $novoNome = uniqid ( time () ) . "." . $extensao;
  
         // Concatena a pasta com o nome
-        $destino = '../pictures/' . $novoNome;
+        $destino = '../_imagens/profile_pic/' . $novoNome;
  
         // tenta mover o arquivo para o destino
         if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
             
-            $new_pic = 'pictures/' . $novoNome;
-            echo "<script>     
-            alert('Arquivo salvo com sucesso em :  . $new_pic');
-            </script>";
+            $new_pic = '_imagens/profile_pic/' . $novoNome;
+//            echo "<script>     
+//            alert('Arquivo salvo com sucesso em : $new_pic');
+//                
+//            </script>";
         }
         else
             echo "<script> 
             alert('Erro ao salvar o arquivo de foto');
             </script>";
-        exit;
     }
     else
             echo "<script> 
             alert('Só são permitidos arquivos *.jpg;*.jpeg;*.gif;*.png');
             </script>";
-    exit;
 }
 else
     $new_pic = $_SESSION["profile_pic"];
