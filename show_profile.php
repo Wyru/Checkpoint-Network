@@ -92,11 +92,16 @@ if (!$_SESSION["login_status"])
                                     $content = $rows2[2];
                                     $timestamp = $rows2[3];
                                     $likes = $rows2[6];
-                                    echo "<img  class='responsive pull-left'id='userPic' src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
                                     $himself = $_SESSION["id"];
                                     $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
                                     $result_3 = mysqli_query($conn, $query_name);
                                     $name = mysqli_fetch_row($result_3);
+                                    if($name[14])
+                                        echo "<img class='responsive pull-left' id='userPic' src = '$name[14]'>";
+                                    else    
+                                        echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
+                                    //echo "<img  class='responsive pull-left'id='userPic' src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
+                                    
                                     if ($name[1] != $rows[1] and $name[0]){
                                         echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > ".$rows[1]."</p>";
                                     }

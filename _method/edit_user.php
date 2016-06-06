@@ -163,13 +163,61 @@ else
     }
     
     $my_id          = $_SESSION["id"];
+
+// verifica se foi enviado um arquivo
+    if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] == 0 ) {
+        
+    $arquivo_tmp = $_FILES[ 'arquivo' ][ 'tmp_name' ];
+    $nome = $_FILES[ 'arquivo' ][ 'name' ];
+ 
+    // Pega a extensão
+    $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+ 
+    // Converte a extensão para minúsculo
+    $extensao = strtolower ( $extensao );
+ 
+    // Somente imagens, .jpg;.jpeg;.gif;.png
+    // Aqui eu enfileiro as extensões permitidas e separo por ';'
+    // Isso serve apenas para eu poder pesquisar dentro desta String
+    if ( strstr ( '.jpg;.jpeg;.gif;.png', $extensao ) ) {
+        // Cria um nome único para esta imagem
+        // Evita que duplique as imagens no servidor.
+        // Evita nomes com acentos, espaços e caracteres não alfanuméricos
+        $novoNome = uniqid ( time () ) . "." . $extensao;
+ 
+        // Concatena a pasta com o nome
+        $destino = '../pictures/' . $novoNome;
+ 
+        // tenta mover o arquivo para o destino
+        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+            
+            $new_pic = 'pictures/' . $novoNome;
+            echo "<script>     
+            alert('Arquivo salvo com sucesso em :  . $new_pic');
+            </script>";
+        }
+        else
+            echo "<script> 
+            alert('Erro ao salvar o arquivo de foto');
+            </script>";
+        exit;
+    }
+    else
+            echo "<script> 
+            alert('Só são permitidos arquivos *.jpg;*.jpeg;*.gif;*.png');
+            </script>";
+    exit;
+}
+else
+    $new_pic = $_SESSION["profile_pic"];
+
 }
 
 // Atualização do banco de dados
 $query_name = "UPDATE `users` SET `username`='".$new_name."',"
         . "`sex`='".$new_sex."',`birthday`='".$new_date."',`psn`='".$new_psn."',`steam`='".$new_steam."',"
         . "`xbox_live`='".$new_live."',`nintendo`='".$new_nintendo."',`biography`='".$new_biography."',"
-        . "`favorite_game`='".$new_game."', `platform`='".$new_console."' WHERE id = '".$my_id."'";
+        . "`favorite_game`='".$new_game."', `profile_pic`='".$new_pic."', `platform`='".$new_console."' WHERE id = '".$my_id."'";
 echo $query_name;
 echo "<br>";
 $query_result = mysqli_query($conn, $query_name);
@@ -187,6 +235,7 @@ if ($query_result)
     $_SESSION["biography"]          = $new_biography;
     $_SESSION["favorite_game"]      = $new_game;
     $_SESSION["platform"]           = $new_console;
+    $_SESSION["profile_pic"]        = $new_pic;
     // Redireciona à pagina de perfil inicial
     header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
     // Encerra a conexão com o banco de dados
@@ -204,6 +253,7 @@ else
     mysqli_close ($conn);
     
 }
+
 
 ob_end_flush ();
 

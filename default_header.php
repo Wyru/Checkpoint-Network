@@ -20,7 +20,21 @@
                 <div  class=" pull-left"id="profilePic">
                     <a href="edit_profile.php" title="Configurações"><i class="fa fa-cog fa-2x" id="config"></i></a>
                     <a title="Sair" class='btn-primary pull-right'href = './_method/logout.php'><i class="fa fa-power-off fa-2x" id="exit"></i></a>
-                    <a><img class="resposive" id="pic" src="http://tedxnashville.com/wp-content/uploads/2015/11/profile.png"/></a>
+                    <a><img class="resposive" id="pic" 
+                        <?php
+                        if(isset($rows)){
+                            if($rows[14])
+                                echo "src = '".$rows[14]."'";
+                            else    
+                                echo "src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'";
+                        }
+                        else if($_SESSION["profile_pic"])
+                                echo "src = '".$_SESSION["profile_pic"]."'";
+                        else    
+                            echo "src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'";
+                    ?>>
+                            
+                    </a>
                     <p id="userName"><?php echo $var_name; ?></p>
                  </div>
                 

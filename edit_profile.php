@@ -58,8 +58,9 @@ if (!$_SESSION["login_status"])
 
             </div>
             <div class="row">
-                <form role="form" method="POST" action="./_method/edit_user.php">
+                <form enctype="multipart/form-data" role="form" method="POST" action="./_method/edit_user.php">
                 <div class="col-lg-6 form-group">
+                        <p><b>Selecione uma imagem:</b> <input name="arquivo" type="file" /></p>
                     <label for="Name">Nome:</label>
                     <input class="form-control" id="Name" type="text" name="new_name" value="<?php echo $_SESSION["name"] ?>">
                     <label for="sex">Sexo:</label>

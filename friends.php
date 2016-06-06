@@ -64,10 +64,13 @@ if (!$_SESSION["login_status"])
                                             <p><a href = 'show_profile.php?user_id=".$friend_id."'>".$friend_name."</a><p>
                                         </div>
                                     </div>
-                                    <div class='col-lg-8'>
-                                        <img src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>
-                                        
-                                    </div>
+                                    <div class='col-lg-8'>";
+                                    if($rows_2[14])
+                                        echo "<img class='responsive pull-left' id='userPic' src = '$rows_2[14]'>";
+                                    else    
+                                        echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
+                                    //<img src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>    
+                                    echo" </div>
                                     <div class='col-lg-4 '>
                                         <a href = './_method/undo_friend.php?user_id=" .$friend_id. "'>Desfazer Amizade</a>
                                     </div>
