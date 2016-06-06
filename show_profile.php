@@ -51,6 +51,7 @@ if (!$_SESSION["login_status"])
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="_bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="_css/show_profile.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <title><?php echo$rows[1] ?></title>
     </head>
     <body>
@@ -106,6 +107,7 @@ if (!$_SESSION["login_status"])
                                     if ($name[0] == $himself or $rows[0] == $himself){
                                         echo " <a class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."'>Deletar</a> ";
                                     }
+                                    echo "<div class='clearfix'></div>";
                                 echo "</div>";
                             echo "</div>";
                             echo "<div class='row'>";
@@ -134,8 +136,6 @@ if (!$_SESSION["login_status"])
                                         echo "<button type='submit' class='btn-primary'>Compartilhar</button>";
                                         
                                     echo "</form>";
-                                    
-                                    
                                     echo"<div  class='pull-left' id=numLikes>";
                                         if ($likes == 1){
 
@@ -148,7 +148,15 @@ if (!$_SESSION["login_status"])
                                             echo $likes . " pessoas curtiram essa postagem!";
                                         }
                                     echo "</div>";
-                                    echo "</div>";
+                                    
+                                    echo "<form id='shareFace' class='pull-right' role='form'  action='#' method='#' ";
+                                        echo "<input type='hidden' name='#' value='#'>";
+                                        echo "<button type='submit' class='btn-primary'><i class=' fa fa-facebook-square fa-2x' aria-hidden='true' fa-lg'></i></button>";
+                                        
+                                    echo "</form>";
+                                    echo "<div class='clearfix'></div>";
+                                echo "</div>";
+                                   
                                 echo "</div>";
                             echo "</div>";
                             $i++;    
@@ -171,3 +179,5 @@ if (!$_SESSION["login_status"])
         <script src="js/bootstrap.min.js"></script>  
     </body>
 </html>
+
+<i class='fa fa-facebook-square fa-lg'></i>

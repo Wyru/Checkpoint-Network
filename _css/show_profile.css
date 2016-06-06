@@ -56,27 +56,34 @@
 
 }
 #publ{
-    background-color: #1d1d1d;
-    margin: 15px 0px 0px 0px;
-    
+    border: 1px rgb(0,0,0) solid;
+    background-color: white;
+    margin: 15px 5px 5px 5px; 
     border-radius: 5px;
     color: white;
 }
 #publHeader{
-    border-bottom: 1px black solid;
+    border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: #1d1d1d;
     padding: 10px 5px 5px 5px;
 }
 #publHeader a{
     color:white;
 }
 #publBody{
-    border-bottom: 1px black solid;
-    padding: 10px 10px 10px 15px;
-    background-color: #333333;
+
+    padding: 10px 10px 15px 15px;
+    font-family: AlegreyaSans-Medium;
+    background-color: white;
+    color: black;
     
 }
 #publFooter{
-    padding: 5px 5px 2px 5px;
+    
+    padding: 5px 5px 0px 5px;
+    margin-bottom: 0px;
+
 }
 
 #publ #userPic{
@@ -91,17 +98,17 @@
 #numLikes{
    margin-top: 5px;
    margin-left: 5px;
-   color: #d1d1d1;
+   color: black;
    font-size:10px;
     
 }
 
 #publ .btn-primary {
-    padding: 5px 10px 5px 10px;
-    color: #d1d1d1;
+    padding: 4px 8px 4px 8px;
+    color: black;
     border: 0px;
     border-radius: 10px;
-    background-color: #980000;
+    background-color: #cccccc;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 7px;
@@ -112,8 +119,15 @@
 #publ .btn-primary:hover{
     transition: 0.5s;
     color:white;
-    background-color: red;
+    background-color: black;
     text-decoration: none;
 
 }
 
+#shareFace .btn-primary{
+    background-color: white;
+}
+#shareFace .btn-primary:hover{
+    background-color: white;
+    color: #3b5998;
+}
