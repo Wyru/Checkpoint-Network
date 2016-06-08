@@ -59,12 +59,12 @@
     border: 1px rgb(0,0,0) solid;
     background-color: white;
     margin: 15px 5px 5px 5px; 
-    border-radius: 5px;
+    border-radius: 6px;
     color: white;
 }
 #publHeader{
     border-top-left-radius: 5px;
-    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     background-color: #1d1d1d;
     padding: 10px 5px 5px 5px;
 }

@@ -114,3 +114,8 @@ body{
     background-color: red;
      border-color: #980000;
 }
+#userNameBar{
+    margin-top: -7px;
+    width:130px;
+    margin-left: 35px;
+}

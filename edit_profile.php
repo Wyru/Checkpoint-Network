@@ -60,7 +60,20 @@ if (!$_SESSION["login_status"])
             <div class="row">
                 <form enctype="multipart/form-data" role="form" method="POST" action="./_method/edit_user.php">
                 <div class="col-lg-6 form-group">
-                        <p><b>Selecione uma imagem:</b> <input name="arquivo" type="file" /></p>
+                    <img class="resposive" id="picEditProfile" 
+                        <?php
+                        if(isset($rows)){
+                            if($rows[14])
+                                echo "src = '".$rows[14]."'";
+                            else    
+                                echo "src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'";
+                        }
+                        else if($_SESSION["profile_pic"])
+                                echo "src = '".$_SESSION["profile_pic"]."'";
+                        else    
+                            echo "src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'";
+                    ?>>
+                    <p><b>Selecione uma imagem:</b> <input name="arquivo" type="file" /></p>
                     <label for="Name">Nome:</label>
                     <input class="form-control" id="Name" type="text" name="new_name" value="<?php echo $_SESSION["name"] ?>">
                     <label for="sex">Sexo:</label>

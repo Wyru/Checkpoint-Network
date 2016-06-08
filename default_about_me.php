@@ -13,6 +13,23 @@
     <body>
             
         <section class="col-md-12" id="aboutMe">
+            <di id="otherUserDescri"class="col-lg-12" >
+                <img  
+                        <?php
+                        if(isset($rows)){
+                            if($rows[14])
+                                echo "src = '".$rows[14]."'";
+                            else    
+                                echo "src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'";
+                        }
+                        else if($_SESSION["profile_pic"])
+                                echo "src = '".$_SESSION["profile_pic"]."'";
+                        else    
+                            echo "src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'";
+                    ?>>
+                <p id="OtherUserName"><?php echo $var_name; ?></p>
+            </di>
+                
                 <?php
                     if($rows[10]){
                     echo "<div id='data'>

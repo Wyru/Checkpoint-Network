@@ -33,3 +33,14 @@ and open the template in the editor.
     padding: 10px;
     border-radius: 5px;
 }
+#otherUserDescri{
+    margin-top: 15px;
+}
+#otherUserDescri img{
+    border-radius:5px;
+    height: 150px;
+    width: 150px;
+}
+#otherUserDescri p{
+    text-align: center;
+}
