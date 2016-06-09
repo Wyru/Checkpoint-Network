@@ -103,7 +103,7 @@ if (!$_SESSION["login_status"])
                                     //echo "<img  class='responsive pull-left'id='userPic' src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
                                     
                                     if ($name[1] != $rows[1] and $name[0]){
-                                        echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > ".$rows[1]."</p>";
+                                        echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> ><a href = 'show_profile.php?user_id=".$rows[0]."'> ".$rows[1]."</a></p>";
                                     }
                                     else{
                                         echo "<a href = 'show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a>";
