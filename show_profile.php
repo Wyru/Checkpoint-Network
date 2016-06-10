@@ -96,6 +96,16 @@ if (!$_SESSION["login_status"])
                                     $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
                                     $result_3 = mysqli_query($conn, $query_name);
                                     $name = mysqli_fetch_row($result_3);
+                                    $db_query_upvote = "SELECT * FROM `upvotes` WHERE `post_id` = " .$rows2[0]. " AND `user_id` = " .$_SESSION["id"]. "";
+                                    $query_upvote = mysqli_query($conn, $db_query_upvote);
+                                    if (!$query_upvote || mysqli_num_rows($query_upvote) == 0)
+                                    {
+                                        $like = true;
+                                    }
+                                    else
+                                    {
+                                        $like = false;
+                                    }
                                     if($name[14])
                                         echo "<img class='responsive pull-left' id='userPic' src = '$name[14]'>";
                                     else    
@@ -122,17 +132,19 @@ if (!$_SESSION["login_status"])
                             echo "</div>";
                             echo "<div class='row'>";
                                 echo "<div class='form-group' col-lg-12' id='publFooter'>";
-                                
+                                    // Verifica estado da curtida
+                                    
                                     echo "<form class='pull-left' role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."' method='POST'>";
-                                        echo "<input type='hidden' name='origin_id' value=".$user_id.">";
-                                        echo "<button type='submit' class='btn-primary'>Curtir</button>";
-                                        
+                                            echo "<input type='hidden' name='origin_id' value=".$user_id.">";
+                                            echo "<button type='submit' class='btn-primary'>";
+                                    if (!$like) { echo "Descurtir"; } else { echo "Curtir"; }
+                                            echo "</button>";
+                                    
                                     echo "</form>";
                                     
                                     echo "<form  class='pull-left' role='form' action='#' method='#' ";
                                        echo "<input type='hidden' name='#' value='#'>"; 
                                        echo "<button type='submit' class='btn-primary'>Comentar</button>";
-                                        
                                     echo "</form>";
                                     
                                     
