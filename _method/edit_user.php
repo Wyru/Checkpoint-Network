@@ -192,10 +192,9 @@ else
         if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
             
             $new_pic = '_imagens/profile_pic/' . $novoNome;
-//            echo "<script>     
-//            alert('Arquivo salvo com sucesso em : $new_pic');
-//                
-//            </script>";
+            echo "<script>     
+                alert('Arquivo salvo com sucesso em : $new_pic'); 
+            </script>";
         }
         else
             echo "<script> 
