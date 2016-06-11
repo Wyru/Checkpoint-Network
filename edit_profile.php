@@ -50,16 +50,16 @@ if (!$_SESSION["login_status"])
                 include("default_header.php");
             ?>
         </header>
-        <section class="container" id="content">
+        <section class="container-fluid" id="page-content">
             <div class="row" >
                 <div class="col-lg-12" id="title">
                     <h1><i class="fa fa-pencil fa-lg"></i>Editar Perfil</h1>
                 </div>
 
             </div>
-            <div class="row">
+            <div class="row" id="Editaveis">
                 <form enctype="multipart/form-data" role="form" method="POST" action="./_method/edit_user.php">
-                <div class="col-lg-6 form-group">
+                <div class="col-lg-4 col-lg-offset-1  form-group">
                     <img class="resposive" id="picEditProfile" 
                         <?php
                         if(isset($rows)){
@@ -85,15 +85,20 @@ if (!$_SESSION["login_status"])
                         </select>
                     <label for="datepicker">Data de Nascimento:</label> 
                     <input class="form-control" type="text" id="datepicker" name="new_date" value="<?php echo $_SESSION["birthday"] ?>">
-                    
+                    <label for="email">E-mail:</label>
+                    <input class="form-control" id="email" type="email" name="new_name" value="">
+                    <label for="senha">Senha:</label>
+                    <input class="form-control" id="senha" type="password" name="new_name" value="">
+                    <label for="senha">Confirmar Senha:</label>
+                    <input class="form-control" id="senha" type="password" name="new_name" value="">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4 col-lg-offset-1">
                     <label for="bio">Biografia:</label>
                     <textarea class="form-control" id="bio" rows="5" name="new_biography"><?php echo $_SESSION["biography"] ?></textarea></p>
                     <label for="favoGame">Jogo Preferida:</label>
-                    <input class="form-control" type="text" id="favoGame" name="new_game" value="<?php echo $_SESSION["favorite_game"] ?>"></p><br>  
+                    <input class="form-control" type="text" id="favoGame" name="new_game" value="<?php echo $_SESSION["favorite_game"] ?>"></p> 
                     <label for="favoPlat">Plataforma Preferida:</label>
-                    <input class="form-control" type="text" id="favoPlat" name="new_console" value="<?php echo $_SESSION["platform"] ?>"></p><br>
+                    <input class="form-control" type="text" id="favoPlat" name="new_console" value="<?php echo $_SESSION["platform"] ?>"></p>
                     <label for="psn">PSN:</label>
                     <input class="form-control" type="text" id="psn" name="new_psn" value="<?php echo $_SESSION["psn"] ?>"></p>
                     <label for="steam">Steam:</label>
@@ -108,7 +113,7 @@ if (!$_SESSION["login_status"])
                         <h3>Coloque sua senha para salvar as mudanças</h3>
                         <label for="Password">Senha:</label>
                     <input class="form-control" id="Password" type="password" name="curr_password" >
-                        <p><button type="submit">Salvar</button></p>
+                        <p><button class="btn btn-primary" type="submit">Salvar</button></p>
                     </div>
                 </form>
   

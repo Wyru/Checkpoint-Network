@@ -1,0 +1,90 @@
+/*
+		Autor: Willian Saymon;
+		Data de Criação: 18/05/2016;
+		Data de update: 20/05/2016;
+		Descrição: Código css para a página de perfil do usuário(my_profile.php);
+*/
+
+
+/*Parte responsável por adicionar fontes */
+
+@font-face{
+	font-family: AlegreyaSans-ExtraBold;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Medium;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Medium.ttf");
+}
+@font-face{
+	font-family: AlegreyaSans-Light;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
+}
+body{
+    background-image: linear-gradient(to bottom, #f0f5ee,#f0f5ee);
+}
+
+/*Menu lateral*/
+#Menu{
+    position: fixed;
+    height: 100%;
+    width:150px;
+    background-color: white;
+    background-color: #a31e21;
+    padding-top: 5px;
+    
+}
+#Menu img{
+    margin-left: 25px;
+    margin-top: -50px;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+}
+#userName{
+    font-family: AlegreyaSans-ExtraBold;
+    text-align: center;
+    font-size: 20px;
+    color: white;  
+}
+#configAndExit a li{
+    color:white;
+    padding: 7px 0px 0px 6px;
+}
+#Menu #menuOption{
+    margin-left: -20px;
+    padding: 0px;
+}
+#Menu #menuOption a li {
+    padding: 10px 10px 10px 15px;
+
+}
+#Menu a{
+    text-decoration: none;
+}
+#Menu #menuOption a{
+    color:white;
+}
+#Menu #menuOption a:hover{
+    transition: 0.5s;
+    color:white;
+    text-decoration: none;
+}
+#Menu #menuOption a:hover li {
+    transition: 0.5s;
+    background-color: #032e34;
+    
+}
+#Menu #menuOption a li  i{
+    width: 20px;
+    margin-right: 10px;
+}
+/*Menu lateral fim */
+#page-content{
+    margin-left: 150px;
+}
+
+#search{
+    margin-bottom: 10px;
+}

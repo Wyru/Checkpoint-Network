@@ -52,31 +52,86 @@ if (!$_SESSION["login_status"])
         <link href="_bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="_css/show_profile.css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        
         <title><?php echo$rows[1] ?></title>
+        
     </head>
-    <body>
-         <header>
-            <?php 
-            $var_name = $rows[1];
-            include("default_header.php"); 
-            ?>
-         </header>
-        <section  class="container-fluid">
-            <div class="col-md-2 pull-left" id="left">
-                <?php
-                    include("default_about_me.php");
-                ?>
+    <body>  
+        <header>
+            <div>
+                 <?php include("default_header.php");?>
+             </div>
+        </header>
+        
+        <div id="page-content">
+            <header class="col-lg-9" id="header">
+                <div class="jumbotron" id="userBackgroud">
+
+                </div>
+                <div class="container">
+                    <div id="userPicAndName" class="row">
+                        <img  
+                                <?php
+                                if(isset($rows)){
+                                    if($rows[14])
+                                        echo "src = '".$rows[14]."'";
+                                    else    
+                                        echo "src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'";
+                                }
+                                else if($_SESSION["profile_pic"])
+                                        echo "src = '".$_SESSION["profile_pic"]."'";
+                                else    
+                                    echo "src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'";
+                            ?>>
+                        <p id="OtherUserName"><?php echo $rows[1]; ?></p>
+                    </div>
+                    <ul id="perfilNav" class="list-inline" >
+              
+                        <li><a href="show_profile.php?user_id=<?php echo $_SESSION["id"]; ?>"><i class="fa fa-user fa-lg" aria-hidden="true"></i>Perfil</a></li>
+                        <li><a href="screenshots.php"><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i>Screenshots</a></li>
+                        <li><a href="gameplays.php"><i class="fa fa-film fa-lg" aria-hidden="true"></i> Gameplays</a></li>
+                        <li><a href="games.php"><i class="fa fa-gamepad fa-lg" aria-hidden="true"></i> Games</a></li>
+                        <li><a href="friends.php"><i class="fa fa-users fa-lg" aria-hidden="true"></i> Amigos</a></li>
+                        <li><a href="guilds.php"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</a></li>
+                        <li><a href="guilds.php"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Adicionar aos amigos</a></li>
+                    </ul>
+                </div>
+            </header>
+            <div class="col-lg-3">
+                <h1>ADS aqui :v</h1>
             </div>
-            
-            <section class="col-md-2 pull-right" id="right">
-                <?php include("default_notifications.php");?>
-            </section>
-            
-            <section class="col-md-8 pull-right" id="main">
+            <div class="clearfix"></div>
+            <aside class="col-lg-3 pull-left">
+                <?php include("default_about_me.php");?>
+            </aside>
+            <aside  id ="myGames" class="col-lg-3 pull-right">
+                <h1>Meus Games</h1>
+                <div>
+                    <div class='pull-right col-lg-5'>
+                        <img class='col-lg-12 resposive' src='http://vignette3.wikia.nocookie.net/monsterhunter/images/c/c9/Logo-MH1.png/revision/latest?cb=20140731093534'/>
+                        <p>Monster Hunter</p>
+                        
+                    </div>
+                    
+                    <div class='pull-right col-lg-5'>
+                        <img class='col-lg-12 resposive' src='https://logodownload.org/wp-content/uploads/2014/09/lol-logo-league-of-legends-2.png'/>
+                        <p>League of Legends</p>
+                        
+                    </div>
+                    <div class='pull-right col-lg-5'>
+                        <img class='col-lg-12 resposive' src='http://vignette2.wikia.nocookie.net/yugioh/images/c/ce/TFSP-VideoGameJP.png/revision/latest?cb=20141205132955'/>
+                        <p>Yu-Gi-Oh Tag Force Ark-V</p>   
+                    </div>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <a class=" pull-right"> ver todos</a>
+            </aside>
+            <section class="col-lg-6 pull-left" id="main">
                 
                 <?php include("default_publish.php");?>
-
-                <div class="container" id = "timeLine">
+                
+                <div class="col-lg-12" id = "timeLine">
                     <?php
                     include './_method/mysql_connect.php';
                     $result = mysqli_query($conn, "SELECT * FROM `posts` WHERE `user_id` = '" . $user_id . "'  ORDER BY  `time` DESC");
@@ -86,8 +141,8 @@ if (!$_SESSION["login_status"])
                     {
                         if ($rows2[4] == 0)
                         {
-                            echo "<div class='col-lg-12' id='publ'>
-                            <div class='row'>";
+                            echo "<div id='publ'>";
+                            
                                 echo "<div class='col-lg-12' id='publHeader'>";
                                     $content = $rows2[2];
                                     $timestamp = $rows2[3];
@@ -110,35 +165,35 @@ if (!$_SESSION["login_status"])
                                     }
                                     echo "<div id='dayAndTime'>".$timestamp."</div>";
                                     if ($name[0] == $himself or $rows[0] == $himself){
-                                        echo " <a class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."'>Deletar</a> ";
+                                        echo " <a id= 'del' class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."'><i class='fa fa-trash fa-lg'></i></a> ";
                                     }
                                     echo "<div class='clearfix'></div>";
                                 echo "</div>";
-                            echo "</div>";
-                            echo "<div class='row'>";
+                            
+                           
                                 echo "<div class='col-lg-12' id='publBody'>";
                                     echo $content;
                                 echo "</div>";
-                            echo "</div>";
-                            echo "<div class='row'>";
+                            
+                            
                                 echo "<div class='form-group' col-lg-12' id='publFooter'>";
                                 
                                     echo "<form class='pull-left' role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."' method='POST'>";
                                         echo "<input type='hidden' name='origin_id' value=".$user_id.">";
-                                        echo "<button type='submit' class='btn-primary'>Curtir</button>";
+                                        echo "<button type='submit' class='btn-primary'><i class='fa fa-heart fa-lg'></i></button>";
                                         
                                     echo "</form>";
                                     
                                     echo "<form  class='pull-left' role='form' action='#' method='#' ";
                                        echo "<input type='hidden' name='#' value='#'>"; 
-                                       echo "<button type='submit' class='btn-primary'>Comentar</button>";
+                                       echo "<button type='submit' class='btn-primary'><i class='fa fa-comment fa-lg'></i></button>";
                                         
                                     echo "</form>";
                                     
                                     
                                     echo "<form class='pull-left' role='form'  action='#' method='#' ";
                                         echo "<input type='hidden' name='#' value='#'>";
-                                        echo "<button type='submit' class='btn-primary'>Compartilhar</button>";
+                                        echo "<button type='submit' class='btn-primary'><i class='fa fa-share-alt fa-lg'></i></button>";
                                         
                                     echo "</form>";
                                     echo"<div  class='pull-left' id=numLikes>";
@@ -160,7 +215,7 @@ if (!$_SESSION["login_status"])
                                         
                                     echo "</form>";
                                     echo "<div class='clearfix'></div>";
-                                echo "</div>";
+                                
                                    
                                 echo "</div>";
                             echo "</div>";
@@ -173,16 +228,11 @@ if (!$_SESSION["login_status"])
                 </div>
             </section
             
-            <div class="form-group form-inline">
-            </div>
-            
-        </section>
-        <!--Não coloque  nada abaixo disso-->
+        </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="_jquery/jquery.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>  
+        <script src="_bootstrap/js/bootstrap.min.js"></script> 
+        
     </body>
 </html>
-
-<i class='fa fa-facebook-square fa-lg'></i>

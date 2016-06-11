@@ -21,10 +21,7 @@ and open the template in the editor.
 	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
 }
 
-#main{
-    margin-top: 80px;
-    padding: 20px 120px 10px 120px;     
-}
+
 #results{
   background-color: #1d1d1d;
   margin: 10px;

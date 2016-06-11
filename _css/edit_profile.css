@@ -22,23 +22,44 @@
 	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
 }
 
-#content{
-
-    margin-top: 100px;  
+@font-face{
+	font-family: AlegreyaSans-Regular;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Regular.ttf");
 }
 #title{
-    color: #1d1d1d;
+    color: white;
+    background-color: #050412;
     font-size: 50px;
     border-bottom: 2px #1d1d1d solid;
     margin-bottom: 5px;
     font-family: AlegreyaSans-ExtraBold;
-    margin-left: 70px;
+    margin-right:-30px;
 }
-
+#page-content{
+    margin-left: 150px;
+}
 textArea{
     resize: none;
 }
 #picEditProfile{
-    height: 200px;
-    width: 200px;
+    height: 155px;
+    width: 155px;
+    border-radius: 3px;
+}
+#Editaveis div{
+    font-family: AlegreyaSans-Medium;
+    background-color: #28243b;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+#Editaveis div:last-child{
+    
+    margin-top: 15px;
+    border-radius: 0px;
+}
+#Editaveis div:last-child input{
+    width: 30%;
+    margin-top: -5px;
+    margin-bottom: 10px;
 }

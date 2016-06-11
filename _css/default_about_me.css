@@ -11,36 +11,20 @@ and open the template in the editor.
 #aboutMe{
         
 	border-radius: 5px;
-        background-color: #1d1d1d;
-        box-shadow: 0px 0px 7px;
+        background-color: #050412;
         color: white;
         padding: 0px 7px 10px 7px;
-        
-        
-
 }
 
 
 #aboutMe h3{
-	font-size: 15px;
+	font-size: 20px;
 	font-family: AlegreyaSans-ExtraBold;
         color: white;
-        border-bottom: 1px black solid;
 }
 
 #dataBio{
-    background-color: #333333;
+    background-color: #28243b;
     padding: 10px;
     border-radius: 5px;
-}
-#otherUserDescri{
-    margin-top: 15px;
-}
-#otherUserDescri img{
-    border-radius:5px;
-    height: 150px;
-    width: 150px;
-}
-#otherUserDescri p{
-    text-align: center;
 }

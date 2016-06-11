@@ -35,14 +35,15 @@ if (!$_SESSION["login_status"])
                 include("default_header.php");
             ?>
         </header>
-        <section class="container-fluid" id="main">
+        <section class="container-fluid" id="page-content">
             
-            <div class="row">
-                
-                <div class="col-lg-8 col-lg-offset-1" id="friends">
-                    <div class="col-md-12" id="title">
+           
+                <div class="col-lg-12" id="title">
                         <h1 ><i class="fa fa-users fa-lg"></i>Amigos</h1>
-                    </div>
+                </div>
+            
+                <div class="col-lg-10" id="friends">
+                    
                     <div class="col-md-12">
                         <?php
                         // Exibição dos amigos
@@ -71,7 +72,7 @@ if (!$_SESSION["login_status"])
                                         echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
                                     //<img src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>    
                                     echo" </div>
-                                    <div class='col-lg-4 '>
+                                    <div id='destroyFriendship' class='col-lg-4'>
                                         <a href = './_method/undo_friend.php?user_id=" .$friend_id. "'>Desfazer Amizade</a>
                                     </div>
                                     
@@ -86,7 +87,7 @@ if (!$_SESSION["login_status"])
                     </div>        
                 </div>
                     
-                <div class="col-lg-3" >
+                <div class="col-lg-2" >
                     
                     <div class="col-lg-12" id="friend_request">
                         <div class="row">

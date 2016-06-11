@@ -37,13 +37,13 @@ if (!$_SESSION["login_status"])
         
     </head>
     <body>
-        <header class="col-lg-12">
+        <header>
             <?php 
                 $var_name = $_SESSION["name"];
                 include("default_header.php");
             ?>
         </header>
-        <section class="container" id="main">
+        <section class="container-fluid" id="page-content">
             
                 <?php
                     include './_method/mysql_connect.php';

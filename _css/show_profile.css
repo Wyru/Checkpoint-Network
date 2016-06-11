@@ -1,12 +1,12 @@
 /*
-		Autor: Willian Saymon;
-		Data de Criação: 18/05/2016;
-		Data de update: 20/05/2016;
-		Descrição: Código css para a página de perfil do usuário(my_profile.php);
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
 */
-
-
-/*Parte responsável por adicionar fontes */
+/* 
+    Created on : 10/06/2016, 12:23:52
+    Author     : Will Saymon
+*/
 
 @font-face{
 	font-family: AlegreyaSans-ExtraBold;
@@ -22,41 +22,64 @@
 	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
 }
 
+#header{
+    background-color: #050412;
+    margin-bottom: 15px;
+    padding: 0px;
+}
+#userBackgroud{
+    height: 250px;
+    background-image: url("../_imagens/The-Legend-of-Zelda.jpg");
+    background-size:cover;
+}
+#userPicAndName{
+    margin-top: -90px;
+    margin-bottom: 10px;
+    margin-left: 1px;
+}
+#userPicAndName img{
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+}
+#OtherUserName{
+    color:white;
+    font-family: AlegreyaSans-ExtraBold;
+    font-size: 25px;
+    margin: -30px auto auto 105px;
+}
 
-
-/*Conteudo da página*/
-#left{
-	
-	margin-top: 200px;
-
-
+#header ul li{
+    padding: 10px;
+}
+#header ul li:nth-child(2n){
+    background-color: #28243b;
+}
+#header ul li a{
+    color:white;
+}
+#header ul li a i{
+    width: 20px;
+    margin-right:  5px;
 }
 
 
-#aboutMe #data h3{
-	font-size: 15px;
-	font-family: AlegreyaSans-ExtraBold;
-        color: white;
 
 
-}
-#right{
-    margin-top: 70px;
-    color: white;
-    float: left;
-    
-    
-}
-
-#timeLine{
-
-	float: left;
-	width: 100%;
 
 
-}
+
+
+
+
+
+
+
+
+/*Estilo das publicações */
 #publ{
-    border: 1px rgb(0,0,0) solid;
+    border: 1px rgba(0,0,0,.1) solid;
+    border-color: #050412;
     background-color: white;
     margin: 15px 5px 5px 5px; 
     border-radius: 6px;
@@ -65,7 +88,7 @@
 #publHeader{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: #1d1d1d;
+    background-color: #050412;
     padding: 10px 5px 5px 5px;
 }
 #publHeader a{
@@ -105,10 +128,10 @@
 
 #publ .btn-primary {
     padding: 4px 8px 4px 8px;
-    color: black;
+    color: white;
     border: 0px;
     border-radius: 10px;
-    background-color: #cccccc;
+    background-color: #28243b;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 7px;
@@ -119,7 +142,7 @@
 #publ .btn-primary:hover{
     transition: 0.5s;
     color:white;
-    background-color: black;
+    background-color: #a31e21;
     text-decoration: none;
 
 }
@@ -130,4 +153,37 @@
 #shareFace .btn-primary:hover{
     background-color: white;
     color: #3b5998;
+}
+
+#myGames{
+    background-color: #050412;
+    border-radius: 5px;
+    
+}
+#myGames div div{
+    border-radius: 3px;
+    color:white;
+    padding: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    background-color: #28243b;
+    text-align: center;
+    margin: 10px;
+   
+}
+#myGames h1{
+    font-family: AlegreyaSans-ExtraBold;
+    color:white;
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 2px #ffffff solid;
+}
+#myGames a{
+    font-family: AlegreyaSans-Medium;
+    color:white;
+    text-align: right;
+    font-size: 15px;
+    margin-top: 5px;
+
 }
