@@ -57,55 +57,64 @@ if (!$_SESSION["login_status"])
             <?php
             
             // Após escolher um receptor
-            $receiver = $_GET['receiver'];
-            $receiver = stripslashes ($receiver);
-            $receiver = mysql_real_escape_string ($receiver);
-            // Consulta das mensagens para o tal receptor    
-            $query_name_msg = "SELECT * FROM `message` WHERE (`sender` = '" .$_SESSION["id"]. "' AND `receiver` = '" .$receiver. "') OR (`sender` = '" .$receiver. "' AND `receiver` = '" .$_SESSION["id"]. "')";
-            $query_msg = mysqli_query ($conn, $query_name_msg);
-            // Consulta do nome do receptor
-            $query_name_users_2 = "SELECT * FROM `users` WHERE `id` = '" . $receiver . "'";
-            $query_users_2 = mysqli_query ($conn, $query_name_users_2);
-            // Get the name of the user of this conversation
-            $users_2_rows = mysqli_fetch_row ($query_users_2);
-            $receiver_name = $users_2_rows[1];
-            $i = 0;
-            // Lista as mensagens do usuário
-            if ($query_msg)
+            $flag = false;
+            if (!empty($_GET['receiver']))
             {
-                while ($message_rows = mysqli_fetch_row ($query_msg) and $i < 25)
+                $flag = true;
+                $receiver = $_GET['receiver'];
+                $receiver = stripslashes ($receiver);
+                $receiver = mysql_real_escape_string ($receiver);
+                // Consulta das mensagens para o tal receptor    
+                $query_name_msg = "SELECT * FROM `message` WHERE (`sender` = '" .$_SESSION["id"]. "' AND `receiver` = '" .$receiver. "') OR (`sender` = '" .$receiver. "' AND `receiver` = '" .$_SESSION["id"]. "')";
+                $query_msg = mysqli_query ($conn, $query_name_msg);
+                // Consulta do nome do receptor
+                $query_name_users_2 = "SELECT * FROM `users` WHERE `id` = '" . $receiver . "'";
+                $query_users_2 = mysqli_query ($conn, $query_name_users_2);
+                // Get the name of the user of this conversation
+                $users_2_rows = mysqli_fetch_row ($query_users_2);
+                $receiver_name = $users_2_rows[1];
+                $i = 0;
+                // Lista as mensagens do usuário
+                if ($query_msg)
                 {
-                    if ($message_rows[1] == $_SESSION["id"])
+                    while ($message_rows = mysqli_fetch_row ($query_msg) and $i < 25)
                     {
-                        // Enviado pelo usuário da sessão
-                        echo $_SESSION["name"] . ":<br>"; 
-                        echo $message_rows[3] . "<br>";
-                    }
-                    else
-                    {
-                        // Enviado pelo outro usuário
-                        echo $receiver_name . ":<br>";
-                        echo $message_rows[3] . "<br>";
-                    }
-                    $i ++;
-                }    
+                        if ($message_rows[1] == $_SESSION["id"])
+                        {
+                            // Enviado pelo usuário da sessão
+                            echo $_SESSION["name"] . ":<br>"; 
+                            echo $message_rows[3] . "<br>";
+                        }
+                        else
+                        {
+                            // Enviado pelo outro usuário
+                            echo $receiver_name . ":<br>";
+                            echo $message_rows[3] . "<br>";
+                        }
+                        $i ++;
+                    }    
+                }
+                else
+                {
+                    // Caso eles não possuírem mensagens
+                    echo "Vocês não possuem mensagens!<br>";
+                }
+                echo "<br>";
             }
-            else
-            {
-                // Caso eles não possuírem mensagens
-                echo "Vocês não possuem mensagens!<br>";
-            }
-            echo "<br>";
             ?>
         </div>
-        <div style = 'padding-left: 600px;'>
-            <form action="./_method/send_message.php" method="POST">
-                    <textarea class="form-control" rows="4" name="message" id="comment" placeholder="Envie uma mensagem para <?php echo $receiver_name ?>"></textarea>  
-                    <input type="hidden" name="receiver" value = "<?php echo $receiver; ?>"> 
-                    <br>
-                    <p><button class="btn-primary pull-left" type="submit">Enviar</button></p>
-            </form>
-        </div>
+        <?php
+        if ($flag)
+        {
+            echo "<div style = 'padding-left: 600px;'>";
+                echo "<form action='./_method/send_message.php' method='POST'>";
+                        echo "<textarea class='form-control' rows='4' name='message' id='comment' placeholder='Envie uma mensagem para " . $receiver_name . "'></textarea>";
+                        echo "<input type='hidden' name='receiver' value = '" . $receiver . "'><br>"; 
+                        echo "<p><button class='btn-primary pull-left' type='submit'>Enviar</button></p>";
+                echo "</form>";
+            echo "</div>";            
+        }
+        ?>
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
