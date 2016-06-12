@@ -37,7 +37,7 @@ $input_password = mysql_real_escape_string ($input_password);
    
 // Consulta no banco de dados
 $query_result = mysqli_query ($conn, 
-        "SELECT * FROM `users` WHERE `email` LIKE '".$input_email."' AND `password` LIKE '".$input_password."'");
+        "SELECT * FROM `users` WHERE `email` LIKE '".$input_email."' AND `password` LIKE '".$input_password."' AND `removed` = 0");
 // Verifica quantas linhas são compatíveis com o resultado
 $count_rows     = mysqli_num_rows ($query_result);
 $actual_rows    = mysqli_fetch_row ($query_result);

@@ -28,33 +28,24 @@ if (!empty($_POST['message']))
     $message = mysql_real_escape_string($message);
     
     $receiver  = $_POST['receiver'];
-    $receiver  = $stripslashes($receiver);
+    $receiver  = stripslashes ($receiver);
     $receiver  = mysql_real_escape_string($receiver);
     
     $sender    = $_SESSION['id'];
 }
 else
 {
-    // Retorna à pagina de perfil caso nrrada tenha sido digitado
-    header("location:../profile.php");
+    // Retorna à pagina de perfil caso nada tenha sido digitado
+    header("location:../messages.php?receiver=" .$receiver ."");
 }
 
-$query = "INSERT INTO `message` (`sender`, `receiver`, `content`) VALUES (" .$sender. "," .$receiver. "," .$message. ")";
-$result = mysqli_query($conn, $query);
-
-if (!$result)
-{
-    echo "<script> 
-        alert('Faça login para continuar!');
-        window.location.href='../login.html';
-    </script>";
-    exit;
-}
+$query = "INSERT INTO `message` (`sender`, `receiver`, `content`) VALUES ('" .$sender. "','" .$receiver. "','" .$message. "')";
+$result = mysqli_query ($conn, $query);
 
 // Encerra conexão com o banco de dados
 mysqli_close ($conn);
 
 // Retorna à página do perfil
-header("location:../messages.php?user_id=" .$receiver. "");
+header("location:../messages.php?receiver=" .$receiver. "");
 
 ?>
