@@ -190,27 +190,17 @@ if (!$_SESSION["login_status"])
                                     // Verifica estado da curtida
                                     
                                     echo "<form class='pull-left' role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."' method='POST'>";
-<<<<<<< HEAD
-                                        echo "<input type='hidden' name='origin_id' value=".$user_id.">";
-                                        echo "<button type='submit' class='btn-primary'><i class='fa fa-heart fa-lg'></i></button>";
-                                        
-=======
+
                                             echo "<input type='hidden' name='origin_id' value=".$user_id.">";
                                             echo "<button type='submit' class='btn-primary'>";
-                                    if (!$like) { echo "Descurtir"; } else { echo "Curtir"; }
-                                            echo "</button>";
-                                    
->>>>>>> origin/php_integration_v03
+                                            if (!$like) { echo "Descurtir"; } else { echo "Curtir"; }
+                                            echo "</button>";  
+
                                     echo "</form>";
                                     
                                     echo "<form  class='pull-left' role='form' action='#' method='#' ";
                                        echo "<input type='hidden' name='#' value='#'>"; 
-<<<<<<< HEAD
                                        echo "<button type='submit' class='btn-primary'><i class='fa fa-comment fa-lg'></i></button>";
-                                        
-=======
-                                       echo "<button type='submit' class='btn-primary'>Comentar</button>";
->>>>>>> origin/php_integration_v03
                                     echo "</form>";
                                     
                                     
