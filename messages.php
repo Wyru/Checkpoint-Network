@@ -41,15 +41,19 @@ if (!$_SESSION["login_status"])
             <?php 
                 // Lista os amigos do usuário
                 include './_method/mysql_connect.php';
-                $query_name_friends = "SELECT * FROM `friends` WHERE `user_id` = '" . $_SESSION["id"] . "'  ORDER BY  `friend_id`";
+                $query_name_friends = "SELECT * FROM `friends` WHERE (`user_id` = '" .$_SESSION["id"]."' OR `friend_id` = '".$_SESSION["id"]."') AND `accepted` = 1 ORDER BY `friend_id`";
                 $query_friends = mysqli_query ($conn, $query_name_friends);
                 // Print the friend (one row) until there are no more valid results
                 while ($friends_row = mysqli_fetch_row ($query_friends))
                 {
-                    $query_name_users = "SELECT * FROM `users` WHERE `id` = '" . $friends_row[2] . "'";
+                    if ($friends_row[1] == $_SESSION["id"])
+                        $friend_selected = $friends_row[2];
+                    else
+                        $friend_selected = $friends_row[1];
+                    $query_name_users = "SELECT * FROM `users` WHERE `id` = '" .$friend_selected. "'";
                     $query_users = mysqli_query ($conn, $query_name_users);
                     $users_row = mysqli_fetch_row ($query_users);
-                    echo "<a href = messages.php?receiver=" . $friends_row[2] . ">" . $users_row[1] . "</a><br>";
+                    echo "<a href = messages.php?receiver=" .$friend_selected. ">" .$users_row[1]. "</a><br>";
                 }
             ?>
         </div>
