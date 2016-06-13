@@ -44,7 +44,22 @@ if (!$_SESSION["login_status"])
             ?>
         </header>
         <section class="container-fluid" id="page-content">
-            
+            <div class=" col-lg-12" id="header">
+                <div>
+                    <h1>Resultados para: ...</h1>
+                </div> 
+            </div>
+            <aside class="col-lg-2 pull-left">
+                <div class="col-lg-12" id="searchNav">
+                    <ul  class="list-unstyled">
+                        <li>Pesquisar apenas por:</li>
+                        <li><i class="fa fa-users fa-lg"></i>Pessoas</li>
+                        <li><i class="fa fa-home fa-lg"></i>Guildas </li>
+                        <li><i class="fa fa-gamepad fa-lg"></i>Games</li>
+                    </ul> 
+                </div>
+            </aside>
+            <div class="col-lg-6  pull-left">
                 <?php
                     include './_method/mysql_connect.php';
                     $value = $_POST['value'];
@@ -77,13 +92,13 @@ if (!$_SESSION["login_status"])
                                         echo"</div>";
                                     echo "</div>";
                                     echo"<div class='row' id='resultsBody'>";
-                                        echo"<div class='col-lg-2'>";
+                                        echo"<div class='col-lg-3'>";
                                             if($rows[14])
                                                 echo "<img class='responsive pull-left' id='userPic' src = '$rows[14]'>";
                                              else    
                                                 echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
                                         echo"</div>";
-                                        echo"<div class='col-lg-10'>";
+                                        echo"<div class='col-lg-9'>";
                                             echo "<p>Bio: ".$rows[10]."</p>";
                                             echo "<p>Games:</p>";
                                             echo "<p>Possuem X games em comum</p>";
@@ -102,13 +117,13 @@ if (!$_SESSION["login_status"])
                                         echo"</div>";
                                     echo "</div>";
                                     echo"<div class='row' id='resultsBody'>";
-                                        echo"<div class='col-lg-2'>";
+                                        echo"<div class='col-lg-3'>";
                                             if($rows[14])
                                                 echo "<img class='responsive pull-left' id='userPic' src = '$rows[14]'>";
                                              else    
                                                 echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
                                         echo"</div>";
-                                        echo"<div class='col-lg-10'>";
+                                        echo"<div class='col-lg-9'>";
                                             echo "<p>Bio: ".$rows[10]."</p>";
                                             echo "<p>Games:</p>";
                                             echo "<p>Possuem X games em comum</p>";
@@ -129,13 +144,13 @@ if (!$_SESSION["login_status"])
                                         echo"</div>";
                                     echo "</div>";
                                     echo"<div class='row' id='resultsBody'>";
-                                        echo"<div class='col-lg-2'>";
+                                        echo"<div class='col-lg-3'>";
                                         if($rows[14])
                                                 echo "<img class='responsive pull-left' id='userPic' src = '$rows[14]'>";
                                              else    
                                                 echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
                                         echo"</div>";
-                                        echo"<div class='col-lg-10'>";
+                                        echo"<div class='col-lg-9'>";
                                             echo "<p>Bio: ".$rows[10]."</p>";
                                             echo "<p>Games:</p>";
                                             echo "<p>Possuem X games em comum</p>";
@@ -155,6 +170,9 @@ if (!$_SESSION["login_status"])
                         exit;
                     }
                 ?>
+                
+            </div>
+                
             
         
         </section>

@@ -20,10 +20,12 @@ and open the template in the editor.
 	font-family: AlegreyaSans-Light;
 	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
 }
-
+#page-content{
+    padding: 0px;
+}
 
 #results{
-  background-color: #1d1d1d;
+  background-color: #050412;
   margin: 10px;
   padding: 15px;
   border-radius:5px;
@@ -66,4 +68,45 @@ resultsHeader .btn-primary:hover{
 #resultsBody{
     color:white;
     
+}
+#page-content #header {
+    float: left;
+    background-color: #050412;
+    width: 100%;
+    margin: 0px;
+    width: 100%;
+    color:white;
+    font-size: 10px;
+
+}
+#page-content #header  div h1{
+    font-family: AlegreyaSans-Medium;
+    padding: 10px;
+    font-size: 25px;
+}
+#searchNav{
+    font-family: AlegreyaSans-Medium;
+    margin-top: 10px;
+    margin-left: -10px;
+}
+#searchNav li:first-child{
+    font-family: AlegreyaSans-ExtraBold;
+    margin-bottom: 1px;
+    padding: 1px;
+    border-bottom: 2px rgba(0,0,0, .1) solid;
+}
+#searchNav li{
+    font-family: AlegreyaSans-Medium;
+    padding: 5px;
+    margin: 0px;
+
+}
+#searchNav li i{
+    margin-right: 3px;
+
+}
+#searchNav li:nth-child(2){
+    background-color:#28243b;
+    color: white;
+
 }
