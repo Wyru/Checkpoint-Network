@@ -49,12 +49,19 @@ if (!$_SESSION["login_status"])
                         // Exibição dos amigos
                         // TODO: Separar por páginas
                         include './_method/mysql_connect.php';
-                        $result = mysqli_query($conn, "SELECT * FROM `friends` WHERE `user_id` = '" . $_SESSION["id"] . "'  ORDER BY  `friend_id`");
+                        $result = mysqli_query($conn, "SELECT * FROM `friends` WHERE (`user_id` = '" .$_SESSION["id"]. "' OR `friend_id` = '" .$_SESSION["id"]. "') AND `accepted` = 1  ORDER BY `friend_id`");
                         // Imprime os vinte e cinco resultados em ordem de id de usuário
                         $i = 0;
                         while ($rows = mysqli_fetch_row($result) and $i < 25) 
                         {
-                            $friend_id = $rows[2];
+                            if ($rows[2] == $_SESSION["id"])
+                            {
+                                $friend_id = $rows[1];
+                            }
+                            else
+                            {
+                                $friend_id = $rows[2];
+                            }
                             $query_name = "SELECT * FROM `users` WHERE `id` = '" . $friend_id . "'";
                             $query_2 = mysqli_query($conn, $query_name);
                             $rows_2 = mysqli_fetch_row($query_2);
@@ -93,17 +100,42 @@ if (!$_SESSION["login_status"])
                         <div class="row">
                             <div class="col-lg-12">
                                 <h3>Solicitações de Amizade</h3>
+                                
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <p>pedidos de amizade aqui :v</p>
+                                <?php
+                                    include './_method/mysql_connect.php';
+                                    $query_solic_name = "SELECT * FROM `friends` WHERE `friend_id` = '" .$_SESSION["id"]. "' AND `accepted` = 0";
+                                    $query_solic = mysqli_query ($conn, $query_solic_name);
+                                    if ($query_solic)
+                                    {
+                                        while ($rows_solic = mysqli_fetch_row ($query_solic))
+                                        {
+                                            if ($rows_solic[2] == $_SESSION["id"])
+                                            {
+                                                $friend_req_id = $rows_solic[1];
+                                            }
+                                            else
+                                            {
+                                                $friend_req_id = $rows_solic[2];
+                                            }
+                                            $query_username_name = "SELECT * FROM `users` WHERE `id` = '" .$friend_req_id. "'";
+                                            $query_username = mysqli_query ($conn, $query_username_name);
+                                            if ($rows_username = mysqli_fetch_row ($query_username))
+                                            {
+                                                // Imprime o nome
+                                                echo $rows_username[1];
+                                                // Imprime link para aceitar
+                                                echo "<br><a href = './_method/accept_friend.php?id=" .$friend_req_id. "'>Aceitar</a><br>";
+                                            }
+                                        }
+                                    }
+                                ?>
                             </div>
-                        </div>
-                        
+                        </div>        
                     </div>
-                    
-
                 </div>
             </div>
             

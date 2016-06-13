@@ -58,14 +58,22 @@ if (!$_SESSION["login_status"])
                         while ($rows)
                         {
                             $id = $rows[0];
-                            $friendship_exists = "SELECT * FROM `friends` WHERE `user_id` = " .$_SESSION["id"]. " AND `friend_id` = " . $id . "";
+                            $friendship_exists = "SELECT * FROM `friends` WHERE (`user_id` = '".$_SESSION["id"]."' AND `friend_id` = '".$id."') OR (`user_id` = '".$id."' AND `friend_id` = '".$_SESSION["id"]."')";
                             $exists = mysqli_query ($conn, $friendship_exists);
-                            if (mysqli_fetch_row($exists)){
+                            if ($rows_verify = mysqli_fetch_row($exists))
+                            {
                                 echo"<div class='col-lg-12' id='results'>";
                                     echo"<div class='row'id = 'resultsHeader'>";
                                         echo"<div class='col-lg-12'>";
                                             echo "<a class='pull-left' href ='show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a>";
-                                            echo "<p class='pull-right' >Já é um amigo!</p>";
+                                            if ($rows_verify[4] == 1)
+                                            {
+                                                echo "<p class='pull-right' >Já é um amigo!</p>";
+                                            }
+                                            else
+                                            {
+                                                echo "<p class='pull-right' >Solicitação enviada!</p>";
+                                            }
                                         echo"</div>";
                                     echo "</div>";
                                     echo"<div class='row' id='resultsBody'>";
@@ -76,12 +84,11 @@ if (!$_SESSION["login_status"])
                                                 echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
                                         echo"</div>";
                                         echo"<div class='col-lg-10'>";
-                                            echo "<p>Bio:</p>";
+                                            echo "<p>Bio: ".$rows[10]."</p>";
                                             echo "<p>Games:</p>";
                                             echo "<p>Possuem X games em comum</p>";
                                         echo"</div>";
                                     echo "</div>";
-                                    
                                 echo"</div>";
                             }
                             else if ($id == $_SESSION["id"]){
@@ -102,7 +109,7 @@ if (!$_SESSION["login_status"])
                                                 echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
                                         echo"</div>";
                                         echo"<div class='col-lg-10'>";
-                                            echo "<p>Bio:</p>";
+                                            echo "<p>Bio: ".$rows[10]."</p>";
                                             echo "<p>Games:</p>";
                                             echo "<p>Possuem X games em comum</p>";
                                         echo"</div>";
@@ -129,7 +136,7 @@ if (!$_SESSION["login_status"])
                                                 echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
                                         echo"</div>";
                                         echo"<div class='col-lg-10'>";
-                                            echo "<p>Bio:</p>";
+                                            echo "<p>Bio: ".$rows[10]."</p>";
                                             echo "<p>Games:</p>";
                                             echo "<p>Possuem X games em comum</p>";
                                         echo"</div>";

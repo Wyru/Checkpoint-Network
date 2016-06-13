@@ -21,6 +21,10 @@ include 'mysql_connect.php';
 $friend_id = $_GET['friend_id'];
 $friend_id = stripslashes ($friend_id);
 $friend_id = mysql_real_escape_string ($friend_id);
+// Origin
+$previous_page = $_GET['prev'];
+$previous_page = stripslashes ($friend_id);
+$previous_page = mysql_real_escape_string ($friend_id);
 
 if ($friend_id == $_SESSION["id"])
 {
@@ -43,9 +47,8 @@ if ($exists)
 }
 else
 {
-    // Adição da amizade
+    // Adição da amizade - "User_id = Quem enviou a solicitação" - "Friend_id" = Quem recebeu a solicitação
     $query_2 = "INSERT INTO `friends`(`user_id`, `friend_id`) VALUES ('".$_SESSION["id"]."','".$friend_id."')";
-    $query_3 = "INSERT INTO `friends`(`user_id`, `friend_id`) VALUES ('".$friend_id."','".$_SESSION["id"]."')";
     $result_1 = mysqli_query ($conn, $query_2);
     if (!$result_1)
     {
@@ -53,16 +56,16 @@ else
             alert('Erro ao remover postagem!');
             window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
     }
-    $result_2 = mysqli_query ($conn, $query_3);
-    if (!$result_2)
-    {
-        echo "<script> 
-            alert('Erro ao remover postagem!');
-            window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
-    }
 }
 
-header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
+if (!empty($_GET['prev']))
+{
+    header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
+}
+else
+{
+    header("location:../show_profile.php?user_id=" .$friend_id. "");
+}
 mysqli_close ($conn);
 
 ?>

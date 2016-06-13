@@ -87,13 +87,31 @@ if (!$_SESSION["login_status"])
                     </div>
                     <ul id="perfilNav" class="list-inline" >
               
-                        <li><a href="show_profile.php?user_id=<?php echo $_SESSION["id"]; ?>"><i class="fa fa-user fa-lg" aria-hidden="true"></i>Perfil</a></li>
+                        <li><a href="show_profile.php?user_id=<?php echo $rows[0]; ?>"><i class="fa fa-user fa-lg" aria-hidden="true"></i>Perfil</a></li>
                         <li><a href="screenshots.php"><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i>Screenshots</a></li>
                         <li><a href="gameplays.php"><i class="fa fa-film fa-lg" aria-hidden="true"></i> Gameplays</a></li>
                         <li><a href="games.php"><i class="fa fa-gamepad fa-lg" aria-hidden="true"></i> Games</a></li>
                         <li><a href="friends.php"><i class="fa fa-users fa-lg" aria-hidden="true"></i> Amigos</a></li>
                         <li><a href="guilds.php"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</a></li>
-                        <li><a href="guilds.php"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Adicionar aos amigos</a></li>
+                        <?php
+                            if ($rows[0] != $_SESSION["id"])
+                            {
+                                include './_method/mysql_connect.php';
+                                $check_iffriend_name = "SELECT * FROM `friends` WHERE (`user_id` = '".$_SESSION["id"]."' AND `friend_id` = '".$rows[0]."') OR (`user_id` = '".$rows[0]."' AND `friend_id` = '".$_SESSION["id"]."')";
+                                $check_iffriend = mysqli_query ($conn, $check_iffriend_name);
+                                if ($new_row = mysqli_fetch_row($check_iffriend))
+                                {
+                                    if ($new_row[4])
+                                        echo "<li><i class='fa fa-home fa-lg' aria-hidden='true'></i> Já são amigos!</li>";
+                                    else
+                                        echo "<li><i class='fa fa-home fa-lg' aria-hidden='true'></i> Solicitação enviada!</li>";
+                                }
+                                else
+                                {
+                                    echo "<li><a href='./_method/add_friend.php?friend_id=".$rows[0]."&prev=1'><i class='fa fa-home fa-lg' aria-hidden='true'></i>Adicionar aos amigos</a></li>";
+                                }
+                            }
+                        ?>
                     </ul>
                 </div>
             </header>
