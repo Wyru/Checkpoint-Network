@@ -54,12 +54,15 @@ if (!$_SESSION["login_status"])
                         else
                             $friend_selected = $friends_row[1];
                         $query_name_users = "SELECT * FROM `users` WHERE `id` = '" .$friend_selected. "'";
-                        $query_users = mysqli_query ($conn, $query_name_users);
-                        $users_row = mysqli_fetch_row ($query_users);
+                        $query_users      = mysqli_query ($conn, $query_name_users);
+                        $users_row        = mysqli_fetch_row ($query_users);
                         echo "<a class='pull-left' href = messages.php?receiver=" .$friend_selected. ">";
                             echo "<li class='row'>";
                                     echo"<div id='pic' class='col-xs-8 col-sm-3 col-md-3 col-lg-3'>";
-                                        echo "<img src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
+                                        if ($users_row[14])
+                                            echo "<img src = '".$users_row[14]."'/>";
+                                        else
+                                            echo "<img src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
                                     echo"</div>";
                                     echo"<div class='col-xs-9 col-sm-9 col-md-9 col-lg-9'>";
                                         echo "<p>";
