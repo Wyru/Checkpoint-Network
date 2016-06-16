@@ -61,7 +61,10 @@ mysqli_close ($conn);
             ?>     
         </header>
         <section class= "container-fluid" id="page-content">
-            <div class = "col-lg-3">
+            <div class="col-lg-12" id="title">
+                <h1 ><i class="fa fa-gamepad fa-lg"></i>Games</h1>
+            </div>
+            <div class = "col-lg-12 pull-left">
                 <?php
                     // Conexão com o banco de dados
                     include './_method/mysql_connect.php';
@@ -73,9 +76,14 @@ mysqli_close ($conn);
                         $gamedata_query_name = "SELECT * FROM `games` WHERE `id` = '".$game_row[2]."'";
                         $gamedata_query      = mysqli_query ($conn, $gamedata_query_name);
                         $gamedata_row        = mysqli_fetch_row ($gamedata_query);
-                        echo "<div>";
+                        echo "<div class='pull-left' id='game'>";
                         // $gamedata_row[1] = name column in games table
-                        echo $gamedata_row[1];
+                            echo "<p class='pull-right'><i class='fa fa-times'></i><p>";
+                            if($gamedata_row[7])
+                                echo "<img class='responsive pull-left' id='img_game' src = '$gamedata_row[7]'>";
+                            else    
+                                echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
+                            echo "<p>".$gamedata_row[1]."</p>";
                         echo "</div>";
                     }
                     // Encerra a conexão com o banco de dados
