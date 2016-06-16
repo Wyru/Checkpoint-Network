@@ -15,6 +15,10 @@ if (!$_SESSION["login_status"])
     exit;
 }
 
+$user_id_page = $_GET['user_id'];
+$user_id_page = stripcslashes ($user_id_page);
+$user_id_page = mysql_real_escape_string ($user_id_page);
+
 ?>
 
 <!DOCTYPE html>
@@ -49,12 +53,12 @@ if (!$_SESSION["login_status"])
                         // Exibição dos amigos
                         // TODO: Separar por páginas
                         include './_method/mysql_connect.php';
-                        $result = mysqli_query($conn, "SELECT * FROM `friends` WHERE (`user_id` = '" .$_SESSION["id"]. "' OR `friend_id` = '" .$_SESSION["id"]. "') AND `accepted` = 1  ORDER BY `friend_id`");
+                        $result = mysqli_query($conn, "SELECT * FROM `friends` WHERE (`user_id` = '" .$user_id_page. "' OR `friend_id` = '" .$user_id_page. "') AND `accepted` = 1  ORDER BY `friend_id`");
                         // Imprime os vinte e cinco resultados em ordem de id de usuário
                         $i = 0;
                         while ($rows = mysqli_fetch_row($result) and $i < 25) 
                         {
-                            if ($rows[2] == $_SESSION["id"])
+                            if ($rows[2] == $user_id_page)
                             {
                                 $friend_id = $rows[1];
                             }
@@ -67,24 +71,25 @@ if (!$_SESSION["login_status"])
                             $rows_2 = mysqli_fetch_row($query_2);
                             $friend_name = $rows_2[1];
                             echo "<div class ='col-lg-3' id = 'user'>
-                                    <div class='row'>
-                                        <div class='col-lg-offset-1'>
-                                            <p><a href = 'show_profile.php?user_id=".$friend_id."'>".$friend_name."</a><p>
-                                        </div>
-                                    </div>
-                                    <div class='col-lg-8'>";
-                                    if($rows_2[14])
-                                        echo "<img class='responsive pull-left' id='userPic' src = '$rows_2[14]'>";
-                                    else    
-                                        echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
-                                    //<img src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>    
-                                    echo" </div>
-                                    <div id='destroyFriendship' class='col-lg-4'>
+                            <div class='row'>
+                                <div class='col-lg-offset-1'>
+                                    <p><a href = 'show_profile.php?user_id=".$friend_id."'>".$friend_name."</a><p>
+                                </div>
+                            </div>
+                            <div class='col-lg-8'>";
+                            if($rows_2[14])
+                                echo "<img class='responsive pull-left' id='userPic' src = '$rows_2[14]'>";
+                            else    
+                                echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
+                            //<img src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>    
+                            echo "</div>";
+                            if ($user_id_page == $_SESSION["id"])
+                            {
+                                echo "<div id='destroyFriendship' class='col-lg-4'>
                                         <a href = './_method/undo_friend.php?user_id=" .$friend_id. "'>Desfazer Amizade</a>
-                                    </div>
-                                    
-                                    
-                                </div>";
+                                      </div>";
+                            }
+                            echo "</div>";
                             $i++;    
                         }
                         // Encerra conexão após a query
@@ -93,50 +98,50 @@ if (!$_SESSION["login_status"])
                         ?>   
                     </div>        
                 </div>
-                    
-                <div class="col-lg-2" >
-                    
-                    <div class="col-lg-12" id="friend_request">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h3>Solicitações de Amizade</h3>
-                                
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <?php
-                                    include './_method/mysql_connect.php';
-                                    $query_solic_name = "SELECT * FROM `friends` WHERE `friend_id` = '" .$_SESSION["id"]. "' AND `accepted` = 0";
-                                    $query_solic = mysqli_query ($conn, $query_solic_name);
-                                    if ($query_solic)
-                                    {
-                                        while ($rows_solic = mysqli_fetch_row ($query_solic))
+                <?php
+                    if ($user_id_page == $_SESSION["id"])
+                    {
+                        echo "<div class='col-lg-2'>";
+                            echo "<div class='col-lg-12' id='friend_request'>";
+                                echo "<div class='row'>";
+                                    echo "<div class='col-lg-12'>";
+                                        echo "<h3>Solicitações de Amizade</h3>";
+                                    echo "</div>";
+                                echo "</div>";
+                                echo "<div class='row'>";
+                                    echo "<div class='col-lg-12'>";
+                                        include './_method/mysql_connect.php';
+                                        $query_solic_name = "SELECT * FROM `friends` WHERE `friend_id` = '" .$_SESSION["id"]. "' AND `accepted` = 0";
+                                        $query_solic = mysqli_query ($conn, $query_solic_name);
+                                        if ($query_solic)
                                         {
-                                            if ($rows_solic[2] == $_SESSION["id"])
+                                            while ($rows_solic = mysqli_fetch_row ($query_solic))
                                             {
-                                                $friend_req_id = $rows_solic[1];
+                                                if ($rows_solic[2] == $_SESSION["id"])
+                                                {
+                                                    $friend_req_id = $rows_solic[1];
+                                                }
+                                                else
+                                                {
+                                                    $friend_req_id = $rows_solic[2];
+                                                }
+                                                $query_username_name = "SELECT * FROM `users` WHERE `id` = '" .$friend_req_id. "'";
+                                                $query_username = mysqli_query ($conn, $query_username_name);
+                                                if ($rows_username = mysqli_fetch_row ($query_username))
+                                                {
+                                                    // Imprime o nome
+                                                    echo $rows_username[1];
+                                                    // Imprime link para aceitar
+                                                    echo "<br><a href = './_method/accept_friend.php?id=" .$friend_req_id. "'>Aceitar</a><br>";
+                                                }
                                             }
-                                            else
-                                            {
-                                                $friend_req_id = $rows_solic[2];
-                                            }
-                                            $query_username_name = "SELECT * FROM `users` WHERE `id` = '" .$friend_req_id. "'";
-                                            $query_username = mysqli_query ($conn, $query_username_name);
-                                            if ($rows_username = mysqli_fetch_row ($query_username))
-                                            {
-                                                // Imprime o nome
-                                                echo $rows_username[1];
-                                                // Imprime link para aceitar
-                                                echo "<br><a href = './_method/accept_friend.php?id=" .$friend_req_id. "'>Aceitar</a><br>";
-                                            }
-                                        }
-                                    }
-                                ?>
-                            </div>
-                        </div>        
-                    </div>
-                </div>
+                                        }  
+                                    echo "</div>";
+                                echo "</div>";        
+                            echo "</div>";
+                        echo "</div>";
+                    }
+                ?>
             </div>
             
             
