@@ -23,8 +23,8 @@ $friend_id = stripslashes ($friend_id);
 $friend_id = mysql_real_escape_string ($friend_id);
 // Origin
 $previous_page = $_GET['prev'];
-$previous_page = stripslashes ($friend_id);
-$previous_page = mysql_real_escape_string ($friend_id);
+$previous_page = stripslashes ($previous_page);
+$previous_page = mysql_real_escape_string ($previous_page);
 
 if ($friend_id == $_SESSION["id"])
 {
@@ -36,13 +36,13 @@ if ($friend_id == $_SESSION["id"])
 }
 
 // Verifica se a amizade já não existe
-$query_1 = "SELECT * FROM `friends` WHERE `user_id` = " .$_SESSION["id"]. " AND WHERE `friend_id` = " . $friend_id . "";
+$query_1 = "SELECT * FROM `friends` WHERE `user_id` = " .$_SESSION["id"]. " AND `friend_id` = " . $friend_id . "";
 $exists = mysqli_query ($conn, $query_1);
 // No caso da amizade já existir, não faça nada
-if ($exists)
+if (mysqli_fetch_row ($exists))
 {
     echo "<script> 
-        alert('Erro ao remover postagem!');
+        alert('Erro: Usuário já pertence a sua lista de amigos!');
         window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
 }
 else
@@ -53,7 +53,7 @@ else
     if (!$result_1)
     {
         echo "<script> 
-            alert('Erro ao remover postagem!');
+            alert('Erro ao enviar solicitação!');
             window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
     }
 }

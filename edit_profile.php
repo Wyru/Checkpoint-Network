@@ -86,11 +86,11 @@ if (!$_SESSION["login_status"])
                     <label for="datepicker">Data de Nascimento:</label> 
                     <input class="form-control" type="text" id="datepicker" name="new_date" value="<?php echo $_SESSION["birthday"] ?>">
                     <label for="email">E-mail:</label>
-                    <input class="form-control" id="email" type="email" name="new_name" value="">
+                    <input class="form-control" id="email" type="email" name="dummy_email" value="<?php echo $_SESSION["email"]; ?>" readonly>
                     <label for="senha">Senha:</label>
-                    <input class="form-control" id="senha" type="password" name="new_name" value="">
+                    <input class="form-control" id="senha" type="password" name="dummy_pass_1" value="">
                     <label for="senha">Confirmar Senha:</label>
-                    <input class="form-control" id="senha" type="password" name="new_name" value="">
+                    <input class="form-control" id="senha" type="password" name="dummy_pass_2" value="">
                 </div>
                 <div class="col-lg-4 col-lg-offset-1">
                     <label for="bio">Biografia:</label>

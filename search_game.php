@@ -96,7 +96,7 @@ if (!$_SESSION["login_status"])
                                     }
                                     else
                                     {
-                                        echo "<p class='pull-right'>Adicionar a sua lista de jogos</p>";
+                                        echo"<a class='btn-primary pull-right'href ='./_method/played_game.php?game_id=".$rows[0]."'>Adicionar a sua lista</a>";
                                     }    
                                     echo"</div>";
                                 echo "</div>";

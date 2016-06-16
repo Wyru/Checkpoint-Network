@@ -20,28 +20,29 @@ if (!$_SESSION["login_status"])
 }
 
  // Conecta ao banco de dados
-            include './_method/mysql_connect.php';
-            // Proteção contra MySQL Inject
-            $user_id = $_GET['user_id'];
-            $user_id = stripslashes ($user_id);
-            $user_id = mysql_real_escape_string ($user_id);
+include './_method/mysql_connect.php';
+// Proteção contra MySQL Inject
+$user_id = $_GET['user_id'];
+$user_id = stripslashes ($user_id);
+$user_id = mysql_real_escape_string ($user_id);
 
-            $result = mysqli_query ($conn, "SELECT * FROM `users` WHERE `id` = " .$user_id. "");
-            
-            if ($result)
-            {
-                $rows = mysqli_fetch_row ($result);
-            }
-            else
-            {
-              echo "<script> 
-                    alert('Algo de errado não está certo');
-                    window.location.href='default_error.html';
-                    </script>";
+$result = mysqli_query ($conn, "SELECT * FROM `users` WHERE `id` = " .$user_id. "");
+
+if ($result)
+{
+    $rows = mysqli_fetch_row ($result);
+}
+else
+{
+  echo "<script> 
+        alert('Algo de errado não está certo');
+        window.location.href='default_error.html';
+        </script>";
     exit;
-            }
-            
-            mysqli_close ($conn);
+    
+}
+mysqli_close ($conn);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -90,7 +91,7 @@ if (!$_SESSION["login_status"])
                         <li><a href="show_profile.php?user_id=<?php echo $rows[0]; ?>"><i class="fa fa-user fa-lg" aria-hidden="true"></i>Perfil</a></li>
                         <li><a href="screenshots.php"><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i>Screenshots</a></li>
                         <li><a href="gameplays.php"><i class="fa fa-film fa-lg" aria-hidden="true"></i> Gameplays</a></li>
-                        <li><a href="games.php"><i class="fa fa-gamepad fa-lg" aria-hidden="true"></i> Games</a></li>
+                        <li><a href="games.php?user_id=<?php echo $rows[0]; ?>"><i class="fa fa-gamepad fa-lg" aria-hidden="true"></i> Games</a></li>
                         <li><a href="friends.php"><i class="fa fa-users fa-lg" aria-hidden="true"></i> Amigos</a></li>
                         <li><a href="guilds.php"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</a></li>
                         <?php
