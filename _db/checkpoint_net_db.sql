@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Jun-2016 às 02:42
+-- Generation Time: 16-Jun-2016 às 03:36
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -111,7 +111,8 @@ CREATE TABLE `games` (
 INSERT INTO `games` (`id`, `name`, `genre`, `launch_date`, `developer`, `publisher`, `description`, `art`, `added`, `removed`) VALUES
 (3, 'Crysis', 'FPS', '0000-00-00', 'Crytek', 'Electronic Arts', '', '_imagens/game_art/14660339015761e6ed00660.jpg', '2016-06-15 23:38:21', 0),
 (4, 'Battlefield 3', 'FPS', '0000-00-00', 'DICE', 'Electronic Arts', '', '_imagens/game_art/14660372545761f40691e12.jpg', '2016-06-16 00:34:14', 0),
-(5, 'Battlefield 2', 'FPS', '0000-00-00', 'DICE', 'Electronic Arts', '', '_imagens/game_art/14660372715761f41731a92.jpe', '2016-06-16 00:34:31', 0);
+(5, 'Battlefield 2', 'FPS', '0000-00-00', 'DICE', 'Electronic Arts', '', '_imagens/game_art/14660372715761f41731a92.jpe', '2016-06-16 00:34:31', 0),
+(6, 'Monster Hunter', 'Action RPG', '2011-03-04', 'CAPCOM', 'CAPCOM', 'Monster Hunter Ã© um jogo de  hack and slash,  estratÃ©gia e aventura onde o jogador encarna na pele de um caÃ§ador em um mundo repleto de criaturas mortais. Nas caÃ§adas, seja  matando ou capturando monstros,  Ã© preciso  o uso de estratÃ©gia, habilidades e itens. Monster Hunter vendeu  pouco na AmÃ©rica e na Europa, mas fez grande sucesso no JapÃ£o.', '_imagens/game_art/1466040806576201e60e0be.jpg', '2016-06-16 01:33:26', 0);
 
 -- --------------------------------------------------------
 
@@ -152,7 +153,8 @@ INSERT INTO `message` (`id`, `sender`, `receiver`, `content`, `deleted`) VALUES
 (6, 11, 1, 'Good to hear :)', 0),
 (7, 11, 14, 'Youtube hoe', 0),
 (8, 1, 11, 'Hello again, just testing some bug corrections.', 0),
-(9, 11, 1, 'Oh, alright! They''re working!', 0);
+(9, 11, 1, 'Oh, alright! They''re working!', 0),
+(10, 20, 1, 'E ae desgraÃ§a o/', 0);
 
 -- --------------------------------------------------------
 
@@ -218,7 +220,8 @@ INSERT INTO `posts` (`id`, `user_id`, `content`, `time`, `deleted`, `origin`, `l
 (41, 18, 'Thanks for showing me Undertale ;)', '2016-06-12 08:19:26', 0, 1, 0),
 (42, 9, 'Heya m8!', '2016-06-13 21:44:08', 0, 20, 0),
 (43, 1, 'Topcoder kekesimus maximus\r\n', '2016-06-13 21:44:47', 0, 20, 1),
-(44, 21, 'Damn those stormcloak rebels to Oblivion!', '2016-06-13 22:03:38', 0, 1, 0);
+(44, 21, 'Damn those stormcloak rebels to Oblivion!', '2016-06-13 22:03:38', 0, 1, 0),
+(45, 20, 'Ta ficando muito show essa rede social', '2016-06-16 01:34:27', 0, 20, 0);
 
 -- --------------------------------------------------------
 
@@ -344,7 +347,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `sex`, `birthday`, `
 (17, 'Mikhail Mannerheim', 'keisari@gaea.gov.imp', 'mikhail123', 'male', '2000-03-17', 'mikhail_jaeger', 'jaeger_2k', 'BlackJaeger401', 'Jageren_29', 'I''m Mikhail, the Bold, greatest military leader and emperor this empire had! I fought against the Telsicians and won like a boss!', 'Hunter 4', 0, '2016-06-12 23:34:26', NULL, 1, 'PC'),
 (18, 'SeÃ¡n McLoughlin', 'jackscepticeye@outlook.com', 'jack1234', 'male', '1990-03-21', 'jack_a_boss', 'jack_a_boss', 'jack_a_boss', '', 'Like a b0ss', 'Undertale', 0, '2016-06-12 05:21:00', '_imagens/profile_pic/1465708860575cf13c8ab29.png', 0, 'PC'),
 (19, 'Ronei Teixeira Costa JÃºnior', 'ronei@unifei.edu.br', 'ronei123', 'male', '1996-12-24', 'Ronei_123', '', '', '', 'SERIES, SERIES ALL DAY ALONG', 'Chrono Trigger', 0, '2016-06-12 23:34:37', '_imagens/profile_pic/1465714245575d0645b1ad5.png', 0, 'PC'),
-(20, 'Will Saymon', 'wsaymonoficial@gmail.com', 'will123', 'male', '0000-00-00', '', 'Wyru', '', '', '', '', 0, '2016-06-13 21:43:16', '_imagens/profile_pic/1465854196575f28f44049c.jpg', 0, 'Nintendo DS'),
+(20, 'Will Saymon', 'wsaymonoficial@gmail.com', 'will123', 'male', '0000-00-00', '', 'Wyru', '', '', 'You can''t move others hearts, unless you can move your own.', 'Monster Hunter', 0, '2016-06-16 00:57:36', '_imagens/profile_pic/1465854196575f28f44049c.jpg', 0, 'PSP'),
 (21, 'Pedro Lomonaco', 'pedro_ditd@hotmail.com', 'pedro123', 'male', '0000-00-00', '', 'SuspiroDourado', '', '', 'Born this way!', 'League of Legends', 0, '2016-06-13 21:55:45', '_imagens/profile_pic/1465854886575f2ba6c7254.jpg', 0, 'PC');
 
 --
@@ -406,7 +409,7 @@ ALTER TABLE `friends`
 -- AUTO_INCREMENT for table `games`
 --
 ALTER TABLE `games`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `games_played`
 --
@@ -416,12 +419,12 @@ ALTER TABLE `games_played`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `upvotes`
 --

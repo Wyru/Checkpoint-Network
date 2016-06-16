@@ -30,7 +30,7 @@ if (!$_SESSION["login_status"])
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="_bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="_css/search_profile.css">
+        <link rel="stylesheet" type="text/css" href="_css/search_game.css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <!--Não adicione nada antes disso-->
         

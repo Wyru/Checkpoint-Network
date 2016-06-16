@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 02/06/2016, 17:41:47
+    Created on : 15/06/2016, 17:41:47
     Author     : Will Saymon
 */
 @font-face{
@@ -32,8 +32,8 @@ and open the template in the editor.
 }
 
 #results img{
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: auto;
 }
 #resultsHeader{
     margin-bottom: 10px;
@@ -110,7 +110,7 @@ resultsHeader .btn-primary:hover{
     color:black;
 
 }
-#searchNav li:nth-child(2), #searchNav li:nth-child(2) a{
+#searchNav li:nth-child(4), #searchNav li:nth-child(4) a{
     background-color:#28243b;
     color: white;
 
