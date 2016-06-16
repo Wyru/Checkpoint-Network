@@ -66,7 +66,7 @@ if (!$_SESSION["login_status"])
                         <label for="game_genre">Gênero:</label>
                         <input class="form-control" id="Name" type="text" name ="game_genre" value="" required/>
                         <label for="game_release">Data de Lançamento:</label> 
-                        <input class="form-control" id="Name" type="text" id="datepicker" name="game_release" value="" />
+                        <input class="form-control" id="Name" type="date" id="datepicker" name="game_release" value="" />
                         <label for="game_developer">Desenvolvedora:</label>
                         <input class="form-control" id="Name" type="text" name="game_developer" value="" required />
                         <label for="game_publisher">Publicadora:</label>

@@ -107,7 +107,7 @@ if (isset($_FILES['game_art']['name']) && $_FILES['game_art']['error'] == 0)
 // Inserção no banco de dados
 $query_game_insert_name = "INSERT INTO `games`"
         . "(`name`, `genre`, `launch_date`, `developer`, `publisher`, `description`, `art`) "
-        . "VALUES ('".$game_name."','".$game_genre."','".$game_release."','".$game_developer."',"
+        . "VALUES ('".$game_name."','".$game_genre."',STR_TO_DATE('".$game_release."', '%d/%m/%Y'),'".$game_developer."',"
         . "'".$game_publisher."','".$game_description."','".$game_art."')";
 $query_game_insert = mysqli_query ($conn, $query_game_insert_name);
 
