@@ -34,6 +34,14 @@ and open the template in the editor.
     height: 100px;
     width: 100px;
 }
+#img_game{
+    height: 150px;
+    width: 100px;
+}
+#img_user{
+    height: 100px;
+    width: 100px;
+}
 #resultsHeader{
     margin-bottom: 10px;
     border-bottom: 1px black solid;

@@ -53,18 +53,27 @@ if (!$_SESSION["login_status"])
                 <div class="col-lg-12" id="searchNav">
                     <ul  class="list-unstyled">
                         <li>Pesquisar apenas por:</li>
-                        <li><i class="fa fa-users fa-lg"></i>Pessoas</li>
+                        <?php 
+                            if (empty($_GET['value']))
+                            {
+                                $value = "";
+                            }
+                            else
+                            {
+                                $value = $_GET['value'];
+                                $value = stripslashes($value);
+                                $value = mysql_real_escape_string($value); 
+                            }
+                        ?>
+                        <li><i class="fa fa-users fa-lg"></i><a href='search_profile.php?value=<?php echo $value; ?>'>Pessoas</a></li>
                         <li><i class="fa fa-home fa-lg"></i>Guildas </li>
-                        <li><i class="fa fa-gamepad fa-lg"></i>Games</li>
+                        <li><i class="fa fa-gamepad fa-lg"></i><a href='search_game.php?value=<?php echo $value; ?>'>Games</a></li>
                     </ul> 
                 </div>
             </aside>
             <div class="col-lg-6  pull-left">
                 <?php
                     include './_method/mysql_connect.php';
-                    $value = $_POST['value'];
-                    $value = stripslashes($value);
-                    $value = mysql_real_escape_string($value);
                     $result = mysqli_query($conn, "SELECT * FROM `users` WHERE `username` LIKE '%".$value."%' AND `REMOVED` = 0");
                     if ($result)
                     {
@@ -94,9 +103,9 @@ if (!$_SESSION["login_status"])
                                     echo"<div class='row' id='resultsBody'>";
                                         echo"<div class='col-lg-3'>";
                                             if($rows[14])
-                                                echo "<img class='responsive pull-left' id='userPic' src = '$rows[14]'>";
+                                                echo "<img class='responsive pull-left' id='img_user' src = '$rows[14]'>";
                                              else    
-                                                echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
+                                                echo "<img class='responsive pull-left' id='img_user' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
                                         echo"</div>";
                                         echo"<div class='col-lg-9'>";
                                             echo "<p>Bio: ".$rows[10]."</p>";

@@ -13,7 +13,7 @@
     </head>
     <body>
     <div id ="Menu" >
-        <form class="col-lg-12" role="search" action="search_profile.php" method="POST">
+        <form class="col-lg-12" role="search" action="search_profile.php" method="GET">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Pesquisar" id="search" name="value">
                 <!--<span class="input-group-btn"><button class="btn btn-primary"><i class="fa fa-search"></i></button></span>-->
