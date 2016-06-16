@@ -161,6 +161,16 @@ else
         else
             $new_game  = NULL;
     }
+    if(!empty($_POST['new_pass1']) and $_POST['new_pass1']== $_POST['new_pass2'])
+    {
+        $new_pass       = $_POST['new_pass1'];
+        $new_pass       = stripslashes($new_pass);
+        $new_pass       = mysql_real_escape_string($new_pass);
+    }
+    else
+    {
+        $new_pass = $_SESSION["password"];
+    }
     
     $my_id          = $_SESSION["id"];
 
@@ -212,7 +222,7 @@ else
 }
 
 // Atualização do banco de dados
-$query_name = "UPDATE `users` SET `username`='".$new_name."',"
+$query_name = "UPDATE `users` SET `username`='".$new_name."',`password`='".$new_pass."',"
         . "`sex`='".$new_sex."',`birthday`='".$new_date."',`psn`='".$new_psn."',`steam`='".$new_steam."',"
         . "`xbox_live`='".$new_live."',`nintendo`='".$new_nintendo."',`biography`='".$new_biography."',"
         . "`favorite_game`='".$new_game."', `profile_pic`='".$new_pic."', `platform`='".$new_console."' WHERE id = '".$my_id."'";
@@ -223,6 +233,7 @@ $query_result = mysqli_query($conn, $query_name);
 if ($query_result)
 {
     // Caso a query tenha sido efetuada com sucesso, atualiza os dados da sessão
+    $_SESSION["password"]           = $new_pass;
     $_SESSION["name"]               = $new_name;
     $_SESSION["sex"]                = $new_sex;
     $_SESSION["birthday"]           = $new_date;

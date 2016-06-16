@@ -88,9 +88,9 @@ if (!$_SESSION["login_status"])
                     <label for="email">E-mail:</label>
                     <input class="form-control" id="email" type="email" name="dummy_email" value="<?php echo $_SESSION["email"]; ?>" readonly>
                     <label for="senha">Senha:</label>
-                    <input class="form-control" id="senha" type="password" name="dummy_pass_1" value="">
+                    <input class="form-control" id="senha" type="password" name="new_pass1" value="">
                     <label for="senha">Confirmar Senha:</label>
-                    <input class="form-control" id="senha" type="password" name="dummy_pass_2" value="">
+                    <input class="form-control" id="senha" type="password" name="new_pass2" value="">
                 </div>
                 <div class="col-lg-4 col-lg-offset-1">
                     <label for="bio">Biografia:</label>
