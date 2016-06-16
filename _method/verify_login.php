@@ -81,7 +81,7 @@ else if ($count_rows == 0)
     // Caso não haja nenhum resultado no banco de dados referente às informações
     echo "<script> 
         alert('E-Mail ou Senha incorretos!');
-        window.location.href='../login.html';
+        window.location.href='../index.html';
     </script>";
     exit;
 }

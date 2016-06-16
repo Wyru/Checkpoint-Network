@@ -58,22 +58,20 @@ if (!$_SESSION["login_status"])
             <div class="row" id="Editaveis">
                 <form enctype="multipart/form-data" role="form" method="POST" action="./_method/add_game.php">
                     <div class="col-lg-8 col-lg-offset-1  form-group">
-                        <img class="resposive" id="picEditProfile" 
-                        <?php
-                            echo "src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'";
-                        ?> >
-                        <p><b>Selecione uma imagem:</b> <input name="game_art" type="file" /></p>
-                        <label for="name">Nome do Jogo:</label>
+                        <br>
+                        <label for="game_art">Selecione uma imagem:</label>
+                        <input name="game_art" type="file" />
+                        <label for="game_name">Nome do Jogo:</label>
                         <input class="form-control" id="Name" type="text" name="game_name" value="" required>
-                        <label for="genre">Gênero:</label>
+                        <label for="game_genre">Gênero:</label>
                         <input class="form-control" id="Name" type="text" name ="game_genre" value="" required/>
-                        <label for="datepicker">Data de Lançamento:</label> 
+                        <label for="game_release">Data de Lançamento:</label> 
                         <input class="form-control" id="Name" type="text" id="datepicker" name="game_release" value="" />
-                        <label for="developer">Desenvolvedora:</label>
+                        <label for="game_developer">Desenvolvedora:</label>
                         <input class="form-control" id="Name" type="text" name="game_developer" value="" required />
-                        <label for="publisher">Publicadora:</label>
+                        <label for="game_publisher">Publicadora:</label>
                         <input class="form-control" id="Name" type="text" name="game_publisher" value="" />
-                        <label for="description">Descrição:</label>
+                        <label for="game_description">Descrição:</label>
                         <textarea class="form-control" rows="4" id="senha" name="game_description" placeholder="Entre com uma breve descrição do jogo."></textarea>
                         <br><p><button class="btn btn-primary" type="submit">Enviar</button></p>
                     </div>

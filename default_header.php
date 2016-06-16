@@ -42,6 +42,10 @@
             <a href="friends.php?user_id=<?php echo $_SESSION["id"]; ?>"><li><i class="fa fa-users fa-lg" aria-hidden="true"></i> Amigos</li></a>
             <a href="guilds.php"><li><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</li></a>
             <a href="messages.php"><li><i class="fa fa-envelope fa-lg" aria-hidden="true"></i>Mensagens</li></a>
+            <?php
+                if ($_SESSION["user_type"] > 0)
+                    echo "<a href='suggest_game.php'><li><i class='fa fa-plus-square fa-lg' aria-hidden='true'></i>Adicionar Jogos</li></a>";
+            ?>
         </ul>  
     </div>
 
