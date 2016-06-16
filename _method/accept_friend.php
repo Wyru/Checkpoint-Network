@@ -34,5 +34,5 @@ if (!$query_update)
     </script>";
 }
 
-header("location:../friends.php");
+header("location:../friends.php?user_id=". $_SESSION["id"]);
 mysqli_close ($conn);

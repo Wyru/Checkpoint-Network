@@ -77,13 +77,14 @@ mysqli_close ($conn);
                         $gamedata_query      = mysqli_query ($conn, $gamedata_query_name);
                         $gamedata_row        = mysqli_fetch_row ($gamedata_query);
                         echo "<div class='pull-left' id='game'>";
-                        // $gamedata_row[1] = name column in games table
-                            echo "<p class='pull-right'><i class='fa fa-times'></i><p>";
-                            if($gamedata_row[7])
+                            // $gamedata_row[1] = name column in games table
+                            if ($user_id == $_SESSION["id"])
+                               echo "<p class='pull-right'><a href = './_method/remove_game.php?game_id=".$game_row[2]."'><i class='fa fa-times'></i></a></p>";
+                            echo "<p>".$gamedata_row[1]."</p>";
+                            if ($gamedata_row[7])
                                 echo "<img class='responsive pull-left' id='img_game' src = '$gamedata_row[7]'>";
                             else    
                                 echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
-                            echo "<p>".$gamedata_row[1]."</p>";
                         echo "</div>";
                     }
                     // Encerra a conexão com o banco de dados

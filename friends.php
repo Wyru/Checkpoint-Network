@@ -15,16 +15,12 @@ if (!$_SESSION["login_status"])
     exit;
 }
 
-$user_id_page = $_GET['user_id'];
-$user_id_page = stripcslashes ($user_id_page);
-$user_id_page = mysql_real_escape_string ($user_id_page);
+$user_id = $_GET['user_id'];
+$user_id = stripcslashes ($user_id);
+$user_id = mysql_real_escape_string ($user_id);
 
 // Conecta ao banco de dados
 include './_method/mysql_connect.php';
-// Proteção contra MySQL Inject
-$user_id = $_GET['user_id'];
-$user_id = stripslashes ($user_id);
-$user_id = mysql_real_escape_string ($user_id);
 
 $query_username = mysqli_query ($conn, "SELECT * FROM `users` WHERE `id` = " .$user_id. "");
 
@@ -77,12 +73,12 @@ mysqli_close ($conn);
                         // Exibição dos amigos
                         // TODO: Separar por páginas
                         include './_method/mysql_connect.php';
-                        $result = mysqli_query($conn, "SELECT * FROM `friends` WHERE (`user_id` = '" .$user_id_page. "' OR `friend_id` = '" .$user_id_page. "') AND `accepted` = 1  ORDER BY `friend_id`");
+                        $result = mysqli_query($conn, "SELECT * FROM `friends` WHERE (`user_id` = '" .$user_id. "' OR `friend_id` = '" .$user_id. "') AND `accepted` = 1  ORDER BY `friend_id`");
                         // Imprime os vinte e cinco resultados em ordem de id de usuário
                         $i = 0;
                         while ($rows = mysqli_fetch_row($result) and $i < 25) 
                         {
-                            if ($rows[2] == $user_id_page)
+                            if ($rows[2] == $user_id)
                             {
                                 $friend_id = $rows[1];
                             }
@@ -107,7 +103,7 @@ mysqli_close ($conn);
                                 echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
                             //<img src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>    
                             echo "</div>";
-                            if ($user_id_page == $_SESSION["id"])
+                            if ($user_id == $_SESSION["id"])
                             {
                                 echo "<div id='destroyFriendship' class='col-lg-4'>
                                         <a href = './_method/undo_friend.php?user_id=" .$friend_id. "'>Desfazer Amizade</a>
@@ -123,7 +119,7 @@ mysqli_close ($conn);
                     </div>        
                 </div>
                 <?php
-                    if ($user_id_page == $_SESSION["id"])
+                    if ($user_id == $_SESSION["id"])
                     {
                         echo "<div class='col-lg-2'>";
                             echo "<div class='col-lg-12' id='friend_request'>";
@@ -167,8 +163,6 @@ mysqli_close ($conn);
                     }
                 ?>
             </div>
-            
-            
         </section>
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
