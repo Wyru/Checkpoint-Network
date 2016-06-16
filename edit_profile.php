@@ -84,7 +84,7 @@ if (!$_SESSION["login_status"])
                             <option value="other">Outro</option>
                         </select>
                     <label for="datepicker">Data de Nascimento:</label> 
-                    <input class="form-control" type="text" id="datepicker" name="new_date" value="<?php echo $_SESSION["birthday"] ?>">
+                    <input class="form-control" type="date" id="datepicker" name="new_date" value="<?php echo $_SESSION["birthday"] ?>">
                     <label for="email">E-mail:</label>
                     <input class="form-control" id="email" type="email" name="dummy_email" value="<?php echo $_SESSION["email"]; ?>" readonly>
                     <label for="senha">Senha:</label>
@@ -95,7 +95,7 @@ if (!$_SESSION["login_status"])
                 <div class="col-lg-4 col-lg-offset-1">
                     <label for="bio">Biografia:</label>
                     <textarea class="form-control" id="bio" rows="5" name="new_biography"><?php echo $_SESSION["biography"] ?></textarea></p>
-                    <label for="favoGame">Jogo Preferida:</label>
+                    <label for="favoGame">Jogo Preferido:</label>
                     <input class="form-control" type="text" id="favoGame" name="new_game" value="<?php echo $_SESSION["favorite_game"] ?>"></p> 
                     <label for="favoPlat">Plataforma Preferida:</label>
                     <input class="form-control" type="text" id="favoPlat" name="new_console" value="<?php echo $_SESSION["platform"] ?>"></p>

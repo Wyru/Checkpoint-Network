@@ -62,7 +62,7 @@ mysqli_close ($conn);
         </header>
         <section class= "container-fluid" id="page-content">
             <div class="col-lg-12" id="title">
-                <h1 ><i class="fa fa-gamepad fa-lg"></i>Games</h1>
+                <h1 ><i class="fa fa-gamepad fa-lg"></i>Games de <?php echo $user_row[1]; ?> </h1>
             </div>
             <div class = "col-lg-12 pull-left">
                 <?php

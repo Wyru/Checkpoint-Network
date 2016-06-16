@@ -223,7 +223,7 @@ else
 
 // Atualização do banco de dados
 $query_name = "UPDATE `users` SET `username`='".$new_name."',`password`='".$new_pass."',"
-        . "`sex`='".$new_sex."',`birthday`='".$new_date."',`psn`='".$new_psn."',`steam`='".$new_steam."',"
+        . "`sex`='".$new_sex."',`birthday`=STR_TO_DATE('".$new_date."', '%d/%m/%Y'),`psn`='".$new_psn."',`steam`='".$new_steam."',"
         . "`xbox_live`='".$new_live."',`nintendo`='".$new_nintendo."',`biography`='".$new_biography."',"
         . "`favorite_game`='".$new_game."', `profile_pic`='".$new_pic."', `platform`='".$new_console."' WHERE id = '".$my_id."'";
 echo $query_name;

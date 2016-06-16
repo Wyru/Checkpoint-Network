@@ -19,6 +19,30 @@ $user_id_page = $_GET['user_id'];
 $user_id_page = stripcslashes ($user_id_page);
 $user_id_page = mysql_real_escape_string ($user_id_page);
 
+// Conecta ao banco de dados
+include './_method/mysql_connect.php';
+// Proteção contra MySQL Inject
+$user_id = $_GET['user_id'];
+$user_id = stripslashes ($user_id);
+$user_id = mysql_real_escape_string ($user_id);
+
+$query_username = mysqli_query ($conn, "SELECT * FROM `users` WHERE `id` = " .$user_id. "");
+
+if ($query_username)
+{
+    $user_row = mysqli_fetch_row ($query_username);
+}
+else
+{
+  echo "<script> 
+        alert('Algo de errado não está certo');
+        window.location.href='default_error.html';
+        </script>";
+    exit;
+
+}
+mysqli_close ($conn);
+
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +67,7 @@ $user_id_page = mysql_real_escape_string ($user_id_page);
             
            
                 <div class="col-lg-12" id="title">
-                        <h1 ><i class="fa fa-users fa-lg"></i>Amigos</h1>
+                        <h1 ><i class="fa fa-users fa-lg"></i>Amigos de <?php echo $user_row[1]; ?></h1>
                 </div>
             
                 <div class="col-lg-10" id="friends">
