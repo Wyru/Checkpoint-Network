@@ -37,7 +37,7 @@ $input_password = mysql_real_escape_string ($input_password);
    
 // Consulta no banco de dados
 $query_result = mysqli_query ($conn, 
-        "SELECT * FROM `users` WHERE `email` LIKE '".$input_email."' AND `password` LIKE '".$input_password."'");
+        "SELECT * FROM `users` WHERE `email` LIKE '".$input_email."' AND `password` LIKE '".$input_password."' AND `removed` = 0");
 // Verifica quantas linhas são compatíveis com o resultado
 $count_rows     = mysqli_num_rows ($query_result);
 $actual_rows    = mysqli_fetch_row ($query_result);
@@ -81,7 +81,7 @@ else if ($count_rows == 0)
     // Caso não haja nenhum resultado no banco de dados referente às informações
     echo "<script> 
         alert('E-Mail ou Senha incorretos!');
-        window.location.href='../login.html';
+        window.location.href='../index.html';
     </script>";
     exit;
 }

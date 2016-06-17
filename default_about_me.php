@@ -13,6 +13,7 @@
     <body>
             
         <section class="col-md-12" id="aboutMe">
+               
                 <?php
                     if($rows[10]){
                     echo "<div id='data'>

@@ -1,0 +1,100 @@
+/*
+		Autor: Willian Saymon;
+		Data de Criação: 15/06/2016;
+		Data de update: 15/06/2016;
+		Descrição: Código css para a página de perfil do usuário(my_profile.php);
+*/
+
+
+/*Parte responsável por adicionar fontes */
+
+@font-face{
+	font-family: AlegreyaSans-ExtraBold;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Medium;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Medium.ttf");
+}
+@font-face{
+	font-family: AlegreyaSans-Light;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Regular;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Regular.ttf");
+}
+#sendByUser ,#sendByOtherUser {
+        margin:2px;
+        
+}
+#sendByUser p, #sendByOtherUser p{
+    color:white;
+    padding: 10px; 
+    background-color: #28243b;
+    border-radius: 10px;
+    
+    
+}
+#sendByUser p{
+    text-align: right;
+    float:right;
+}
+#sendByOtherUser p{
+    text-align: left; 
+    float:left;
+}
+#messagens{
+    height: 450px;
+    overflow-y:scroll;
+}
+#messagensWindowHeader h1{
+    font-family: AlegreyaSans-ExtraBold;
+    color:white;
+    font-size:25px;
+    margin-top: 0px;
+    padding: 5px 0px 5px 20px;
+    background-color:#050412;
+}
+
+#friendList{
+    border: 2px rgba(0,0,0,.1) solid;
+    padding: 0px;
+    
+    
+}
+#pic img{
+    height: 100%;
+    width: 100%;
+}
+#friendListBody {
+    padding: 0px;
+    height: 550px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+#friendList h1{
+    font-family: AlegreyaSans-ExtraBold;
+    color:white;
+    font-size:25px;
+    margin-top: 0px;
+    padding: 5px 0px 5px 20px;
+    background-color:#050412;
+}
+#friend{ 
+    padding: 0px;
+    border-radius: 5px;   
+}
+#friendListBody a{
+    margin-bottom:2px;
+    margin-top: 5px;
+}
+#friendListBody a:hover{
+    background: #d1d1d1;
+    
+}
+#writeAndSend textArea{
+    resize: none;
+}

@@ -21,6 +21,10 @@ include 'mysql_connect.php';
 $friend_id = $_GET['friend_id'];
 $friend_id = stripslashes ($friend_id);
 $friend_id = mysql_real_escape_string ($friend_id);
+// Origin
+$previous_page = $_GET['prev'];
+$previous_page = stripslashes ($previous_page);
+$previous_page = mysql_real_escape_string ($previous_page);
 
 if ($friend_id == $_SESSION["id"])
 {
@@ -32,37 +36,36 @@ if ($friend_id == $_SESSION["id"])
 }
 
 // Verifica se a amizade já não existe
-$query_1 = "SELECT * FROM `friends` WHERE `user_id` = " .$_SESSION["id"]. " AND WHERE `friend_id` = " . $friend_id . "";
+$query_1 = "SELECT * FROM `friends` WHERE `user_id` = " .$_SESSION["id"]. " AND `friend_id` = " . $friend_id . "";
 $exists = mysqli_query ($conn, $query_1);
 // No caso da amizade já existir, não faça nada
-if ($exists)
+if (mysqli_fetch_row ($exists))
 {
     echo "<script> 
-        alert('Erro ao remover postagem!');
+        alert('Erro: Usuário já pertence a sua lista de amigos!');
         window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
 }
 else
 {
-    // Adição da amizade
+    // Adição da amizade - "User_id = Quem enviou a solicitação" - "Friend_id" = Quem recebeu a solicitação
     $query_2 = "INSERT INTO `friends`(`user_id`, `friend_id`) VALUES ('".$_SESSION["id"]."','".$friend_id."')";
-    $query_3 = "INSERT INTO `friends`(`user_id`, `friend_id`) VALUES ('".$friend_id."','".$_SESSION["id"]."')";
     $result_1 = mysqli_query ($conn, $query_2);
     if (!$result_1)
     {
         echo "<script> 
-            alert('Erro ao remover postagem!');
-            window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
-    }
-    $result_2 = mysqli_query ($conn, $query_3);
-    if (!$result_2)
-    {
-        echo "<script> 
-            alert('Erro ao remover postagem!');
+            alert('Erro ao enviar solicitação!');
             window.location.href='../show_profile.php?user_id=" .$_SESSION["id"]. "' </script>";
     }
 }
 
-header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
+if (!empty($_GET['prev']))
+{
+    header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
+}
+else
+{
+    header("location:../show_profile.php?user_id=" .$friend_id. "");
+}
 mysqli_close ($conn);
 
 ?>

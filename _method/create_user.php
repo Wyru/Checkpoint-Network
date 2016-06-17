@@ -70,7 +70,7 @@ if ($count_rows >= 1)
 }
 
 // Inserção no banco de dados
-$result = mysqli_query($conn, "INSERT INTO `users`(`username`, `email`, `password`, `sex`, `birthday`) VALUES ('".$input_name."','".$input_email."','".$input_pass."', '".$input_sex."', '".$input_date."')");
+$result = mysqli_query($conn, "INSERT INTO `users`(`username`, `email`, `password`, `sex`, `birthday`) VALUES ('".$input_name."','".$input_email."','".$input_pass."', '".$input_sex."', STR_TO_DATE('".$input_date."', '%d/%m/%Y'))");
 if (!$result)
 {
     echo "Erro ao inserir no banco de dados!";

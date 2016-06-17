@@ -1,0 +1,70 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 01/06/2016, 19:18:10
+    Author     : Will Saymon
+*/
+@font-face{
+	font-family: AlegreyaSans-ExtraBold;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Medium;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Medium.ttf");
+}
+@font-face{
+	font-family: AlegreyaSans-Light;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
+}
+#page-content{
+    padding: 0px;
+}
+#title{
+    font-family: AlegreyaSans-Medium;
+    color:white;
+    border-bottom: 2px #1d1d1d solid;
+    margin-bottom: 5px;
+    background-color: #050412;     
+}
+#title i{
+    margin-right: 5px;
+}
+
+#game{
+    padding: 10px;
+    padding-top: 0px;
+    background-color: #28243b;
+    margin: 10px;   
+}
+#removeGame{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+}
+#game img{
+    height: 200px;
+    width:  auto;
+}
+#game p{
+    font-family: AlegreyaSans-Medium;
+    color: white;
+    text-align: center;
+}
+#gameSuggest h1{
+    margin-top: 0px;
+    font-family: AlegreyaSans-Medium;
+    background-color: #050412;
+    font-size: 25px;
+    text-align: center;
+    padding: 10px;
+    color:white;
+}
+#gameSuggest {
+    padding: 0px;
+    border: 1px rgba(0,0,0,.9) solid;
+    margin-right: 1px;
+}

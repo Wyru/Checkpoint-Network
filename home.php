@@ -12,7 +12,7 @@ session_start ();
 if (!$_SESSION["login_status"])
 {
     // Envia para a página de login caso não esteja	
-    header("location:login.html");
+    header("location:index.html");
     exit;
 }
 
@@ -43,34 +43,17 @@ Descrição: Página que mostras as ultimas publicações dos amigos do ususári
             ?>
              
         </header> 
-        <section class="container-fluid">
-            <div class="col-md-2 pull-left" id="left">
-                
-                    <p>Alguma coisa aqui</p>
-                    
+        <section id="page-content" class="container">
 
-                
-                
-            </div>
-            <div class="col-md-2 pull-right" id="right">
-                
-                   <?php include("default_notifications.php");?>
-   
-            </div>
-            <div class="col-md-8 pull-right" id="main">
+            
+            <div class="col-lg-8  " id="main">
                 <div class="row">
                     <?php include("default_publish.php"); ?>
                 </div>
                 
                 <div class="col-md-12">
-                    <p> Publicações:</p>
-                    
-                    
-                    <!--Faça a magia acontecer aqui Nixon!!!-->
-                    
-                    
-                    
-                    
+                    <p> Publicações:</p>                 
+                    <!--Faça a magia acontecer aqui Nixon!!!-->  
                 </div>
                 
                 
@@ -83,8 +66,8 @@ Descrição: Página que mostras as ultimas publicações dos amigos do ususári
               
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="_jquery/jquery.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>   
+        <script src="_bootstrap/js/bootstrap.min.js"></script>   
     </body>
 </html>

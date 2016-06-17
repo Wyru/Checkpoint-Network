@@ -11,9 +11,33 @@ session_start ();
 if (!$_SESSION["login_status"])
 {
     // Envia para a página de login caso não esteja	
-    header("location:login.html");
+    header("location:index.html");
     exit;
 }
+
+$user_id = $_GET['user_id'];
+$user_id = stripcslashes ($user_id);
+$user_id = mysql_real_escape_string ($user_id);
+
+// Conecta ao banco de dados
+include './_method/mysql_connect.php';
+
+$query_username = mysqli_query ($conn, "SELECT * FROM `users` WHERE `id` = " .$user_id. "");
+
+if ($query_username)
+{
+    $user_row = mysqli_fetch_row ($query_username);
+}
+else
+{
+  echo "<script> 
+        alert('Algo de errado não está certo');
+        window.location.href='default_error.html';
+        </script>";
+    exit;
+
+}
+mysqli_close ($conn);
 
 ?>
 
@@ -35,45 +59,57 @@ if (!$_SESSION["login_status"])
                 include("default_header.php");
             ?>
         </header>
-        <section class="container-fluid" id="main">
+        <section class="container-fluid" id="page-content">
             
-            <div class="row">
-                
-                <div class="col-lg-8 col-lg-offset-1" id="friends">
-                    <div class="col-md-12" id="title">
-                        <h1 ><i class="fa fa-users fa-lg"></i>Amigos</h1>
-                    </div>
+           
+                <div class="col-lg-12" id="title">
+                        <h1 ><i class="fa fa-users fa-lg"></i>Amigos de <?php echo $user_row[1]; ?></h1>
+                </div>
+            
+                <div class="col-lg-10" id="friends">
+                    
                     <div class="col-md-12">
                         <?php
                         // Exibição dos amigos
                         // TODO: Separar por páginas
                         include './_method/mysql_connect.php';
-                        $result = mysqli_query($conn, "SELECT * FROM `friends` WHERE `user_id` = '" . $_SESSION["id"] . "'  ORDER BY  `friend_id`");
+                        $result = mysqli_query($conn, "SELECT * FROM `friends` WHERE (`user_id` = '" .$user_id. "' OR `friend_id` = '" .$user_id. "') AND `accepted` = 1  ORDER BY `friend_id`");
                         // Imprime os vinte e cinco resultados em ordem de id de usuário
                         $i = 0;
                         while ($rows = mysqli_fetch_row($result) and $i < 25) 
                         {
-                            $friend_id = $rows[2];
+                            if ($rows[2] == $user_id)
+                            {
+                                $friend_id = $rows[1];
+                            }
+                            else
+                            {
+                                $friend_id = $rows[2];
+                            }
                             $query_name = "SELECT * FROM `users` WHERE `id` = '" . $friend_id . "'";
                             $query_2 = mysqli_query($conn, $query_name);
                             $rows_2 = mysqli_fetch_row($query_2);
                             $friend_name = $rows_2[1];
                             echo "<div class ='col-lg-3' id = 'user'>
-                                    <div class='row'>
-                                        <div class='col-lg-offset-1'>
-                                            <p><a href = 'show_profile.php?user_id=".$friend_id."'>".$friend_name."</a><p>
-                                        </div>
-                                    </div>
-                                    <div class='col-lg-8'>
-                                        <img src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>
-                                        
-                                    </div>
-                                    <div class='col-lg-4 '>
+                            <div class='row'>
+                                <div class='col-lg-offset-1'>
+                                    <p><a href = 'show_profile.php?user_id=".$friend_id."'>".$friend_name."</a><p>
+                                </div>
+                            </div>
+                            <div class='col-lg-8'>";
+                            if($rows_2[14])
+                                echo "<img class='responsive pull-left' id='userPic' src = '$rows_2[14]'>";
+                            else    
+                                echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
+                            //<img src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>    
+                            echo "</div>";
+                            if ($user_id == $_SESSION["id"])
+                            {
+                                echo "<div id='destroyFriendship' class='col-lg-4'>
                                         <a href = './_method/undo_friend.php?user_id=" .$friend_id. "'>Desfazer Amizade</a>
-                                    </div>
-                                    
-                                    
-                                </div>";
+                                      </div>";
+                            }
+                            echo "</div>";
                             $i++;    
                         }
                         // Encerra conexão após a query
@@ -82,28 +118,51 @@ if (!$_SESSION["login_status"])
                         ?>   
                     </div>        
                 </div>
-                    
-                <div class="col-lg-3" >
-                    
-                    <div class="col-lg-12" id="friend_request">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h3>Solicitações de Amizade</h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <p>pedidos de amizade aqui :v</p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-
-                </div>
+                <?php
+                    if ($user_id == $_SESSION["id"])
+                    {
+                        echo "<div class='col-lg-2'>";
+                            echo "<div class='col-lg-12' id='friend_request'>";
+                                echo "<div class='row'>";
+                                    echo "<div class='col-lg-12'>";
+                                        echo "<h3>Solicitações de Amizade</h3>";
+                                    echo "</div>";
+                                echo "</div>";
+                                echo "<div class='row'>";
+                                    echo "<div class='col-lg-12'>";
+                                        include './_method/mysql_connect.php';
+                                        $query_solic_name = "SELECT * FROM `friends` WHERE `friend_id` = '" .$_SESSION["id"]. "' AND `accepted` = 0";
+                                        $query_solic = mysqli_query ($conn, $query_solic_name);
+                                        if ($query_solic)
+                                        {
+                                            while ($rows_solic = mysqli_fetch_row ($query_solic))
+                                            {
+                                                if ($rows_solic[2] == $_SESSION["id"])
+                                                {
+                                                    $friend_req_id = $rows_solic[1];
+                                                }
+                                                else
+                                                {
+                                                    $friend_req_id = $rows_solic[2];
+                                                }
+                                                $query_username_name = "SELECT * FROM `users` WHERE `id` = '" .$friend_req_id. "'";
+                                                $query_username = mysqli_query ($conn, $query_username_name);
+                                                if ($rows_username = mysqli_fetch_row ($query_username))
+                                                {
+                                                    // Imprime o nome
+                                                    echo $rows_username[1];
+                                                    // Imprime link para aceitar
+                                                    echo "<br><a href = './_method/accept_friend.php?id=" .$friend_req_id. "'>Aceitar</a><br>";
+                                                }
+                                            }
+                                        }  
+                                    echo "</div>";
+                                echo "</div>";        
+                            echo "</div>";
+                        echo "</div>";
+                    }
+                ?>
             </div>
-            
-            
         </section>
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

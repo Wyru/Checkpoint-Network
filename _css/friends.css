@@ -21,34 +21,29 @@ and open the template in the editor.
 	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
 }
 
-
+#page-content{
+    padding: 0px;
+}
 #title{
     
     border-bottom: 2px #1d1d1d solid;
     margin-bottom: 5px;
-    
-
-        
+    background-color: #050412;
+      
 }
 #title h1{
-    color: #1d1d1d;
-    font-size: 50px;
-    margin-left:60px;
-    font-family: AlegreyaSans-Medium;
-}
-#main{
-    margin-top: 60px;
+    color: white;
     
+    font-size: 35px;
+    font-family: AlegreyaSans-Medium;
 }
 #user{
     font-family: AlegreyaSans-Medium;
-    background-color: #1d1d1d;
+    background-color: #050412;
     padding:5px 5px 10px 5px; 
     margin:5px 20px 10px 40px;
     border-radius:5px;
-    
-    
-    
+   
 }
 #user img{
     height: 60px;
@@ -57,16 +52,23 @@ and open the template in the editor.
 #user a{
     color:white;
     font-family: AlegreyaSans-Light;
+    
 }
-
+#destroyFriendship{
+    background-color: #28243b;
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+    
+}
 #friend_request{
-    background-color: #1d1d1d;
+    background-color: #050412;
     color:white;  
     border-radius: 5px;
+    margin-right: 5px;
 }
 
 #friend_request h3{
     text-align: center;
     font-size: 20px;
-    border-bottom: 1px #980000 solid;
 }
