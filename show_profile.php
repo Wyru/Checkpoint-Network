@@ -66,8 +66,7 @@ mysqli_close ($conn);
         
         <div id="page-content">
             <header class="col-lg-9" id="header">
-                <div class="jumbotron" id="userBackgroud">
-
+                <div class="jumbotron" id="userBackgroud" style="background-image:url(<?php echo $rows[17]?>)">
                 </div>
                 <div class="container">
                     <div id="userPicAndName" class="row">

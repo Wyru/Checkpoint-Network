@@ -174,11 +174,12 @@ else
     
     $my_id          = $_SESSION["id"];
 
+//Foto de perfil:
 // verifica se foi enviado um arquivo
-    if ( isset( $_FILES[ 'arquivo' ][ 'name' ] ) && $_FILES[ 'arquivo' ][ 'error' ] == 0 ) {
+    if ( isset( $_FILES[ 'arquivo_pic' ][ 'name' ] ) && $_FILES[ 'arquivo_pic' ][ 'error' ] == 0 ) {
         
-    $arquivo_tmp = $_FILES[ 'arquivo' ][ 'tmp_name' ];
-    $nome = $_FILES[ 'arquivo' ][ 'name' ];
+    $arquivo_tmp = $_FILES[ 'arquivo_pic' ][ 'tmp_name' ];
+    $nome = $_FILES[ 'arquivo_pic' ][ 'name' ];
  
     // Pega a extensão
     $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
@@ -219,10 +220,61 @@ else
 else
     $new_pic = $_SESSION["profile_pic"];
 
+
+//Foto de capa
+// verifica se foi enviado um arquivo
+    if ( isset( $_FILES[ 'arquivo_cover' ][ 'name' ] ) && $_FILES[ 'arquivo_cover' ][ 'error' ] == 0 ) {
+        
+    $arquivo_tmp_2 = $_FILES[ 'arquivo_cover' ][ 'tmp_name' ];
+    $nome_2 = $_FILES[ 'arquivo_cover' ][ 'name' ];
+ 
+    // Pega a extensão
+    $extensao_2 = pathinfo ( $nome_2, PATHINFO_EXTENSION );
+ 
+    // Converte a extensão para minúsculo
+    $extensao_2 = strtolower ( $extensao_2 );
+ 
+    // Somente imagens, .jpg;.jpeg;.gif;.png
+    // Aqui eu enfileiro as extensões permitidas e separo por ';'
+    // Isso serve apenas para eu poder pesquisar dentro desta String
+    if ( strstr ( '.jpg;.jpeg;.gif;.png', $extensao_2 ) ) {
+        // Cria um nome único para esta imagem
+        // Evita que duplique as imagens no servidor.
+        // Evita nomes com acentos, espaços e caracteres não alfanuméricos
+        $novoNome_2 = uniqid ( time () ) . "." . $extensao_2;
+ 
+        // Concatena a pasta com o nome
+        $destino_2 = '../_imagens/profile_cover/' . $novoNome_2;
+ 
+        // tenta mover o arquivo para o destino
+        if ( @move_uploaded_file ( $arquivo_tmp_2, $destino_2 ) ) {
+            
+            $new_cover = '_imagens/profile_cover/' . $novoNome_2;
+            echo "<script>     
+                alert('Arquivo salvo com sucesso em : $new_cover'); 
+            </script>";
+        }
+        else
+            echo "<script> 
+            alert('Erro ao salvar o arquivo de foto');
+            </script>";
+    }
+    else
+            echo "<script> 
+            alert('Só são permitidos arquivos *.jpg;*.jpeg;*.gif;*.png');
+            </script>";
+}
+else
+    $new_cover = $_SESSION["profile_cover"];
+
+
+
 }
 
+
+
 // Atualização do banco de dados
-$query_name = "UPDATE `users` SET `username`='".$new_name."',`password`='".$new_pass."',"
+$query_name = "UPDATE `users` SET `username`='".$new_name."',`password`='".$new_pass."', `profile_cover`='".$new_cover."',"
         . "`sex`='".$new_sex."',`birthday`=STR_TO_DATE('".$new_date."', '%d/%m/%Y'),`psn`='".$new_psn."',`steam`='".$new_steam."',"
         . "`xbox_live`='".$new_live."',`nintendo`='".$new_nintendo."',`biography`='".$new_biography."',"
         . "`favorite_game`='".$new_game."', `profile_pic`='".$new_pic."', `platform`='".$new_console."' WHERE id = '".$my_id."'";
@@ -245,6 +297,7 @@ if ($query_result)
     $_SESSION["favorite_game"]      = $new_game;
     $_SESSION["platform"]           = $new_console;
     $_SESSION["profile_pic"]        = $new_pic;
+    $_SESSION["profile_cover"]      = $new_cover;
     // Redireciona à pagina de perfil inicial
     header("location:../show_profile.php?user_id=" .$_SESSION["id"]. "");
     // Encerra a conexão com o banco de dados

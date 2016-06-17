@@ -73,7 +73,8 @@ if (!$_SESSION["login_status"])
                         else    
                             echo "src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'";
                     ?>>
-                    <p><b>Selecione uma imagem:</b> <input name="arquivo" type="file" /></p>
+                    <p><b>Selecione uma imagem de perfil:</b> <input name="arquivo_pic" type="file" /></p>
+                    <p><b>Selecione uma imagem de capa:</b> <input name="arquivo_cover" type="file" /></p>
                     <label for="Name">Nome:</label>
                     <input class="form-control" id="Name" type="text" name="new_name" value="<?php echo $_SESSION["name"] ?>">
                     <label for="sex">Sexo:</label>
