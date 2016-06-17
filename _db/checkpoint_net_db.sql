@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Jun-2016 às 14:03
+-- Generation Time: 17-Jun-2016 às 15:34
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -129,7 +129,14 @@ INSERT INTO `games` (`id`, `name`, `genre`, `launch_date`, `developer`, `publish
 (15, 'The Elder Scrolls V - Skyrim', 'RPG', '2011-11-11', 'Bethesda Softworks', 'Bethesda Softworks', 'Skyrim Ã© mais um capÃ­tulo da franquia The Elder Scrolls e se passa 200 anos apÃ³s os eventos do Ãºltimo jogo, Elder Scrolls IV: Oblivion.\r\nEm Skyrim, o jogador retorna ao mundo mÃ­tico de Tamriel para encontrar um cenÃ¡rio totalmente diferente de Oblivion. O ImpÃ©rio estÃ¡ em decadÃªncia e as naÃ§Ãµes Ã©lficas estÃ£o retomando os territÃ³rios outrora dominados pelos humanos.', '_imagens/game_art/14660997895762e84dc0c5b.png', '2016-06-16 17:56:29', 0),
 (16, 'The Elder Scrolls IV - Oblivion', 'RPG', '2006-03-20', 'Bethesda Softworks', 'Bethesda Softworks', 'Penetre no universo do jogo mais vibrante e rico em detalhes jamais criado. Oblivion Ã© o penÃºltimo capÃ­tulo da saga dos Elder Scroll.', '_imagens/game_art/oblivion.png', '2016-06-16 18:09:16', 0),
 (17, 'World of Warcraft', 'MMORPG', '2004-11-23', 'Blizzard Entertainment', 'Blizzard Entertainment', 'World of Warcraft Ã© um jogo on-line, (MMORPG) da produtora Blizzard lanÃ§ado em 2004. O jogo se passa no mundo fantÃ¡stico de Azeroth, introduzido no primeiro jogo da sÃ©rie, Warcraft: Orcs & Humans em 1994. Hoje ele Ã© o mais popular dos MMORPGs de todo o mundo hÃ¡ mais de 10 anos, contando com mais de 10 milhÃµes de jogadores ativos', '_imagens/game_art/14661014085762eea0d5521.jpe', '2016-06-16 18:23:28', 0),
-(18, 'Final Fantasy XIV: Heavensward', 'MMORPG', '2015-06-23', 'Square Enix', 'Square Enix', 'The Holy See of Ishgard opens its gates to adventurers. The main storyline of the expansion pack deals with the Dragonsong War, a thousand-year conflict between Ishgard and Dravania, the home of the dragon beast tribe, which is also available to be explored. Free Companies can craft airships and use them to discover floating continents above the clouds. A number of new instances such as dungeons, two Primal battles and the Alexander: Gordias raid are introduced. Seal Rock, a capture the flag style PvP map, is added to the Frontlines. The level cap is increased to 60. The Au Ra are introduced as a new playable race. In addition to the expansion, the game became available for the first time on the Macintosh computer system.', '_imagens/game_art/146611327557631cfb609ee.jpg', '2016-06-16 21:41:15', 0);
+(18, 'Final Fantasy XIV: Heavensward', 'MMORPG', '2015-06-23', 'Square Enix', 'Square Enix', 'The Holy See of Ishgard opens its gates to adventurers. The main storyline of the expansion pack deals with the Dragonsong War, a thousand-year conflict between Ishgard and Dravania, the home of the dragon beast tribe, which is also available to be explored. Free Companies can craft airships and use them to discover floating continents above the clouds. A number of new instances such as dungeons, two Primal battles and the Alexander: Gordias raid are introduced. Seal Rock, a capture the flag style PvP map, is added to the Frontlines. The level cap is increased to 60. The Au Ra are introduced as a new playable race. In addition to the expansion, the game became available for the first time on the Macintosh computer system.', '_imagens/game_art/146611327557631cfb609ee.jpg', '2016-06-16 21:41:15', 0),
+(19, 'Enduro', 'Arcade Style Racing', NULL, 'Activision', 'Activision', 'O jogador controla um carro, algo semelhante a um FÃ³rmula 1 visto de trÃ¡s, e deve manobrar um carro de corrida no National Enduro, uma corrida de resistÃªncia de longa distÃ¢ncia, cujo percurso era aleatÃ³rio. O objetivo da corrida Ã© passar uma certa quantidade de carros a cada dia, para permitir ao jogador continuar correndo no dia seguinte. O jogador deve se desviar de outros pilotos, e passar 200 carros no primeiro dia, e 300 carros nos dias posteriores', '_imagens/game_art/14661675085763f0d41abde.png', '2016-06-17 12:45:08', 0),
+(20, 'Monster Hunter 2 Dos', 'Action RPG', NULL, 'CAPCOM', 'CAPCOM', 'Monster Hunter 2 is the sequel of Monster Hunter. It was only released in Japan because the Monster Hunter series had only a small cult following elsewhere in the world, while being huge in Japan. New features include day and night changes, seasons, new monsters and new weapon types. Some of the new features carried over to its international portable installment and all leftovers of Monster Hunter 2 were later found in MHF2''s English expansion, excluding Yama Tsukami.', '_imagens/game_art/14661678765763f2442a875.jpg', '2016-06-17 12:51:16', 0),
+(21, 'Monster Hunter 3 Tri', 'Action RPG', NULL, 'CAPCOM', 'CAPCOM', 'Monster Hunter Tri is the third installment in the Monster Hunter series and is the direct sequel to Monster Hunter Dos. It was first announced for the PlayStation 3, but was canceled. Capcom, specifically Capcom managing corporate officer Katsuhiko Ichii, announced on October 10, 2007 that Monster Hunter 3 will be a Wii-exclusive title.', '_imagens/game_art/14661683555763f4237f5a0.jpg', '2016-06-17 12:59:15', 0),
+(22, 'Ã•kami', 'Action-Adventure', '0000-00-00', 'Clover Studios', 'CAPCOM', 'ÅŒkami  is an action-adventure video game developed by Clover Studio and published by Capcom. It was released for Sony Computer Entertainment''s PlayStation 2 video game console in 2006 in Japan and North America, and in 2007 in Europe and Australia. Despite the closure of Clover Studio a few months after the game''s initial release, a version for Nintendo''s Wii console was developed and produced by Ready at Dawn, Tose and Capcom, which was released in North America in April 2008, in Europe in June 2008, and in Japan in October 2009.', '_imagens/game_art/14661688575763f6195f641.jpg', '2016-06-17 13:07:37', 0),
+(24, 'God of War', 'AÃ§Ã£o-aventura/ Hack and slash', '0000-00-00', 'SCE Santa Monica Studio', 'Sony Computer Entertainment', 'A histÃ³ria faz parte de uma saga, pela qual, Kratos inicia sua vinganÃ§a pelo Deus da Guerra,que o prometeu a vencer uma guerra em que perderia pela sua alma.PorÃ©m, Ares (o Deus da Guerra) trai o espartano dizendo para ele atacar um acampamento prÃ³ximo de seu arsenal, Kratos e seus soldados queimam o acampamento inteiro sobrando apenas mais uma cabana para ser demolida. Antes que ele entrasse na cabana,Kratos ainda tem uma previsÃ£o de uma cigana dizendo que se ele cumprir a ordem do Deus da Guerra irÃ¡ acabar num sofrimento eterno.', '_imagens/game_art/14661691445763f73865202.jpg', '2016-06-17 13:12:24', 0),
+(25, 'League of Legends', 'MOBA', '0000-00-00', 'RIOT GAMES', 'RIOT GAMES', 'Em League of Legends, os jogadores assumem o papel de invocadores, controlando campeÃµes com habilidade Ãºnicas e que lutam com seu time contra outros invocadores ou campeÃµes controlados pelo computador. No modo mais popular do jogo, o objetivo de cada time Ã© destruir o nexus da equipe adversÃ¡ria, uma construÃ§Ã£o localizada na base e que Ã© protegida por outros estruturas. Cada jogo de League of Legends Ã© distinto, pois os campeÃµes sempre comeÃ§am fracos e progridem atravÃ©s da acumulaÃ§Ã£o de ouro e da experiÃªncia ao longo da partida.', '_imagens/game_art/14661694125763f844965a2.jpg', '2016-06-17 13:16:52', 0),
+(26, 'Super Mario World', 'Plataforma', '0000-00-00', 'Nintedo EAD', 'Nintendo', 'Super Mario World Ã© um jogo de plataforma desenvolvido e publicado pela Nintendo como um tÃ­tulo que acompanhava o console Super Nintendo Entertainment System. O jogo foi lanÃ§ado em 1990 no JapÃ£o e em 1991 na AmÃ©rica do Norte. Super Mario World se tornou um enorme sucesso crÃ­tico e comercial, sendo considerado o mais bem-vendido da plataforma, com 20 milhÃµes de cÃ³pias vendidas no mundo todo', '_imagens/game_art/14661696495763f931ece9f.jpg', '2016-06-17 13:20:49', 0);
 
 -- --------------------------------------------------------
 
@@ -159,7 +166,14 @@ INSERT INTO `games_played` (`id`, `user_id`, `game_id`) VALUES
 (10, 3, 14),
 (11, 3, 18),
 (12, 23, 4),
-(13, 1, 14);
+(13, 1, 14),
+(14, 20, 15),
+(17, 20, 20),
+(18, 20, 21),
+(19, 20, 24),
+(20, 20, 22),
+(21, 20, 25),
+(22, 20, 26);
 
 -- --------------------------------------------------------
 
@@ -193,7 +207,8 @@ INSERT INTO `message` (`id`, `sender`, `receiver`, `content`, `deleted`) VALUES
 (11, 1, 22, 'Du, dudu e edu', 0),
 (12, 1, 20, 'Aqui Ã© Boris Bilder porra!', 0),
 (13, 1, 4, 'Oi!', 0),
-(14, 4, 22, 'VAINAMOINEN!', 0);
+(14, 4, 22, 'VAINAMOINEN!', 0),
+(15, 20, 1, 'e ase\r\n', 0);
 
 -- --------------------------------------------------------
 
@@ -391,7 +406,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `sex`, `birthday`, `
 (17, 'Mikhail Mannerheim', 'keisari@gaea.gov.imp', 'mikhail123', 'male', '2000-03-17', 'mikhail_jaeger', 'jaeger_2k', 'BlackJaeger401', 'Jageren_29', 'I''m Mikhail, the Bold, greatest military leader and emperor this empire had! I fought against the Telsicians and won like a boss!', 'Hunter 4', 0, '2016-06-16 16:40:57', NULL, 1, 'PC', NULL),
 (18, 'SeÃ¡n McLoughlin', 'jackscepticeye@outlook.com', 'jack1234', 'male', '1990-03-21', 'jack_a_boss', 'jack_a_boss', 'jack_a_boss', '', 'Like a b0ss', 'Undertale', 0, '2016-06-12 05:21:00', '_imagens/profile_pic/1465708860575cf13c8ab29.png', 0, 'PC', NULL),
 (19, 'Ronei Teixeira Costa JÃºnior', 'ronei@unifei.edu.br', 'ronei123', 'male', '1996-12-24', 'Ronei_123', '', '', '', 'SERIES, SERIES ALL DAY ALONG', 'Chrono Trigger', 0, '2016-06-12 23:34:37', '_imagens/profile_pic/1465714245575d0645b1ad5.png', 0, 'PC', NULL),
-(20, 'Will Saymon', 'wsaymonoficial@gmail.com', 'will123', 'male', '0000-00-00', '', 'Wyru', '', '', 'You can''t move others hearts, unless you can move your own.', 'Monster Hunter', 0, '2016-06-16 00:57:36', '_imagens/profile_pic/1465854196575f28f44049c.jpg', 0, 'PSP', NULL),
+(20, 'Will Saymon', 'wsaymonoficial@gmail.com', 'will123', 'male', '0000-00-00', '', 'Wyru', '', '', 'You can''t move others hearts, unless you can move your own.', 'Monster Hunter', 2, '2016-06-17 12:43:29', '_imagens/profile_pic/1465854196575f28f44049c.jpg', 0, 'PSP', NULL),
 (21, 'Pedro Lomonaco', 'pedro_ditd@hotmail.com', 'pedro123', 'male', '0000-00-00', '', 'SuspiroDourado', '', '', 'Born this way!', 'League of Legends', 0, '2016-06-13 21:55:45', '_imagens/profile_pic/1465854886575f2ba6c7254.jpg', 0, 'PC', NULL),
 (22, 'Eduardo Faggiani', 'edufaggiani@unifei.edu.br', 'edu123', 'male', '0000-00-00', '', '', '', '', 'Tuts tuts quero ver', 'Final Fantasy Tactics', 0, '2016-06-16 15:09:57', '_imagens/profile_pic/14660897965762c144f3a3d.jpg', 0, 'PC', NULL),
 (23, 'Wilhem Pfaffenbach', 'wilhem@yahoo.com.de', 'wilhem123', 'male', '1997-05-01', '', 'Hardened Jaeger', 'Wilhem_245', '', '"We''re building it up, to break it back down, we''re building it up, to burn it down, we can''t wait, to burn it to the ground!"', 'Battlefield 4', 0, '2016-06-16 21:59:17', '_imagens/profile_pic/1466114357576321358cf97.png', 0, 'XBOX One', NULL);
@@ -455,17 +470,17 @@ ALTER TABLE `friends`
 -- AUTO_INCREMENT for table `games`
 --
 ALTER TABLE `games`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `games_played`
 --
 ALTER TABLE `games_played`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `posts`
 --
