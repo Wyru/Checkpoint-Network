@@ -101,13 +101,13 @@ if (!$_SESSION["login_status"])
                                     echo"</div>";
                                 echo "</div>";
                                 echo"<div class='row' id='resultsBody'>";
-                                    echo"<div class='col-lg-3'>";
+                                    echo"<div>";
                                         if($rows[7])
                                             echo "<img class='responsive pull-left' id='img_game' src = '$rows[7]'>";
                                          else    
                                             echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
                                     echo"</div>";
-                                    echo"<div class='col-lg-9'>";
+                                    echo"<div class=''>";
                                         echo "<p>Gênero: ".$rows[2]."</p>";
                                         echo "<p>Desenvolvedora: ".$rows[4]."</p>";
                                         echo "<p>Publicadora: ".$rows[5]."</p>";

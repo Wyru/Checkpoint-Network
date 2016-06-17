@@ -3,11 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: 17-Jun-2016 às 20:02
-=======
--- Generation Time: 17-Jun-2016 às 15:34
->>>>>>> origin/php_integration_v03
+-- Generation Time: 17-Jun-2016 às 21:17
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -65,7 +61,6 @@ INSERT INTO `friends` (`id`, `user_id`, `friend_id`, `date`, `accepted`) VALUES
 (92, 13, 11, '2016-06-12 23:30:18', 1),
 (93, 13, 9, '2016-06-12 23:28:13', 1),
 (94, 13, 8, '2016-06-12 23:29:25', 1),
-(95, 13, 1, '2016-06-12 23:24:27', 1),
 (96, 5, 9, '2016-06-12 23:28:14', 1),
 (97, 12, 9, '2016-06-13 21:46:19', 1),
 (98, 12, 11, '2016-06-12 23:30:19', 1),
@@ -84,10 +79,22 @@ INSERT INTO `friends` (`id`, `user_id`, `friend_id`, `date`, `accepted`) VALUES
 (111, 20, 19, '2016-06-13 21:46:41', 1),
 (112, 20, 9, '2016-06-13 21:46:49', 1),
 (113, 21, 1, '2016-06-13 21:58:44', 1),
-(114, 21, 3, '2016-06-13 21:55:12', 0),
+(114, 21, 3, '2016-06-16 21:42:53', 1),
 (115, 21, 9, '2016-06-13 21:55:17', 0),
-(116, 21, 20, '2016-06-13 21:55:27', 0),
-(117, 21, 19, '2016-06-13 21:55:33', 0);
+(116, 21, 20, '2016-06-16 16:13:49', 1),
+(117, 21, 19, '2016-06-13 21:55:33', 0),
+(118, 4, 1, '2016-06-16 15:50:02', 1),
+(119, 4, 22, '2016-06-16 15:51:40', 1),
+(120, 4, 3, '2016-06-16 21:43:51', 1),
+(121, 4, 19, '2016-06-16 15:26:36', 0),
+(122, 4, 21, '2016-06-16 21:50:17', 1),
+(123, 4, 20, '2016-06-16 16:13:50', 1),
+(125, 5, 4, '2016-06-16 15:54:51', 0),
+(126, 1, 22, '2016-06-16 15:56:41', 1),
+(127, 1, 13, '2016-06-16 16:45:09', 0),
+(128, 23, 1, '2016-06-16 22:00:14', 1),
+(129, 23, 5, '2016-06-16 21:59:24', 0),
+(130, 23, 8, '2016-06-16 21:59:34', 0);
 
 -- --------------------------------------------------------
 
@@ -113,12 +120,9 @@ CREATE TABLE `games` (
 --
 
 INSERT INTO `games` (`id`, `name`, `genre`, `launch_date`, `developer`, `publisher`, `description`, `art`, `added`, `removed`) VALUES
-(3, 'Crysis', 'FPS', '0000-00-00', 'Crytek', 'Electronic Arts', '', '_imagens/game_art/14660339015761e6ed00660.jpg', '2016-06-15 23:38:21', 0),
-(4, 'Battlefield 3', 'FPS', '0000-00-00', 'DICE', 'Electronic Arts', '', '_imagens/game_art/14660372545761f40691e12.jpg', '2016-06-16 00:34:14', 0),
+(3, 'Crysis', 'FPS', '2007-10-03', 'Crytek', 'Electronic Arts', '', '_imagens/game_art/14660339015761e6ed00660.jpg', '2016-06-15 23:38:21', 0),
+(4, 'Battlefield 3', 'FPS', '2011-11-09', 'DICE', 'Electronic Arts', 'Utilizando o poder da engine Frostbite 2, a DICE produz um jogo de tiro em primeira pessoa unindo uma jogabilidade fluída com gráficos realistas.', '_imagens/game_art/14660372545761f40691e12.jpg', '2016-06-16 00:34:14', 0),
 (5, 'Battlefield 2', 'FPS', '0000-00-00', 'DICE', 'Electronic Arts', '', '_imagens/game_art/14660372715761f41731a92.jpe', '2016-06-16 00:34:31', 0),
-<<<<<<< HEAD
-(6, 'Monster Hunter', 'Action RPG', '2011-03-04', 'CAPCOM', 'CAPCOM', 'Monster Hunter Ã© um jogo de  hack and slash,  estratÃ©gia e aventura onde o jogador encarna na pele de um caÃ§ador em um mundo repleto de criaturas mortais. Nas caÃ§adas, seja  matando ou capturando monstros,  Ã© preciso  o uso de estratÃ©gia, habilidades e itens. Monster Hunter vendeu  pouco na AmÃ©rica e na Europa, mas fez grande sucesso no JapÃ£o.', '_imagens/game_art/1466040806576201e60e0be.jpg', '2016-06-16 01:33:26', 0);
-=======
 (6, 'Monster Hunter', 'Action RPG', '2011-03-04', 'CAPCOM', 'CAPCOM', 'Monster Hunter Ã© um jogo de  hack and slash,  estratÃ©gia e aventura onde o jogador encarna na pele de um caÃ§ador em um mundo repleto de criaturas mortais. Nas caÃ§adas, seja  matando ou capturando monstros,  Ã© preciso  o uso de estratÃ©gia, habilidades e itens. Monster Hunter vendeu  pouco na AmÃ©rica e na Europa, mas fez grande sucesso no JapÃ£o.', '_imagens/game_art/1466040806576201e60e0be.jpg', '2016-06-16 01:33:26', 0),
 (13, 'Battlefield 1', 'FPS', '0000-00-00', 'DICE', 'Electronic Arts', 'A sÃ©rie Battlefield vai sair do cenÃ¡rio dos combates modernos e vai voltar para um cenÃ¡rio ainda mal explorado nos games. Em Battlefieldâ„¢ 1, vocÃª verÃ¡ a Primeira Guerra Mundial (que aconteceu entre 1914 e 1918) como nunca antes, com confrontos violentÃ­ssimos que unem a tecnologia do final do SÃ©culo XIX com armas que surgiram nesta batalha de escala global.', '_imagens/game_art/14660991455762e5c934412.png', '2016-06-16 17:45:45', 0),
 (14, 'Final Fantasy XV', 'RPG', '0000-00-00', 'Square Enix', 'Square Enix', 'Em comemoraÃ§Ã£o aos treze anos de uma das maiores franquias de RPG, Final Fantasy, a Square Enix lanÃ§ou o projeto Fabula Nova Crystallis (ou "Nova Lenda do Cristal"), o qual abarca diversos tÃ­tulos que sÃ£o variaÃ§Ãµes do mundo de FF XIII. Fabula Nova Crystallis Ã© constituÃ­da por Final Fantasy Versus XIII, FF XIII, ambos para PlayStation 3, e FF Agito XIII, para celulares â€” cada um com personagens, mundos e enredos diferentes.', '_imagens/game_art/14660993905762e6be50e0e.jpg', '2016-06-16 17:49:50', 0),
@@ -133,7 +137,6 @@ INSERT INTO `games` (`id`, `name`, `genre`, `launch_date`, `developer`, `publish
 (24, 'God of War', 'AÃ§Ã£o-aventura/ Hack and slash', '0000-00-00', 'SCE Santa Monica Studio', 'Sony Computer Entertainment', 'A histÃ³ria faz parte de uma saga, pela qual, Kratos inicia sua vinganÃ§a pelo Deus da Guerra,que o prometeu a vencer uma guerra em que perderia pela sua alma.PorÃ©m, Ares (o Deus da Guerra) trai o espartano dizendo para ele atacar um acampamento prÃ³ximo de seu arsenal, Kratos e seus soldados queimam o acampamento inteiro sobrando apenas mais uma cabana para ser demolida. Antes que ele entrasse na cabana,Kratos ainda tem uma previsÃ£o de uma cigana dizendo que se ele cumprir a ordem do Deus da Guerra irÃ¡ acabar num sofrimento eterno.', '_imagens/game_art/14661691445763f73865202.jpg', '2016-06-17 13:12:24', 0),
 (25, 'League of Legends', 'MOBA', '0000-00-00', 'RIOT GAMES', 'RIOT GAMES', 'Em League of Legends, os jogadores assumem o papel de invocadores, controlando campeÃµes com habilidade Ãºnicas e que lutam com seu time contra outros invocadores ou campeÃµes controlados pelo computador. No modo mais popular do jogo, o objetivo de cada time Ã© destruir o nexus da equipe adversÃ¡ria, uma construÃ§Ã£o localizada na base e que Ã© protegida por outros estruturas. Cada jogo de League of Legends Ã© distinto, pois os campeÃµes sempre comeÃ§am fracos e progridem atravÃ©s da acumulaÃ§Ã£o de ouro e da experiÃªncia ao longo da partida.', '_imagens/game_art/14661694125763f844965a2.jpg', '2016-06-17 13:16:52', 0),
 (26, 'Super Mario World', 'Plataforma', '0000-00-00', 'Nintedo EAD', 'Nintendo', 'Super Mario World Ã© um jogo de plataforma desenvolvido e publicado pela Nintendo como um tÃ­tulo que acompanhava o console Super Nintendo Entertainment System. O jogo foi lanÃ§ado em 1990 no JapÃ£o e em 1991 na AmÃ©rica do Norte. Super Mario World se tornou um enorme sucesso crÃ­tico e comercial, sendo considerado o mais bem-vendido da plataforma, com 20 milhÃµes de cÃ³pias vendidas no mundo todo', '_imagens/game_art/14661696495763f931ece9f.jpg', '2016-06-17 13:20:49', 0);
->>>>>>> origin/php_integration_v03
 
 -- --------------------------------------------------------
 
@@ -147,8 +150,6 @@ CREATE TABLE `games_played` (
   `game_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-<<<<<<< HEAD
-=======
 --
 -- Extraindo dados da tabela `games_played`
 --
@@ -174,7 +175,6 @@ INSERT INTO `games_played` (`id`, `user_id`, `game_id`) VALUES
 (21, 20, 25),
 (22, 20, 26);
 
->>>>>>> origin/php_integration_v03
 -- --------------------------------------------------------
 
 --
@@ -204,15 +204,11 @@ INSERT INTO `message` (`id`, `sender`, `receiver`, `content`, `deleted`) VALUES
 (8, 1, 11, 'Hello again, just testing some bug corrections.', 0),
 (9, 11, 1, 'Oh, alright! They''re working!', 0),
 (10, 20, 1, 'E ae desgraÃ§a o/', 0),
-<<<<<<< HEAD
-(11, 1, 13, 'dasdasdas', 0);
-=======
 (11, 1, 22, 'Du, dudu e edu', 0),
 (12, 1, 20, 'Aqui Ã© Boris Bilder porra!', 0),
 (13, 1, 4, 'Oi!', 0),
 (14, 4, 22, 'VAINAMOINEN!', 0),
 (15, 20, 1, 'e ase\r\n', 0);
->>>>>>> origin/php_integration_v03
 
 -- --------------------------------------------------------
 
@@ -257,7 +253,7 @@ INSERT INTO `posts` (`id`, `user_id`, `content`, `time`, `deleted`, `origin`, `l
 (20, 12, 'Nice job back in Iraq, now you know why I''ve chosen you as our esteemed General!', '2016-06-12 04:54:22', 0, 11, 2),
 (21, 8, 'OREWA OCHINCHIN GADAISUKE NANDAYO!', '2016-06-12 04:56:18', 0, 8, 2),
 (22, 14, 'Fist me dade', '2016-06-12 04:56:58', 0, 8, 0),
-(23, 11, 'Welcome to the rice fields motherfucker!', '2016-06-12 05:00:55', 0, 8, 2),
+(23, 11, 'Welcome to the rice fields motherfucker!', '2016-06-12 05:00:55', 0, 8, 3),
 (24, 13, 'You''ve always been one of our proxies during our sniper bullying rampage during HS, just sayin'' HAHAHAHAH', '2016-06-12 05:01:54', 0, 8, 0),
 (25, 12, 'Noob HHUEHEUAEUHUEHEAUAHEUEU', '2016-06-12 05:02:12', 0, 8, 0),
 (26, 1, 'You''re that guy who does Software Engineering I with that Adler fella, right? Heard about you...', '2016-06-12 05:07:13', 0, 13, 2),
@@ -277,9 +273,10 @@ INSERT INTO `posts` (`id`, `user_id`, `content`, `time`, `deleted`, `origin`, `l
 (40, 13, 'That''s right, it''s me, it''s a nice course, such a privilege to do it in the 3rd semester with your seniors :P', '2016-06-12 05:28:36', 0, 1, 0),
 (41, 18, 'Thanks for showing me Undertale ;)', '2016-06-12 08:19:26', 0, 1, 0),
 (42, 9, 'Heya m8!', '2016-06-13 21:44:08', 0, 20, 0),
-(43, 1, 'Topcoder kekesimus maximus\r\n', '2016-06-13 21:44:47', 0, 20, 1),
+(43, 1, 'Topcoder kekesimus maximus\r\n', '2016-06-13 21:44:47', 1, 20, 1),
 (44, 21, 'Damn those stormcloak rebels to Oblivion!', '2016-06-13 22:03:38', 0, 1, 0),
-(45, 20, 'Ta ficando muito show essa rede social', '2016-06-16 01:34:27', 0, 20, 0);
+(45, 20, 'Ta ficando muito show essa rede social', '2016-06-16 01:34:27', 0, 20, 2),
+(46, 20, 'De acordo!', '2016-06-16 15:05:14', 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -353,7 +350,10 @@ INSERT INTO `upvotes` (`id`, `post_id`, `user_id`) VALUES
 (55, 21, 20),
 (56, 23, 20),
 (57, 39, 20),
-(58, 43, 1);
+(58, 43, 1),
+(59, 45, 1),
+(60, 23, 1),
+(61, 45, 21);
 
 -- --------------------------------------------------------
 
@@ -387,34 +387,29 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `sex`, `birthday`, `psn`, `steam`, `xbox_live`, `nintendo`, `biography`, `favorite_game`, `user_type`, `register_time`, `profile_pic`, `removed`, `platform`, `profile_cover`) VALUES
-(1, 'Nixon Moreira Silva', 'nixonmoreira@hotmail.com', 'nixon123', 'male', '0000-00-00', 'merc_roach', 'Red Kaiser', 'RedKaiser42', 'Ah vÃ©i', '"Nichts ist fÃ¼r dich... Nichts war fÃ¼r dich... Nichts bleibt fÃ¼r dich... FÃ¼r immer!"', 'Battlefield 3', 0, '2016-06-17 17:51:40', '_imagens/profile_pic/14661019765762f0d8c2f87.jpg', 0, 'PC', '_imagens/profile_cover/1466185900576438ac33cea.jpg'),
-(2, 'Ronegro', 'ronegro@negro.negro', 'negro123', 'other', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2016-06-03 19:06:42', NULL, 1, '', NULL),
-(3, 'Andrew Ian Soares Simmon', 'andrew@unifei.edu.br', 'perdi', 'male', '0000-00-00', 'pudim64br', 'pudim64br', '', '', 'Leitura Ã© minha rotina', 'Final Fantasy VII', 0, '2016-06-17 17:55:58', '_imagens/profile_pic/1465705807575ce54f8d6dd.jpg', 0, 'Playstation 4', '_imagens/profile_cover/1466186158576439ae0f0cc.jpg'),
-(4, 'RogÃ©rio', 'rogeriojr4@live.com', '123', 'male', '0000-00-00', NULL, 'Rogerio', NULL, NULL, NULL, NULL, 0, '2016-06-12 23:36:42', NULL, 0, '', NULL),
-(5, 'Rafael Soares dos Reis Macris', 'rafa07@hotmail.com', 'rafa123', 'male', '1997-07-23', '', 'Tsotso', '', '', 'Estudo na INATEL e sou depressivo.', 'Crysis', 0, '2016-06-12 23:36:11', '_imagens/profile_pic/1465709077575cf2150bcf9.jpg', 0, '', NULL),
-(6, 'adler diniz', 'adlerunifei@gmail.com', '12345', 'male', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2016-06-03 19:06:55', NULL, 1, '', NULL),
-(7, 'Ronegro Novo', 'ronegro_seducao@negro.com', 'negro123', 'other', '1880-12-03', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2016-06-03 19:06:35', NULL, 1, '', NULL),
-(8, 'Ulf Westberg', 'vice_keisari@gaea.gov.imp', 'filthy_frank*924', 'male', '1997-03-21', 'westo_j2010', 'Cool Westo', 'RoutineMovie138', '', 'It''s filthy frank motherfucker! It''s filthy frank bitch!', 'Hunter 3', 0, '2016-06-12 05:02:47', '_imagens/profile_pic/1465707612575cec5c4bb02.jpe', 0, '', NULL),
-(9, 'Robin Kowalewski', 'robin_2246@yahoo.com.pl', 're24ad8*SDA', 'male', '1997-07-02', 'robin_kowalewski', 'Robin of Rivendell', 'robin_2246', 'MarkistTheory42', 'Born in Poland and went to Brazil to fight for the development of the Empire of Gaea. Also, live in the same fraternity as Markus Mannerheim. Studies Hydric Engineering at Federal University of Itajuba', 'Final Fantasy VII', 0, '2016-06-12 05:19:40', '_imagens/profile_pic/1465708479575cefbf4d69c.png', 0, '', NULL),
-(10, 'Robin Kowalewski', 'robin_2246@yahoo.com.pl', 're24ad8*SDA', 'male', '1997-07-02', 'robin_kowalewski', 'Robin of Rivendell', 'robin_2246', 'MarkistTheory42', 'Born in Poland and went to Brazil to fight for the development of the Empire of Gaea. Also, live in the same fraternity as Markus Mannerheim. Studies Hydric Engineering at Federal University of Itajubá ', 'Final Fantasy VII', 0, '2016-06-03 19:07:17', NULL, 1, '', NULL),
-(11, 'Markus Mannerheim', 'keisari@gaea.gov.imp', '3489_Aus1$UR', 'male', '1997-04-14', 'merc_woods', 'Markek Maximus', 'Noob_Coder_2015', 'Markek_Maximus', 'You know who I am!', 'Hunter - War At Mars', 0, '2016-06-12 04:41:02', '_imagens/profile_pic/1465706462575ce7dec43c3.png', 0, '', NULL),
-(12, 'Emerson Baumann', 'emerson_baumann@yahoo.com.de', 'e124k293EPR', 'male', '1997-05-06', 'Baumann_732', 'General Baumann', 'General_Baumann', 'General_Baumann', 'General of the Imperial Armed Forces, like to play some shooter game every once in a while.', 'Battlefield 4', 0, '2016-06-12 04:32:40', '_imagens/profile_pic/1465705960575ce5e83d651.png', 0, '', NULL),
-(13, 'Dansk Trondheim', 'nubenube@yahoo.com.dn', 'nubenube', 'male', '1998-02-12', 'Dansk_0357_TRDM', 'nube_123', 'nube_123', 'nube_123', 'Hi there! I''m a Information System student at UNIFEI. I like to play League of Legends and other MOBA genre games.', 'League of Legends', 0, '2016-06-12 05:06:17', '_imagens/profile_pic/1465707901575ced7db22e2.png', 0, 'PC', NULL),
-(14, 'Felix Arvid Ulf Kjellberg', 'poods@gmail.com', 'deutschland', 'male', '1989-10-02', 'felix_03_ulf', 'Saladass', '', '', 'Stop sending me "Fist me daddy" messages!', 'agar.io', 0, '2016-06-12 23:36:51', '_imagens/profile_pic/1465705727575ce4ffd2174.png', 0, 'PC', NULL),
-(15, 'Vilkas Mannerheim', 'keisari@gaea.gov.imp', 'vilkas123', 'male', '2001-05-12', 'xX_vilkasQS_Xx', 'vilkassen', 'FireDragon981', NULL, 'Son of Mikhail, the Bold, and proud conciliator between two enemy species.', 'Hunter 4', 0, '2016-06-03 19:10:57', NULL, 0, 'Playstation 4', NULL),
-(16, 'Luiz Celso Arruda Filho', 'lully2015@hotmail.com', 'lully123', 'male', '2005-02-28', 'isanity_gamer', 'isanity_gamer', 'isanity238', '', 'Mor gamer minecraft S2', 'Minecraft', 0, '2016-06-13 00:03:10', '_imagens/profile_pic/1465776190575df83e53ad3.jpg', 0, 'Playstation 4', NULL),
-(17, 'Mikhail Mannerheim', 'keisari@gaea.gov.imp', 'mikhail123', 'male', '2000-03-17', 'mikhail_jaeger', 'jaeger_2k', 'BlackJaeger401', 'Jageren_29', 'I''m Mikhail, the Bold, greatest military leader and emperor this empire had! I fought against the Telsicians and won like a boss!', 'Hunter 4', 0, '2016-06-12 23:34:26', NULL, 1, 'PC', NULL),
-(18, 'SeÃ¡n McLoughlin', 'jackscepticeye@outlook.com', 'jack1234', 'male', '1990-03-21', 'jack_a_boss', 'jack_a_boss', 'jack_a_boss', '', 'Like a b0ss', 'Undertale', 0, '2016-06-12 05:21:00', '_imagens/profile_pic/1465708860575cf13c8ab29.png', 0, 'PC', NULL),
-(19, 'Ronei Teixeira Costa JÃºnior', 'ronei@unifei.edu.br', 'ronei123', 'male', '1996-12-24', 'Ronei_123', '', '', '', 'SERIES, SERIES ALL DAY ALONG', 'Chrono Trigger', 0, '2016-06-12 23:34:37', '_imagens/profile_pic/1465714245575d0645b1ad5.png', 0, 'PC', NULL),
-<<<<<<< HEAD
-(20, 'Will Saymon', 'wsaymonoficial@gmail.com', 'will123', 'male', '0000-00-00', '', 'Wyru', '', '', 'You can''t move others hearts, unless you can move your own.', 'Monster Hunter', 0, '2016-06-16 00:57:36', '_imagens/profile_pic/1465854196575f28f44049c.jpg', 0, 'PSP', NULL),
-(21, 'Pedro Lomonaco', 'pedro_ditd@hotmail.com', 'pedro123', 'male', '0000-00-00', '', 'SuspiroDourado', '', '', 'Born this way!', 'League of Legends', 0, '2016-06-13 21:55:45', '_imagens/profile_pic/1465854886575f2ba6c7254.jpg', 0, 'PC', NULL);
-=======
-(20, 'Will Saymon', 'wsaymonoficial@gmail.com', 'will123', 'male', '0000-00-00', '', 'Wyru', '', '', 'You can''t move others hearts, unless you can move your own.', 'Monster Hunter', 2, '2016-06-17 12:43:29', '_imagens/profile_pic/1465854196575f28f44049c.jpg', 0, 'PSP', NULL),
-(21, 'Pedro Lomonaco', 'pedro_ditd@hotmail.com', 'pedro123', 'male', '0000-00-00', '', 'SuspiroDourado', '', '', 'Born this way!', 'League of Legends', 0, '2016-06-13 21:55:45', '_imagens/profile_pic/1465854886575f2ba6c7254.jpg', 0, 'PC', NULL),
-(22, 'Eduardo Faggiani', 'edufaggiani@unifei.edu.br', 'edu123', 'male', '0000-00-00', '', '', '', '', 'Tuts tuts quero ver', 'Final Fantasy Tactics', 0, '2016-06-16 15:09:57', '_imagens/profile_pic/14660897965762c144f3a3d.jpg', 0, 'PC', NULL),
-(23, 'Wilhem Pfaffenbach', 'wilhem@yahoo.com.de', 'wilhem123', 'male', '1997-05-01', '', 'Hardened Jaeger', 'Wilhem_245', '', '"We''re building it up, to break it back down, we''re building it up, to burn it down, we can''t wait, to burn it to the ground!"', 'Battlefield 4', 0, '2016-06-16 21:59:17', '_imagens/profile_pic/1466114357576321358cf97.png', 0, 'XBOX One', NULL);
->>>>>>> origin/php_integration_v03
+(1, 'Nixon Moreira Silva', 'nixonmoreira@hotmail.com', 'nixon123', 'male', '0000-00-00', 'merc_roach', 'Red Kaiser', 'RedKaiser42', 'Ah vÃ©i', '"Nichts ist fÃ¼r dich... Nichts war fÃ¼r dich... Nichts bleibt fÃ¼r dich... FÃ¼r immer!"', 'The Elder Scrolls V - Skyrim', 2, '2016-06-17 19:13:57', '_imagens/profile_pic/14660370895761f3612a302.png', 0, 'PC', '_imagens/profile_cover/146619083757644bf5a7827.png'),
+(2, 'Ronegro', 'ronegro@negro.negro', 'negro123', 'other', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2016-06-03 19:06:42', NULL, 1, '', ''),
+(3, 'Andrew Ian Soares Simmon', 'andrew@unifei.edu.br', 'perdi', 'male', '0000-00-00', 'pudim64br', 'pudim64br', '', '', 'Leitura Ã© minha rotina', 'Final Fantasy VII', 0, '2016-06-12 04:30:07', '_imagens/profile_pic/1465705807575ce54f8d6dd.jpg', 0, 'Playstation 4', ''),
+(4, 'RogÃ©rio da Silva Soares JÃºnior', 'rogeriojr4@live.com', '123', 'male', '1997-03-04', '', 'Rogerio', '', '', 'Brogrammer e tocador de instrumentos de corda nas horas vagas', 'Counter-Strike Global Offensive', 0, '2016-06-16 18:34:38', '_imagens/profile_pic/14660899225762c1c2e6714.jpg', 0, 'PC', ''),
+(5, 'Rafael Soares dos Reis Macris', 'rafa07@hotmail.com', 'rafa123', 'male', '1997-07-23', '', 'Tsotso', '', '', 'Estudo na INATEL e sou depressivo.', 'Crysis', 0, '2016-06-12 23:36:11', '_imagens/profile_pic/1465709077575cf2150bcf9.jpg', 0, '', ''),
+(6, 'adler diniz', 'adlerunifei@gmail.com', '12345', 'male', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2016-06-03 19:06:55', NULL, 1, '', ''),
+(7, 'Ronegro Novo', 'ronegro_seducao@negro.com', 'negro123', 'other', '1880-12-03', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2016-06-03 19:06:35', NULL, 1, '', ''),
+(8, 'Ulf Westberg', 'vice_keisari@gaea.gov.imp', 'filthy_frank*924', 'male', '1997-03-21', 'westo_j2010', 'Cool Westo', 'RoutineMovie138', '', 'It''s filthy frank motherfucker! It''s filthy frank bitch!', 'Hunter 3', 0, '2016-06-12 05:02:47', '_imagens/profile_pic/1465707612575cec5c4bb02.jpe', 0, '', ''),
+(9, 'Robin Kowalewski', 'robin_2246@yahoo.com.pl', 're24ad8*SDA', 'male', '1997-07-02', 'robin_kowalewski', 'Robin of Rivendell', 'robin_2246', 'MarkistTheory42', 'Born in Poland and went to Brazil to fight for the development of the Empire of Gaea. Also, live in the same fraternity as Markus Mannerheim. Studies Hydric Engineering at Federal University of Itajuba', 'Final Fantasy VII', 0, '2016-06-12 05:19:40', '_imagens/profile_pic/1465708479575cefbf4d69c.png', 0, '', ''),
+(10, 'Robin Kowalewski', 'robin_2246@yahoo.com.pl', 're24ad8*SDA', 'male', '1997-07-02', 'robin_kowalewski', 'Robin of Rivendell', 'robin_2246', 'MarkistTheory42', 'Born in Poland and went to Brazil to fight for the development of the Empire of Gaea. Also, live in the same fraternity as Markus Mannerheim. Studies Hydric Engineering at Federal University of Itajubá ', 'Final Fantasy VII', 0, '2016-06-03 19:07:17', NULL, 1, '', ''),
+(11, 'Markus Mannerheim', 'keisari@gaea.gov.imp', '3489_Aus1$UR', 'male', '1997-04-14', 'merc_woods', 'Markek Maximus', 'Noob_Coder_2015', 'Markek_Maximus', 'You know who I am!', 'Hunter - War At Mars', 0, '2016-06-12 04:41:02', '_imagens/profile_pic/1465706462575ce7dec43c3.png', 0, '', ''),
+(12, 'Emerson Baumann', 'emerson_baumann@yahoo.com.de', 'e124k293EPR', 'male', '1997-05-06', 'Baumann_732', 'General Baumann', 'General_Baumann', 'General_Baumann', 'General of the Imperial Armed Forces, like to play some shooter game every once in a while.', 'Battlefield 4', 0, '2016-06-12 04:32:40', '_imagens/profile_pic/1465705960575ce5e83d651.png', 0, '', ''),
+(13, 'Dansk Trondheim', 'nubenube@yahoo.com.dn', 'nubenube', 'male', '1998-02-12', 'Dansk_0357_TRDM', 'nube_123', 'nube_123', 'nube_123', 'Hi there! I''m a Information System student at UNIFEI. I like to play League of Legends and other MOBA genre games.', 'League of Legends', 0, '2016-06-12 05:06:17', '_imagens/profile_pic/1465707901575ced7db22e2.png', 0, 'PC', ''),
+(14, 'Felix Arvid Ulf Kjellberg', 'poods@gmail.com', 'deutschland', 'male', '1989-10-02', 'felix_03_ulf', 'Saladass', '', '', 'Stop sending me "Fist me daddy" messages!', 'agar.io', 0, '2016-06-12 23:36:51', '_imagens/profile_pic/1465705727575ce4ffd2174.png', 0, 'PC', ''),
+(15, 'Vilkas Mannerheim', 'keisari@gaea.gov.imp', 'vilkas123', 'male', '2001-05-12', 'xX_vilkasQS_Xx', 'vilkassen', 'FireDragon981', NULL, 'Son of Mikhail, the Bold, and proud conciliator between two enemy species.', 'Hunter 4', 0, '2016-06-16 16:42:52', '', 0, 'Playstation 4', ''),
+(16, 'Luiz Celso Arruda Filho', 'lully2015@hotmail.com', 'lully123', 'male', '2005-02-28', 'isanity_gamer', 'isanity_gamer', 'isanity238', '', 'Mor gamer minecraft S2', 'Minecraft', 0, '2016-06-13 00:03:10', '_imagens/profile_pic/1465776190575df83e53ad3.jpg', 0, 'Playstation 4', ''),
+(17, 'Mikhail Mannerheim', 'keisari@gaea.gov.imp', 'mikhail123', 'male', '2000-03-17', 'mikhail_jaeger', 'jaeger_2k', 'BlackJaeger401', 'Jageren_29', 'I''m Mikhail, the Bold, greatest military leader and emperor this empire had! I fought against the Telsicians and won like a boss!', 'Hunter 4', 0, '2016-06-16 16:40:57', NULL, 1, 'PC', ''),
+(18, 'SeÃ¡n McLoughlin', 'jackscepticeye@outlook.com', 'jack1234', 'male', '1990-03-21', 'jack_a_boss', 'jack_a_boss', 'jack_a_boss', '', 'Like a b0ss', 'Undertale', 0, '2016-06-12 05:21:00', '_imagens/profile_pic/1465708860575cf13c8ab29.png', 0, 'PC', ''),
+(19, 'Ronei Teixeira Costa JÃºnior', 'ronei@unifei.edu.br', 'ronei123', 'male', '1996-12-24', 'Ronei_123', '', '', '', 'SERIES, SERIES ALL DAY ALONG', 'Chrono Trigger', 0, '2016-06-12 23:34:37', '_imagens/profile_pic/1465714245575d0645b1ad5.png', 0, 'PC', ''),
+(20, 'Will Saymon', 'wsaymonoficial@gmail.com', 'will123', 'male', '0000-00-00', '', 'Wyru', '', '', 'You can''t move others hearts, unless you can move your own.', 'Monster Hunter', 2, '2016-06-17 19:15:58', '_imagens/profile_pic/1465854196575f28f44049c.jpg', 0, 'PSP', '_imagens/profile_cover/146619095857644c6e05084.jpg'),
+(21, 'Pedro Lomonaco', 'pedro_ditd@hotmail.com', 'pedro123', 'male', '0000-00-00', '', 'SuspiroDourado', '', '', 'Born this way!', 'League of Legends', 0, '2016-06-13 21:55:45', '_imagens/profile_pic/1465854886575f2ba6c7254.jpg', 0, 'PC', ''),
+(22, 'Eduardo Faggiani', 'edufaggiani@unifei.edu.br', 'edu123', 'male', '0000-00-00', '', '', '', '', 'Tuts tuts quero ver', 'Final Fantasy Tactics', 0, '2016-06-16 15:09:57', '_imagens/profile_pic/14660897965762c144f3a3d.jpg', 0, 'PC', ''),
+(23, 'Wilhem Pfaffenbach', 'wilhem@yahoo.com.de', 'wilhem123', 'male', '1997-05-01', '', 'Hardened Jaeger', 'Wilhem_245', '', '"We''re building it up, to break it back down, we''re building it up, to burn it down, we can''t wait, to burn it to the ground!"', 'Battlefield 4', 0, '2016-06-16 21:59:17', '_imagens/profile_pic/1466114357576321358cf97.png', 0, 'XBOX One', '');
 
 --
 -- Indexes for dumped tables
@@ -470,49 +465,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `friends`
 --
 ALTER TABLE `friends`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 --
 -- AUTO_INCREMENT for table `games`
 --
 ALTER TABLE `games`
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-=======
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
->>>>>>> origin/php_integration_v03
 --
 -- AUTO_INCREMENT for table `games_played`
 --
 ALTER TABLE `games_played`
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-=======
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
->>>>>>> origin/php_integration_v03
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-<<<<<<< HEAD
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-=======
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
->>>>>>> origin/php_integration_v03
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT for table `upvotes`
 --
 ALTER TABLE `upvotes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

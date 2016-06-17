@@ -34,6 +34,8 @@ and open the template in the editor.
 #results img{
     height: 150px;
     width: auto;
+    margin-right: 10px;
+    
 }
 #resultsHeader{
     margin-bottom: 10px;
@@ -67,6 +69,7 @@ resultsHeader .btn-primary:hover{
     text-decoration: none;
 }
 #resultsBody{
+    padding: 10px;
     color:white;
     
 }

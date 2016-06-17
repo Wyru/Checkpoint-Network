@@ -30,7 +30,7 @@ and open the template in the editor.
 #userBackgroud{
     height: 250px;
     background-image: url("../_imagens/The-Legend-of-Zelda.jpg");
-    background-size:cover;
+    background-size:100% 120%;
 }
 #userPicAndName{
     margin-top: -90px;
