@@ -160,16 +160,18 @@ and open the template in the editor.
     border-radius: 5px;
     
 }
-#myGames div div{
-    border-radius: 3px;
+#myGames div #game{
+    width: 70px;
+
+    float:left;
     color:white;
-    padding: 10px;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    background-color: #28243b;
     text-align: center;
-    margin: 10px;
+    margin: 9px;
+   
+}
+#myGames img{
+    height:60px;
+    width: auto;
    
 }
 #myGames h1{

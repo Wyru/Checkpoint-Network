@@ -125,39 +125,26 @@ mysqli_close ($conn);
             <aside  id ="myGames" class="col-lg-3 pull-right">
                 <h1>Meus Games</h1>
                 <div>
-<!--                    <div class='pull-right col-lg-5'>
-                        <img class='col-lg-12 resposive' src='http://vignette3.wikia.nocookie.net/monsterhunter/images/c/c9/Logo-MH1.png/revision/latest?cb=20140731093534'/>
-                        <p>Monster Hunter</p>
-                        
-                    </div>
-                    
-                    <div class='pull-right col-lg-5'>
-                        <img class='col-lg-12 resposive' src='https://logodownload.org/wp-content/uploads/2014/09/lol-logo-league-of-legends-2.png'/>
-                        <p>League of Legends</p>
-                        
-                    </div>
-                    <div class='pull-right col-lg-5'>
-                        <img class='col-lg-12 resposive' src='http://vignette2.wikia.nocookie.net/yugioh/images/c/ce/TFSP-VideoGameJP.png/revision/latest?cb=20141205132955'/>
-                        <p>Yu-Gi-Oh Tag Force Ark-V</p>   -->
+                   
                         <?php
                             include './_method/mysql_connect.php';
                             $query_games_name = "SELECT * FROM `games_played` WHERE `user_id` = '".$rows[0]."'";
                             $query_games = mysqli_query($conn, $query_games_name);
                             $i = 0;
-                            while ($i < 8 and $query_games and $games_rows = mysqli_fetch_row ($query_games))
+                            while ($i < 6 and $query_games and $games_rows = mysqli_fetch_row ($query_games))
                             {
                                 $query_gamesdata_name = "SELECT * FROM `games` WHERE `id` = '" .$games_rows[2]. "' LIMIT 1";
                                 $query_gamesdata = mysqli_query($conn, $query_gamesdata_name);
                                 $gamesdata_rows = mysqli_fetch_row($query_gamesdata);
-                                echo "<div class='pull-right col-lg-5'>
-                                    <img class='col-lg-12 resposive' src='".$gamesdata_rows[7]."'/>
+                                echo "<div id='game'>
+                                    <img src='".$gamesdata_rows[7]."'/>
                                      <p>".$gamesdata_rows[1]."</p> </div>";
                                 $i ++;
                             }
                             ?>                    
                 </div>
                 <div class="clearfix"></div>
-                <a class=" pull-right"> ver todos</a>
+                <a href='games.php?user_id=<?php echo $_SESSION["id"]; ?>' class=" pull-right"> ver todos</a>
             </aside>
             <section class="col-lg-6 pull-left" id="main">
                 
