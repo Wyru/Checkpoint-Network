@@ -19,25 +19,11 @@ $user_id = $_GET['user_id'];
 $user_id = stripcslashes ($user_id);
 $user_id = mysql_real_escape_string ($user_id);
 
-// Conecta ao banco de dados
 include './_method/mysql_connect.php';
 
-$query_username = mysqli_query ($conn, "SELECT * FROM `users` WHERE `id` = " .$user_id. "");
-
-if ($query_username)
-{
-    $user_row = mysqli_fetch_row ($query_username);
-}
-else
-{
-  echo "<script> 
-        alert('Algo de errado não está certo');
-        window.location.href='default_error.html';
-        </script>";
-    exit;
-
-}
-mysqli_close ($conn);
+$namequery_str = "SELECT * FROM `users` WHERE `id` = '".$user_id."'";
+$namequery     = mysqli_query ($conn, $namequery_str);
+$user_row      = mysqli_fetch_row ($namequery);
 
 ?>
 

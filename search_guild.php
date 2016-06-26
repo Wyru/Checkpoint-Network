@@ -1,7 +1,7 @@
 <?php
 
-/* Autor: Nixon Silva, Will Saymon e Rogério Júnior
- * Data: 19/05/2016
+/* Autor: Nixon Silva
+ * Data: 26/06/2016
  * Função: Busca usuários e dispõe link para a visita do perfil dos
  * mesmos
  */
@@ -74,48 +74,50 @@ if (!$_SESSION["login_status"])
             <div class="col-lg-6  pull-left">
                 <?php
                     include './_method/mysql_connect.php';
-                    $game_search_name = "SELECT * FROM `games` WHERE `name` LIKE '%".$value."%' AND `removed` = 0";
-                    $game_search      = mysqli_query($conn, $game_search_name);
-                    if ($game_search)
+                    $guild_search_name = "SELECT * FROM `guilds` WHERE `name` LIKE '%".$value."%' AND `removed` = 0";
+                    $guild_search       = mysqli_query($conn, $guild_search_name);
+                    if ($guild_search)
                     {
-                        $rows = $game_search->fetch_row();
+                        $rows = $guild_search->fetch_row();
                         // Imprime os resultados
                         while ($rows)
                         {
-                            $game_id = $rows[0];
-                            $played_game_name = "SELECT * FROM `games_played` WHERE `user_id` = '".$_SESSION["id"]."' AND `game_id` = '".$game_id."'";
-                            $played_game = mysqli_query ($conn, $played_game_name);
+                            $guild_id      = $rows[0];
+                            $guild_privacy = $rows[3];
+                            $guild_image   = $rows[4];
+                            $guild_name    = "SELECT * FROM `guilds_users` WHERE `user_id` = '".$_SESSION["id"]."' AND `guild_id` = '".$guild_id."'";
+                            $guild_query   = mysqli_query ($conn, $guild_name);
                             echo"<div class='col-lg-12' id='results'>";
                                 echo"<div class='row'id = 'resultsHeader'>";
                                     echo"<div class='col-lg-12'>";
                                     // Mudar para o link de exibir o jogo.
                                     echo "<a class='pull-left' href ='#'>".$rows[1]."</a>";
-                                    if ($rows_played = mysqli_fetch_row ($played_game))
+                                    if ($guild_query and mysqli_num_rows ($guild_query))
                                     {
-                                        echo "<p class='pull-right'>Já está na sua lista!</p>";
+                                        echo "<p class='pull-right'>Já é membro!</p>";
                                     }
                                     else
                                     {
-                                        echo"<a class='btn-primary pull-right'href ='./_method/played_game.php?game_id=".$rows[0]."'>Adicionar a sua lista</a>";
+                                        if (!$guild_privacy)
+                                            echo "<a class='btn-primary pull-right' href =#>Participar</a>";
+                                        else
+                                            echo "Guilda privada!";
                                     }    
                                     echo"</div>";
                                 echo "</div>";
                                 echo"<div class='row' id='resultsBody'>";
                                     echo"<div>";
-                                        if($rows[7])
-                                            echo "<img class='responsive pull-left' id='img_game' src = '$rows[7]'>";
+                                        if($rows[4])
+                                            echo "<img class='responsive pull-left' id='img_game' src = '$guild_image'>";
                                          else    
                                             echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
                                     echo"</div>";
                                     echo"<div class=''>";
-                                        echo "<p>Gênero: ".$rows[2]."</p>";
-                                        echo "<p>Desenvolvedora: ".$rows[4]."</p>";
-                                        echo "<p>Publicadora: ".$rows[5]."</p>";
-                                        echo "<p>Descrição: ".$rows[6]."</p>";
+                                        echo "<p>Categoria: ".$rows[2]."</p>";
                                     echo"</div>";
                                 echo "</div>";
                             echo"</div>";
-                            $rows = $game_search->fetch_row();
+                            $rows = $guild_search->fetch_row();
                         }
                         // Encerra conexão após a query
                         mysqli_close ($conn);

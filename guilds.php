@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
-Autor: Will Saymon
+Autor: Will Saymon e Nixon Moreira Silva
 Data de Criação: 28/05/2016
-Data de Alteração: 28/05/2016
+Data de Alteração: 26/06/2016
 Descrição: Tela em que será mostrado todos as guildas de que o jogador faz parte.
 -->
 <?php
@@ -17,7 +17,12 @@ if (!$_SESSION["login_status"])
     exit;
 }
 
+$user_id = $_GET['user_id'];
+$user_id = stripcslashes ($user_id);
+$user_id = mysql_real_escape_string ($user_id);
+
 ?>
+
 <html>
     <head>   
         <meta charset="utf-8">
@@ -34,9 +39,39 @@ if (!$_SESSION["login_status"])
                 $var_name = $_SESSION["name"];
                 include("default_header.php");
             ?>
-             
         </header>  
-              
+        <?php
+            // Conecta ao banco de dados
+            include './_method/mysql_connect.php';
+            echo "<div class='col-lg-8 col-lg-offset-4'><p>";
+            echo "<a href='create_guild.php'>Criar Guilda</a>";
+            echo "</p></div>";
+            
+            $query_guilds_name = "SELECT * FROM `guilds_users` WHERE `user_id` = '".$_SESSION["id"]."'";
+            $query_guilds      = mysqli_query ($conn, $query_guilds_name);
+            
+            if ($query_guilds and mysqli_num_rows ($query_guilds) > 0)
+            {
+                  while ($guilds_rows = mysqli_fetch_row ($query_guilds))
+                  {
+                      $guild_identifier    = $guilds_rows[1];
+                      $query_guildsid_name = "SELECT * FROM `guilds` WHERE `id` = '".$guild_identifier."' LIMIT 1";
+                      $query_guildsid      = mysqli_query ($conn, $query_guildsid_name);
+                      $guildsid_rows       = mysqli_fetch_row ($query_guildsid);
+                      $guild_name          = $guildsid_rows[1];
+                      $guild_id            = $guildsid_rows[0];
+                      echo "<div class='col-lg-8 col-lg-offset-4'><p>";
+                      echo $guild_name;
+                      echo "</p></div>";
+                  }
+            }
+            else
+            {
+                echo "<div class='col-lg-8 col-lg-offset-2'>";
+                echo "Você não está em nenhuma guilda!";
+                echo "</p></div>";
+            }
+        ?>
         <!--Não coloque  nada abaixo disso-->
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

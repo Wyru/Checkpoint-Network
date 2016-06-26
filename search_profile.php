@@ -66,7 +66,7 @@ if (!$_SESSION["login_status"])
                             }
                         ?>
                         <li><i class="fa fa-users fa-lg"></i><a href='search_profile.php?value=<?php echo $value; ?>'>Pessoas</a></li>
-                        <li><i class="fa fa-home fa-lg"></i>Guildas </li>
+                        <li><i class="fa fa-home fa-lg"></i><a href='search_guild.php?value=<?php echo $value; ?>'>Guildas</a></li>
                         <li><i class="fa fa-gamepad fa-lg"></i><a href='search_game.php?value=<?php echo $value; ?>'>Games</a></li>
                     </ul> 
                 </div>

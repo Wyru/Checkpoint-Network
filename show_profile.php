@@ -92,7 +92,7 @@ mysqli_close ($conn);
                         <li><a href="gameplays.php"><i class="fa fa-film fa-lg" aria-hidden="true"></i> Gameplays</a></li>
                         <li><a href="games.php?user_id=<?php echo $rows[0]; ?>"><i class="fa fa-gamepad fa-lg" aria-hidden="true"></i> Games</a></li>
                         <li><a href="friends.php?user_id=<?php echo $rows[0]; ?>"><i class="fa fa-users fa-lg" aria-hidden="true"></i> Amigos</a></li>
-                        <li><a href="guilds.php"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</a></li>
+                        <li><a href="guilds.php?user_id=<?php echo $rows[0]; ?>"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</a></li>
                         <?php
                             if ($rows[0] != $_SESSION["id"])
                             {

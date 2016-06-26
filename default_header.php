@@ -40,7 +40,7 @@
             <a href="gameplays.php"><li><i class="fa fa-film fa-lg" aria-hidden="true"></i> Gameplays</li></a>
             <a href="games.php?user_id=<?php echo $_SESSION["id"]; ?>"><li><i class="fa fa-gamepad fa-lg" aria-hidden="true"></i> Games</li></a>
             <a href="friends.php?user_id=<?php echo $_SESSION["id"]; ?>"><li><i class="fa fa-users fa-lg" aria-hidden="true"></i> Amigos</li></a>
-            <a href="guilds.php"><li><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</li></a>
+            <a href="guilds.php?user_id=<?php echo $_SESSION["id"]; ?>"><li><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</li></a>
             <a href="messages.php"><li><i class="fa fa-envelope fa-lg" aria-hidden="true"></i>Mensagens</li></a>
             <?php
                 if ($_SESSION["user_type"] > 0)
