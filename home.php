@@ -80,6 +80,7 @@ Descrição: Página que mostras as ultimas publicações dos amigos do ususári
                                 include './_method/mysql_connect.php';
                                 $j = $page_id*20;
                                 $result2 = mysqli_query($conn, "SELECT * FROM `posts` WHERE origin IN ('$ids') AND `deleted` = 0  ORDER BY  `time` DESC LIMIT 20 OFFSET " .$j."");
+                                $num = mysqli_num_rows($result2);
                                 $k = $page_id*20+20;
                                 while ($rows2 = mysqli_fetch_row($result2) and $j < $k) 
                                 {
@@ -186,6 +187,7 @@ Descrição: Página que mostras as ultimas publicações dos amigos do ususári
                                     $previous_id = $page_id-1;
                                     echo "<font size='+3'><a href='home.php?page=".$previous_id."'> PAGINA ANTERIOR       </a></font>";
                                 }
+                                if($num == 20)
                                 echo "<font size='+3'><a href='home.php?page=".$next_id."'>PRÓXIMA PÁGINA</a></font>";
                         
 
