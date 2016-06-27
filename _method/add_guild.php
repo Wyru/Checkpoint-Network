@@ -32,10 +32,6 @@ $guild_category   = $_POST['guild_category'];
 $guild_category   = stripslashes ($guild_category);
 $guild_category   = mysql_real_escape_string ($guild_category);
 
-$guild_pic        = $_POST['guild_pic'];
-$guild_pic        = stripslashes ($guild_pic);
-$guild_pic        = mysql_real_escape_string ($guild_pic);
-
 $guild_privacy    = $_POST['guild_privacy'];
 $guild_privacy    = stripslashes ($guild_privacy);
 $guild_privacy    = mysql_real_escape_string ($guild_privacy);
@@ -59,12 +55,12 @@ if (isset($_FILES['guild_pic']['name']) && $_FILES['guild_pic']['error'] == 0)
         $file_destination   = '../_imagens/guild_pic/' . $file_new_name;
         if (@move_uploaded_file ($file_tmp, $file_destination))
         {
-            $game_art = '_imagens/guild_pic/' . $file_new_name;
+            $guild_pic = '_imagens/guild_pic/' . $file_new_name;
         }
         else
         {
             echo "<script> alert ('Erro ao salvar o arquivo de foto'); </script>";
-            $game_art = NULL;
+            $guild_pic = NULL;
         }
     }
     else

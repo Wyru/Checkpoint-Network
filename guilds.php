@@ -52,28 +52,51 @@ $user_id = mysql_real_escape_string ($user_id);
                     </div>  
                 </div>
                 <div>
-                    <div id="asideTitle" class="col-lg-12">
-                        <h1>Suas Guildas</h1>   
-                    </div>
-                    <div id="asideContet" class="col-lg-12">
-                        <ul class="list-unstyled">
-                            <li> Tuts tus de fim de semana</li>
-                            <li> Birls do Brasil</li>
-                            <li> Perdi</li>
-                            <li> Tuts tus de fim de semana</li>
-                            <li> Birls do Brasil</li>
-                            <li> Perdi</li>
-                            <li> Tuts tus de fim de semana</li>
-                            <li> Birls do Brasil</li>
-                            <li> Perdi</li>
-                            <li> Tuts tus de fim de semana</li>
-                            <li> Birls do Brasil</li>
-                            <li> Perdi</li>
-                            <li> Tuts tus de fim de semana</li>
-                            <li> Birls do Brasil</li>
-                            <li> Perdi</li>   
-                        </ul>  
-                    </div>
+                    <?php
+                    if ($user_id == $_SESSION["id"])
+                    {
+                        echo "<div id='asideTitle' class='col-lg-12'>";
+                            echo "<h1>Suas Guildas</h1>";
+                        echo "</div>";
+                        echo "<div id='asideContet' class='col-lg-12'>";
+
+                        // Conecta ao banco de dados
+                        include './_method/mysql_connect.php';
+
+                        $my_guilds_name  = "SELECT * FROM `guilds_users` WHERE `user_id` = '".$_SESSION["id"]."' AND `user_type` = 1";
+                        $my_guilds_query = mysqli_query ($conn, $my_guilds_name);
+                        if ($my_guilds_query)
+                        {
+
+                            if (mysqli_num_rows ($my_guilds_query) > 0)
+                            {
+                                echo "<ul class='list-unstyled'>";
+                                while ($my_guilds_rows = mysqli_fetch_row ($my_guilds_query))
+                                {
+                                    $my_guild_id           = $my_guilds_rows[1]; 
+                                    $admin_guilds_name     = "SELECT * FROM `guilds` WHERE `id` = '".$my_guild_id."'";
+                                    $admin_guilds_query    = mysqli_query ($conn, $admin_guilds_name);
+                                    if ($admin_guilds_query)
+                                    {
+                                        $admin_guilds_row  = mysqli_fetch_row ($admin_guilds_query);
+                                        echo "<a href='show_guild.php?guild_id=".$my_guild_id."'><li>" .$admin_guilds_row[1]. "</li></a>";
+                                    }
+                                    else
+                                    {
+                                        echo "Erro na conexão!";
+                                    }
+                                }
+                                echo "</ul>";
+                            }
+                            else
+                            {
+                                echo "<p>Você não adminsitra nenhuma guilda!</p>";
+                            }
+                        }
+                        mysqli_close ($conn);
+                    }
+                    ?>
+                    </div>  
                 </div>
                 
                 
@@ -101,7 +124,10 @@ $user_id = mysql_real_escape_string ($user_id);
                                 echo "<div id='guildContent' class='col-lg-12'>";
                                     echo "<a href = 'show_guild.php?guild_id=".$guild_identifier."'>";
                                         echo "<div class='row'>";
-                                            echo"<img src='https://cdn.meme.am/instances/28779238.jpg'/>";
+                                        if (!empty ($guildsid_rows[4]))
+                                            echo"<img src='".$guildsid_rows[4]."'/>";
+                                        else
+                                            echo"<img src='_imagens/guild_pic/sword.png'/>";
                                         echo"</div>";
                                         echo"<div class='row'>";
                                             echo" <p>".$guild_name."</p> ";

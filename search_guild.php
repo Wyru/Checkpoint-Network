@@ -107,7 +107,7 @@ if (!$_SESSION["login_status"])
                                         if($rows[4])
                                             echo "<img class='responsive pull-left' id='img_game' src = '$guild_image'>";
                                          else    
-                                            echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
+                                            echo "<img class='responsive pull-left' id='userPic' src = '_imagens/guild_pic/sword.png'>";
                                     echo"</div>";
                                     echo"<div class=''>";
                                         echo "<p>Categoria: ".$rows[2]."</p>";
