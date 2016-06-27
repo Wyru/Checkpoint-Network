@@ -1,0 +1,106 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27/06/2016, 15:11:52
+    Author     : Will Saymon
+*/
+
+
+@font-face{
+	font-family: AlegreyaSans-ExtraBold;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Medium;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Medium.ttf");
+}
+@font-face{
+	font-family: AlegreyaSans-Light;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Regular;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Regular.ttf");
+}
+#page-content{
+    padding: 0px;
+}
+#title{
+    font-family: AlegreyaSans-Medium;
+    color:white;
+    border-bottom: 2px #1d1d1d solid;
+    background-color: #050412;     
+}
+aside{
+    padding: 0px;
+}
+#asideTitle h1{
+    padding: 5px;
+    font-family: AlegreyaSans-Medium;
+    color:white;
+    border-bottom: 2px #1d1d1d solid;
+    margin-bottom: 5px;
+    background-color: #050412; 
+    font-size: 25px;   
+    text-align: center;
+}
+aside ul li{
+    padding: 7px;
+    background-color: #28243b;
+    margin-top: 5px;
+    color: white;
+    border-radius: 5px;
+}
+aside ul{
+    height: 400px;
+    overflow-y: auto;
+}
+#createGuild .btn-primary {
+    padding: 4px 8px 4px 8px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #28243b; 
+    font-size: 25px;
+    margin-top: 10px;
+    
+}
+#createGuild .btn-primary:hover{
+    transition: 0.3s;
+    color:white;
+    background-color: #a31e21;
+    text-decoration: none;
+
+}
+#guild{
+    padding: 3px;
+}
+#guildContent{
+    background-color: #28243b; 
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px 5px 0px 5px;
+
+}
+#guild a{
+    color:white;
+}
+#guild a:hover{
+    text-decoration: none;
+}
+#guild img{
+    height: 150px;
+    width:150px;
+}
+
+#guildContet{
+    overflow-y: auto;
+    height: 550px;
+    
+}

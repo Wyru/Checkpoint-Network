@@ -185,10 +185,10 @@ Descrição: Página que mostras as ultimas publicações dos amigos do ususári
                                 $next_id = $page_id+1;
                                 if($page_id > 0){
                                     $previous_id = $page_id-1;
-                                    echo "<font size='+3'><a href='home.php?page=".$previous_id."'> PAGINA ANTERIOR       </a></font>";
+                                    echo "<a id='btnBody' class='pull-right' href='home.php?page=".$previous_id."'>PAGINA ANTERIOR</a>";
                                 }
                                 if($num == 20)
-                                echo "<font size='+3'><a href='home.php?page=".$next_id."'>PRÓXIMA PÁGINA</a></font>";
+                                echo "<a id='btnBody' class='pull-right' href='home.php?page=".$next_id."'>PRÓXIMA PÁGINA</a>";
                         
 
 

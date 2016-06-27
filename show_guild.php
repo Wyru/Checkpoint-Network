@@ -49,7 +49,7 @@ mysqli_close ($conn);
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="_bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="_css/show_profile.css">
+        <link rel="stylesheet" type="text/css" href="_css/show_guild.css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <title><?php echo $get_rows[1]; ?></title>
     </head>
@@ -59,9 +59,13 @@ mysqli_close ($conn);
                  <?php include("default_header.php");?>
             </div>
         </header>
-        <div class = 'col-lg-8 col-lg-offset-4'>
-            <h1><?php echo $get_rows[1]; ?></h1>
-            <?php
+        <div  class="container-fluid" id="page-content">
+            
+            <div id="title" class="col-lg-12">
+                <h1><?php echo $get_rows[1]; ?></h1>   
+            </div>
+            <aside class="col-lg-3 pull-right">
+                 <?php
                  // Conecta ao banco de dados
                 include './_method/mysql_connect.php';
                 
@@ -71,45 +75,51 @@ mysqli_close ($conn);
                     // Verificar estado do usuário perante a guilda
                     $verify_guild_name  = "SELECT * FROM `guilds_users` WHERE `guild_id` = '".$guild_id."' AND `user_id` = '".$_SESSION["id"]."'";
                     $verify_guild_query = mysqli_query ($conn, $verify_guild_name);
-                    if ($verify_guild_query and $verify_guild_rows = mysqli_fetch_row ($verify_guild_query))
-                    {
-                        // Caso o usuário esteja na guilda
-                        // Verifica se o usuário não é o adminstrador da guilda
-                        if ($verify_guild_rows[3] == 1)
-                            echo "Você é o administrador desta guilda!";
-                        else
-                            echo "<a href = './_method/leave_guild.php?guild_id=".$guild_id."'>Abandonar Guilda</a>";
-                        
-                    }
-                    else
-                    {
-                        // Caso o usuário não esteja na guilda
-                        echo "<a href = './_method/join_guild.php?guild_id=".$guild_id."'>Participar da Guilda</a>";
-                    }
                     
-                    // Listar Membros
-                    echo "<h2>Membros:</h2>";
-                    $show_users_name  = "SELECT * FROM `guilds_users` WHERE `guild_id` = '".$guild_id."'";
-                    $show_users_query = mysqli_query ($conn, $show_users_name);
-                    // Caso a query tenha sido bem sucedida
-                    if ($show_users_query)
-                    {
-                        while ($show_users_rows = mysqli_fetch_row ($show_users_query))
+                    echo "<div  class='col-lg-12'>";
+                        echo "<h2>Opções:</h2>";
+                        if ($verify_guild_query and $verify_guild_rows = mysqli_fetch_row ($verify_guild_query))
                         {
-                            $show_user_id    = $show_users_rows[2];
-                            $show_info_name  = "SELECT * FROM `users` WHERE `id` = '".$show_user_id."'";
-                            $show_info_query = mysqli_query ($conn, $show_info_name);
-                            if ($show_info_query)
+                            // Caso o usuário esteja na guilda
+                            // Verifica se o usuário não é o adminstrador da guilda
+                            if ($verify_guild_rows[3] == 1)
+                                echo "Você é o administrador desta guilda!";
+                            else
+                                echo "<a href = './_method/leave_guild.php?guild_id=".$guild_id."'>Abandonar Guilda</a>";
+
+                        }
+                        else
+                        {
+                            // Caso o usuário não esteja na guilda
+                            echo "<a href = './_method/join_guild.php?guild_id=".$guild_id."'>Participar da Guilda</a>";
+                        }
+                    echo "</div>";
+                    
+
+                    // Listar Membros
+                    echo "<aside id= 'members' class='col-lg-12 pull-right'>";
+                    
+                        echo "<h2>Membros:</h2>";
+                        $show_users_name  = "SELECT * FROM `guilds_users` WHERE `guild_id` = '".$guild_id."'";
+                        $show_users_query = mysqli_query ($conn, $show_users_name);
+                        // Caso a query tenha sido bem sucedida
+                        if ($show_users_query)
+                        {
+                            while ($show_users_rows = mysqli_fetch_row ($show_users_query))
                             {
-                                $show_info_rows = mysqli_fetch_row ($show_info_query);
-                                $show_user_name = $show_info_rows[1];
-                                echo "<p><a href = 'show_profile.php?user_id=".$show_user_id."'>";
-                                echo $show_user_name . "</a></p>";
+                                $show_user_id    = $show_users_rows[2];
+                                $show_info_name  = "SELECT * FROM `users` WHERE `id` = '".$show_user_id."'";
+                                $show_info_query = mysqli_query ($conn, $show_info_name);
+                                if ($show_info_query)
+                                {
+                                    $show_info_rows = mysqli_fetch_row ($show_info_query);
+                                    $show_user_name = $show_info_rows[1];
+                                    echo "<p><a href = 'show_profile.php?user_id=".$show_user_id."'>";
+                                    echo $show_user_name . "</a></p>";
+                                }
                             }
                         }
-                    }
-                    else
-                        echo "BIRL";
+                    echo "</aside>";
 
                 }
                 else
@@ -117,6 +127,12 @@ mysqli_close ($conn);
                     echo "Guilda privada.";
                 }
             ?>
+            </aside>
+            <section>
+                
+                
+            </section>
+           
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="_jquery/jquery.js"></script>
