@@ -34,13 +34,13 @@
         <p id="userName"><?php echo $_SESSION["name"]; ?></p>
         </a>
         <ul id="menuOption"class="list-unstyled pull-right">
-            <a href="home.php"><li><i class="fa fa-home fa-lg" aria-hidden="true"></i>Inicio</li></a>
+            <a href="home.php?page=0"><li><i class="fa fa-home fa-lg" aria-hidden="true"></i>Inicio</li></a>
             <a href="show_profile.php?user_id=<?php echo $_SESSION["id"]; ?>"><li><i class="fa fa-user fa-lg" aria-hidden="true"></i>Meu Perfil</li></a>
             <a href="screenshots.php"><li><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i>Screenshots</li></a>
             <a href="gameplays.php"><li><i class="fa fa-film fa-lg" aria-hidden="true"></i> Gameplays</li></a>
             <a href="games.php?user_id=<?php echo $_SESSION["id"]; ?>"><li><i class="fa fa-gamepad fa-lg" aria-hidden="true"></i> Games</li></a>
             <a href="friends.php?user_id=<?php echo $_SESSION["id"]; ?>"><li><i class="fa fa-users fa-lg" aria-hidden="true"></i> Amigos</li></a>
-            <a href="guilds.php"><li><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</li></a>
+            <a href="guilds.php?user_id=<?php echo $_SESSION["id"]; ?>"><li><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</li></a>
             <a href="messages.php"><li><i class="fa fa-envelope fa-lg" aria-hidden="true"></i>Mensagens</li></a>
             <?php
                 if ($_SESSION["user_type"] > 0)

@@ -71,7 +71,7 @@ else
     $game_release           = NULL;
 }
 
-// Verifica se um arquivo foi enviado para a atre
+// Verifica se um arquivo foi enviado para a arte
 
 if (isset($_FILES['game_art']['name']) && $_FILES['game_art']['error'] == 0)
 {

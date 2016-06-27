@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Jun-2016 às 21:17
+-- Generation Time: 27-Jun-2016 às 04:23
 -- Versão do servidor: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -82,19 +82,21 @@ INSERT INTO `friends` (`id`, `user_id`, `friend_id`, `date`, `accepted`) VALUES
 (114, 21, 3, '2016-06-16 21:42:53', 1),
 (115, 21, 9, '2016-06-13 21:55:17', 0),
 (116, 21, 20, '2016-06-16 16:13:49', 1),
-(117, 21, 19, '2016-06-13 21:55:33', 0),
+(117, 21, 19, '2016-06-17 22:58:58', 1),
 (118, 4, 1, '2016-06-16 15:50:02', 1),
 (119, 4, 22, '2016-06-16 15:51:40', 1),
 (120, 4, 3, '2016-06-16 21:43:51', 1),
-(121, 4, 19, '2016-06-16 15:26:36', 0),
+(121, 4, 19, '2016-06-17 22:58:58', 1),
 (122, 4, 21, '2016-06-16 21:50:17', 1),
 (123, 4, 20, '2016-06-16 16:13:50', 1),
-(125, 5, 4, '2016-06-16 15:54:51', 0),
+(125, 5, 4, '2016-06-17 22:52:32', 1),
 (126, 1, 22, '2016-06-16 15:56:41', 1),
 (127, 1, 13, '2016-06-16 16:45:09', 0),
 (128, 23, 1, '2016-06-16 22:00:14', 1),
 (129, 23, 5, '2016-06-16 21:59:24', 0),
-(130, 23, 8, '2016-06-16 21:59:34', 0);
+(130, 23, 8, '2016-06-16 21:59:34', 0),
+(131, 21, 22, '2016-06-17 23:02:08', 0),
+(132, 21, 11, '2016-06-18 00:34:51', 1);
 
 -- --------------------------------------------------------
 
@@ -166,14 +168,73 @@ INSERT INTO `games_played` (`id`, `user_id`, `game_id`) VALUES
 (10, 3, 14),
 (11, 3, 18),
 (12, 23, 4),
-(13, 1, 14),
 (14, 20, 15),
 (17, 20, 20),
 (18, 20, 21),
 (19, 20, 24),
 (20, 20, 22),
 (21, 20, 25),
-(22, 20, 26);
+(22, 20, 26),
+(23, 1, 16),
+(24, 4, 15),
+(25, 4, 25),
+(26, 11, 13),
+(27, 11, 19),
+(28, 11, 15),
+(29, 11, 16),
+(30, 19, 24),
+(31, 19, 22),
+(32, 22, 25),
+(33, 22, 26),
+(34, 21, 15),
+(35, 21, 25);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `guilds`
+--
+
+CREATE TABLE `guilds` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `type` varchar(128) NOT NULL,
+  `privacy` int(11) NOT NULL,
+  `image` varchar(512) DEFAULT NULL,
+  `removed` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `guilds`
+--
+
+INSERT INTO `guilds` (`id`, `name`, `type`, `privacy`, `image`, `removed`) VALUES
+(1, 'BodyBIRLders', 'Meme', 0, '', 0),
+(2, 'Imperial Marines', 'Militar', 0, '', 0),
+(3, 'Back-End Squad', 'HTML', 0, '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `guilds_users`
+--
+
+CREATE TABLE `guilds_users` (
+  `rel_id` int(10) UNSIGNED NOT NULL,
+  `guild_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `user_type` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `guilds_users`
+--
+
+INSERT INTO `guilds_users` (`rel_id`, `guild_id`, `user_id`, `user_type`) VALUES
+(1, 1, 1, 1),
+(2, 2, 1, 1),
+(3, 3, 4, 1),
+(4, 1, 4, 0);
 
 -- --------------------------------------------------------
 
@@ -208,7 +269,13 @@ INSERT INTO `message` (`id`, `sender`, `receiver`, `content`, `deleted`) VALUES
 (12, 1, 20, 'Aqui Ã© Boris Bilder porra!', 0),
 (13, 1, 4, 'Oi!', 0),
 (14, 4, 22, 'VAINAMOINEN!', 0),
-(15, 20, 1, 'e ase\r\n', 0);
+(15, 20, 1, 'e ase\r\n', 0),
+(16, 1, 4, 'Eita porra', 0),
+(17, 1, 4, 'TÃ¡ saindo da jaula do monstro!', 0),
+(18, 1, 20, 'BIRLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL', 0),
+(19, 19, 1, 'Perdi', 0),
+(20, 1, 11, 'Testing 123', 0),
+(21, 11, 1, 'Testing back', 0);
 
 -- --------------------------------------------------------
 
@@ -238,7 +305,7 @@ INSERT INTO `posts` (`id`, `user_id`, `content`, `time`, `deleted`, `origin`, `l
 (5, 1, 'Hey bro, have you played Dark Souls 3 yet?', '2016-06-10 20:56:01', 0, 14, 3),
 (6, 19, 'Se descobrirem o paradeiro daqueles bÃ¡rbaros sujos e fedidos, contatem a Guarda Imperial imediatamente!', '2016-06-10 20:59:15', 0, 19, 2),
 (7, 3, 'This is mah swamp!', '2016-06-12 03:00:44', 0, 1, 0),
-(8, 19, 'Ave CÃ©sar!', '2016-06-12 03:01:56', 0, 1, 1),
+(8, 19, 'Ave CÃ©sar!', '2016-06-12 03:01:56', 0, 1, 2),
 (9, 12, 'I''m a 3000 man!', '2016-06-12 04:32:47', 0, 12, 1),
 (10, 8, 'Hey buddy, when we''re going to film another Chin-Chin praising video?', '2016-06-12 04:33:35', 0, 12, 1),
 (11, 3, 'Next time you''re at UNIFEI, bring me my MG-36.', '2016-06-12 04:34:02', 0, 12, 0),
@@ -274,9 +341,13 @@ INSERT INTO `posts` (`id`, `user_id`, `content`, `time`, `deleted`, `origin`, `l
 (41, 18, 'Thanks for showing me Undertale ;)', '2016-06-12 08:19:26', 0, 1, 0),
 (42, 9, 'Heya m8!', '2016-06-13 21:44:08', 0, 20, 0),
 (43, 1, 'Topcoder kekesimus maximus\r\n', '2016-06-13 21:44:47', 1, 20, 1),
-(44, 21, 'Damn those stormcloak rebels to Oblivion!', '2016-06-13 22:03:38', 0, 1, 0),
+(44, 21, 'Damn those stormcloak rebels to Oblivion!', '2016-06-13 22:03:38', 0, 1, 1),
 (45, 20, 'Ta ficando muito show essa rede social', '2016-06-16 01:34:27', 0, 20, 2),
-(46, 20, 'De acordo!', '2016-06-16 15:05:14', 0, 1, 0);
+(46, 20, 'De acordo!', '2016-06-16 15:05:14', 0, 1, 0),
+(47, 4, 'Aqui Ã© bodybuilder, porra! Subi em Ã¡rvore Ã© o caralho! Ã“ o homem ali porra! Ã‰ treze porra!', '2016-06-17 22:50:30', 0, 4, 0),
+(48, 22, 'Boa tarde, Ñ‚Ð¾Ð²Ð°Ñ€Ð¸Ñ‰!', '2016-06-17 22:51:16', 0, 4, 1),
+(49, 9, 'I submit! Take me to jai!', '2016-06-17 22:58:46', 0, 19, 0),
+(50, 22, 'Todo poder aos sovietes!', '2016-06-17 23:01:38', 0, 22, 0);
 
 -- --------------------------------------------------------
 
@@ -353,7 +424,10 @@ INSERT INTO `upvotes` (`id`, `post_id`, `user_id`) VALUES
 (58, 43, 1),
 (59, 45, 1),
 (60, 23, 1),
-(61, 45, 21);
+(61, 45, 21),
+(62, 8, 19),
+(63, 48, 22),
+(64, 44, 21);
 
 -- --------------------------------------------------------
 
@@ -387,17 +461,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `sex`, `birthday`, `psn`, `steam`, `xbox_live`, `nintendo`, `biography`, `favorite_game`, `user_type`, `register_time`, `profile_pic`, `removed`, `platform`, `profile_cover`) VALUES
-(1, 'Nixon Moreira Silva', 'nixonmoreira@hotmail.com', 'nixon123', 'male', '0000-00-00', 'merc_roach', 'Red Kaiser', 'RedKaiser42', 'Ah vÃ©i', '"Nichts ist fÃ¼r dich... Nichts war fÃ¼r dich... Nichts bleibt fÃ¼r dich... FÃ¼r immer!"', 'The Elder Scrolls V - Skyrim', 2, '2016-06-17 19:13:57', '_imagens/profile_pic/14660370895761f3612a302.png', 0, 'PC', '_imagens/profile_cover/146619083757644bf5a7827.png'),
+(1, 'Nixon Moreira Silva', 'nixonmoreira@hotmail.com', 'nixon123', 'male', '1997-04-14', 'merc_roach', 'Red Kaiser', 'RedKaiser42', 'Ah vÃ©i', '"Nichts ist fÃ¼r dich... Nichts war fÃ¼r dich... Nichts bleibt fÃ¼r dich... FÃ¼r immer!"', 'The Elder Scrolls V - Skyrim', 2, '2016-06-17 22:44:55', '_imagens/profile_pic/14660370895761f3612a302.png', 0, 'PC', '_imagens/profile_cover/146620349557647d6739384.jpg'),
 (2, 'Ronegro', 'ronegro@negro.negro', 'negro123', 'other', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2016-06-03 19:06:42', NULL, 1, '', ''),
-(3, 'Andrew Ian Soares Simmon', 'andrew@unifei.edu.br', 'perdi', 'male', '0000-00-00', 'pudim64br', 'pudim64br', '', '', 'Leitura Ã© minha rotina', 'Final Fantasy VII', 0, '2016-06-12 04:30:07', '_imagens/profile_pic/1465705807575ce54f8d6dd.jpg', 0, 'Playstation 4', ''),
-(4, 'RogÃ©rio da Silva Soares JÃºnior', 'rogeriojr4@live.com', '123', 'male', '1997-03-04', '', 'Rogerio', '', '', 'Brogrammer e tocador de instrumentos de corda nas horas vagas', 'Counter-Strike Global Offensive', 0, '2016-06-16 18:34:38', '_imagens/profile_pic/14660899225762c1c2e6714.jpg', 0, 'PC', ''),
+(3, 'Andrew Ian Soares Simmon', 'andrew@unifei.edu.br', 'perdi', 'male', '1993-11-04', 'pudim64br', 'pudim64br', '', '', 'Leitura Ã© minha rotina', 'Final Fantasy VII', 0, '2016-06-17 23:04:04', '_imagens/profile_pic/1465705807575ce54f8d6dd.jpg', 0, 'Playstation 4', '_imagens/profile_cover/1466204644576481e4e6b7e.jpg'),
+(4, 'RogÃ©rio da Silva Soares JÃºnior', 'rogeriojr4@live.com', '123', 'male', '0000-00-00', '', 'Rogerio', '', '', 'Brogrammer e tocador de instrumentos de corda nas horas vagas', 'Counter-Strike Global Offensive', 0, '2016-06-17 22:49:43', '_imagens/profile_pic/14660899225762c1c2e6714.jpg', 0, 'PC', '_imagens/profile_cover/146620378357647e879b50a.jpg'),
 (5, 'Rafael Soares dos Reis Macris', 'rafa07@hotmail.com', 'rafa123', 'male', '1997-07-23', '', 'Tsotso', '', '', 'Estudo na INATEL e sou depressivo.', 'Crysis', 0, '2016-06-12 23:36:11', '_imagens/profile_pic/1465709077575cf2150bcf9.jpg', 0, '', ''),
 (6, 'adler diniz', 'adlerunifei@gmail.com', '12345', 'male', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2016-06-03 19:06:55', NULL, 1, '', ''),
 (7, 'Ronegro Novo', 'ronegro_seducao@negro.com', 'negro123', 'other', '1880-12-03', NULL, NULL, NULL, NULL, NULL, NULL, 0, '2016-06-03 19:06:35', NULL, 1, '', ''),
 (8, 'Ulf Westberg', 'vice_keisari@gaea.gov.imp', 'filthy_frank*924', 'male', '1997-03-21', 'westo_j2010', 'Cool Westo', 'RoutineMovie138', '', 'It''s filthy frank motherfucker! It''s filthy frank bitch!', 'Hunter 3', 0, '2016-06-12 05:02:47', '_imagens/profile_pic/1465707612575cec5c4bb02.jpe', 0, '', ''),
 (9, 'Robin Kowalewski', 'robin_2246@yahoo.com.pl', 're24ad8*SDA', 'male', '1997-07-02', 'robin_kowalewski', 'Robin of Rivendell', 'robin_2246', 'MarkistTheory42', 'Born in Poland and went to Brazil to fight for the development of the Empire of Gaea. Also, live in the same fraternity as Markus Mannerheim. Studies Hydric Engineering at Federal University of Itajuba', 'Final Fantasy VII', 0, '2016-06-12 05:19:40', '_imagens/profile_pic/1465708479575cefbf4d69c.png', 0, '', ''),
 (10, 'Robin Kowalewski', 'robin_2246@yahoo.com.pl', 're24ad8*SDA', 'male', '1997-07-02', 'robin_kowalewski', 'Robin of Rivendell', 'robin_2246', 'MarkistTheory42', 'Born in Poland and went to Brazil to fight for the development of the Empire of Gaea. Also, live in the same fraternity as Markus Mannerheim. Studies Hydric Engineering at Federal University of Itajubá ', 'Final Fantasy VII', 0, '2016-06-03 19:07:17', NULL, 1, '', ''),
-(11, 'Markus Mannerheim', 'keisari@gaea.gov.imp', '3489_Aus1$UR', 'male', '1997-04-14', 'merc_woods', 'Markek Maximus', 'Noob_Coder_2015', 'Markek_Maximus', 'You know who I am!', 'Hunter - War At Mars', 0, '2016-06-12 04:41:02', '_imagens/profile_pic/1465706462575ce7dec43c3.png', 0, '', ''),
+(11, 'Markus Mannerheim', 'keisari@gaea.gov.imp', 'markus123', 'male', '0000-00-00', 'merc_woods', 'Markek Maximus', 'Noob_Coder_2015', 'Markek_Maximus', 'You know who I am!', 'Hunter - War At Mars', 0, '2016-06-17 22:56:35', '_imagens/profile_pic/1465706462575ce7dec43c3.png', 0, '', '_imagens/profile_cover/146620411057647fce0ad1c.jpg'),
 (12, 'Emerson Baumann', 'emerson_baumann@yahoo.com.de', 'e124k293EPR', 'male', '1997-05-06', 'Baumann_732', 'General Baumann', 'General_Baumann', 'General_Baumann', 'General of the Imperial Armed Forces, like to play some shooter game every once in a while.', 'Battlefield 4', 0, '2016-06-12 04:32:40', '_imagens/profile_pic/1465705960575ce5e83d651.png', 0, '', ''),
 (13, 'Dansk Trondheim', 'nubenube@yahoo.com.dn', 'nubenube', 'male', '1998-02-12', 'Dansk_0357_TRDM', 'nube_123', 'nube_123', 'nube_123', 'Hi there! I''m a Information System student at UNIFEI. I like to play League of Legends and other MOBA genre games.', 'League of Legends', 0, '2016-06-12 05:06:17', '_imagens/profile_pic/1465707901575ced7db22e2.png', 0, 'PC', ''),
 (14, 'Felix Arvid Ulf Kjellberg', 'poods@gmail.com', 'deutschland', 'male', '1989-10-02', 'felix_03_ulf', 'Saladass', '', '', 'Stop sending me "Fist me daddy" messages!', 'agar.io', 0, '2016-06-12 23:36:51', '_imagens/profile_pic/1465705727575ce4ffd2174.png', 0, 'PC', ''),
@@ -405,10 +479,10 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `sex`, `birthday`, `
 (16, 'Luiz Celso Arruda Filho', 'lully2015@hotmail.com', 'lully123', 'male', '2005-02-28', 'isanity_gamer', 'isanity_gamer', 'isanity238', '', 'Mor gamer minecraft S2', 'Minecraft', 0, '2016-06-13 00:03:10', '_imagens/profile_pic/1465776190575df83e53ad3.jpg', 0, 'Playstation 4', ''),
 (17, 'Mikhail Mannerheim', 'keisari@gaea.gov.imp', 'mikhail123', 'male', '2000-03-17', 'mikhail_jaeger', 'jaeger_2k', 'BlackJaeger401', 'Jageren_29', 'I''m Mikhail, the Bold, greatest military leader and emperor this empire had! I fought against the Telsicians and won like a boss!', 'Hunter 4', 0, '2016-06-16 16:40:57', NULL, 1, 'PC', ''),
 (18, 'SeÃ¡n McLoughlin', 'jackscepticeye@outlook.com', 'jack1234', 'male', '1990-03-21', 'jack_a_boss', 'jack_a_boss', 'jack_a_boss', '', 'Like a b0ss', 'Undertale', 0, '2016-06-12 05:21:00', '_imagens/profile_pic/1465708860575cf13c8ab29.png', 0, 'PC', ''),
-(19, 'Ronei Teixeira Costa JÃºnior', 'ronei@unifei.edu.br', 'ronei123', 'male', '1996-12-24', 'Ronei_123', '', '', '', 'SERIES, SERIES ALL DAY ALONG', 'Chrono Trigger', 0, '2016-06-12 23:34:37', '_imagens/profile_pic/1465714245575d0645b1ad5.png', 0, 'PC', ''),
-(20, 'Will Saymon', 'wsaymonoficial@gmail.com', 'will123', 'male', '0000-00-00', '', 'Wyru', '', '', 'You can''t move others hearts, unless you can move your own.', 'Monster Hunter', 2, '2016-06-17 19:15:58', '_imagens/profile_pic/1465854196575f28f44049c.jpg', 0, 'PSP', '_imagens/profile_cover/146619095857644c6e05084.jpg'),
-(21, 'Pedro Lomonaco', 'pedro_ditd@hotmail.com', 'pedro123', 'male', '0000-00-00', '', 'SuspiroDourado', '', '', 'Born this way!', 'League of Legends', 0, '2016-06-13 21:55:45', '_imagens/profile_pic/1465854886575f2ba6c7254.jpg', 0, 'PC', ''),
-(22, 'Eduardo Faggiani', 'edufaggiani@unifei.edu.br', 'edu123', 'male', '0000-00-00', '', '', '', '', 'Tuts tuts quero ver', 'Final Fantasy Tactics', 0, '2016-06-16 15:09:57', '_imagens/profile_pic/14660897965762c144f3a3d.jpg', 0, 'PC', ''),
+(19, 'Ronei Teixeira Costa JÃºnior', 'ronei@unifei.edu.br', 'ronei123', 'male', '0000-00-00', 'Ronei_123', '', '', '', 'SERIES, SERIES ALL DAY ALONG', 'Chrono Trigger', 0, '2016-06-17 22:57:16', '_imagens/profile_pic/1465714245575d0645b1ad5.png', 0, 'PC', '_imagens/profile_cover/14662042365764804c15feb.jpg'),
+(20, 'Will Saymon', 'wsaymonoficial@gmail.com', 'will123', 'male', '0000-00-00', '', 'Wyru', '', '', 'You can''t move others hearts, unless you can move your own.', 'Monster Hunter', 2, '2016-06-17 22:49:14', '_imagens/profile_pic/1465854196575f28f44049c.jpg', 0, 'PSP', '_imagens/profile_cover/146620375457647e6a58d96.jpg'),
+(21, 'Pedro Lomonaco', 'pedro_ditd@hotmail.com', 'pedro123', 'male', '0000-00-00', '', 'SuspiroDourado', '', '', 'Born this way!', 'League of Legends', 0, '2016-06-17 23:02:56', '_imagens/profile_pic/1465854886575f2ba6c7254.jpg', 0, 'PC', '_imagens/profile_cover/1466204576576481a04ec19.jpg'),
+(22, 'Eduardo Faggiani', 'edufaggiani@unifei.edu.br', 'edu123', 'male', '0000-00-00', '', '', '', '', 'Tuts tuts quero ver', 'Final Fantasy Tactics', 0, '2016-06-17 23:00:10', '_imagens/profile_pic/14660897965762c144f3a3d.jpg', 0, 'PC', '_imagens/profile_cover/1466204410576480fa35ff6.jpg'),
 (23, 'Wilhem Pfaffenbach', 'wilhem@yahoo.com.de', 'wilhem123', 'male', '1997-05-01', '', 'Hardened Jaeger', 'Wilhem_245', '', '"We''re building it up, to break it back down, we''re building it up, to burn it down, we can''t wait, to burn it to the ground!"', 'Battlefield 4', 0, '2016-06-16 21:59:17', '_imagens/profile_pic/1466114357576321358cf97.png', 0, 'XBOX One', '');
 
 --
@@ -432,6 +506,18 @@ ALTER TABLE `games`
 --
 ALTER TABLE `games_played`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `guilds`
+--
+ALTER TABLE `guilds`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `guilds_users`
+--
+ALTER TABLE `guilds_users`
+  ADD PRIMARY KEY (`rel_id`);
 
 --
 -- Indexes for table `message`
@@ -465,7 +551,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `friends`
 --
 ALTER TABLE `friends`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 --
 -- AUTO_INCREMENT for table `games`
 --
@@ -475,22 +561,32 @@ ALTER TABLE `games`
 -- AUTO_INCREMENT for table `games_played`
 --
 ALTER TABLE `games_played`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+--
+-- AUTO_INCREMENT for table `guilds`
+--
+ALTER TABLE `guilds`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `guilds_users`
+--
+ALTER TABLE `guilds_users`
+  MODIFY `rel_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `upvotes`
 --
 ALTER TABLE `upvotes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 --
 -- AUTO_INCREMENT for table `users`
 --

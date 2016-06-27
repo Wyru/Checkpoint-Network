@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27/06/2016, 07:32:26
+    Author     : Will Saymon
+*/
+
+
+@font-face{
+	font-family: AlegreyaSans-ExtraBold;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-ExtraBold.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Medium;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Medium.ttf");
+}
+@font-face{
+	font-family: AlegreyaSans-Light;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Light.ttf");
+}
+
+@font-face{
+	font-family: AlegreyaSans-Regular;
+	src: url("../_fontes/Alegreya_Sans/AlegreyaSans-Regular.ttf");
+}
+#page-content{
+    padding: 0px;
+}
+#title{
+    font-family: AlegreyaSans-Medium;
+    color:white;
+    border-bottom: 2px #1d1d1d solid;
+    margin-bottom: 5px;
+    background-color: #050412;     
+}
+
+aside h2{
+    background-color: #050412;
+    color:white;
+    font-family: AlegreyaSans-Light;
+    text-align: center;
+} 
+

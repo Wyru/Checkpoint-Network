@@ -24,7 +24,7 @@
                             <button class="btn btn-primary" type="submit"><i class="fa fa-video-camera fa-lg"></i></button>
                         </div>
                     <p>
-                    <input type="hidden" name="where" value="<?php if (!empty($_GET['user_id'])){echo $user_id;}else{echo $_SESSION["id"];}?>"/>          
+                    <input type="hidden" name="where" value="<?php if (!empty($_GET['user_id'])){echo $user_id;}else{echo "-1";}?>"/>          
                     <button class="btn-primary pull-right" type="submit">Publicar</button></p>
                     <div class="clearfix"></div>
                 </div>

@@ -92,7 +92,7 @@ mysqli_close ($conn);
                         <li><a href="gameplays.php"><i class="fa fa-film fa-lg" aria-hidden="true"></i> Gameplays</a></li>
                         <li><a href="games.php?user_id=<?php echo $rows[0]; ?>"><i class="fa fa-gamepad fa-lg" aria-hidden="true"></i> Games</a></li>
                         <li><a href="friends.php?user_id=<?php echo $rows[0]; ?>"><i class="fa fa-users fa-lg" aria-hidden="true"></i> Amigos</a></li>
-                        <li><a href="guilds.php"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</a></li>
+                        <li><a href="guilds.php?user_id=<?php echo $rows[0]; ?>"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Guildas</a></li>
                         <?php
                             if ($rows[0] != $_SESSION["id"])
                             {
@@ -125,39 +125,26 @@ mysqli_close ($conn);
             <aside  id ="myGames" class="col-lg-3 pull-right">
                 <h1>Meus Games</h1>
                 <div>
-<!--                    <div class='pull-right col-lg-5'>
-                        <img class='col-lg-12 resposive' src='http://vignette3.wikia.nocookie.net/monsterhunter/images/c/c9/Logo-MH1.png/revision/latest?cb=20140731093534'/>
-                        <p>Monster Hunter</p>
-                        
-                    </div>
-                    
-                    <div class='pull-right col-lg-5'>
-                        <img class='col-lg-12 resposive' src='https://logodownload.org/wp-content/uploads/2014/09/lol-logo-league-of-legends-2.png'/>
-                        <p>League of Legends</p>
-                        
-                    </div>
-                    <div class='pull-right col-lg-5'>
-                        <img class='col-lg-12 resposive' src='http://vignette2.wikia.nocookie.net/yugioh/images/c/ce/TFSP-VideoGameJP.png/revision/latest?cb=20141205132955'/>
-                        <p>Yu-Gi-Oh Tag Force Ark-V</p>   -->
+                   
                         <?php
                             include './_method/mysql_connect.php';
                             $query_games_name = "SELECT * FROM `games_played` WHERE `user_id` = '".$rows[0]."'";
                             $query_games = mysqli_query($conn, $query_games_name);
                             $i = 0;
-                            while ($i < 8 and $query_games and $games_rows = mysqli_fetch_row ($query_games))
+                            while ($i < 6 and $query_games and $games_rows = mysqli_fetch_row ($query_games))
                             {
                                 $query_gamesdata_name = "SELECT * FROM `games` WHERE `id` = '" .$games_rows[2]. "' LIMIT 1";
                                 $query_gamesdata = mysqli_query($conn, $query_gamesdata_name);
                                 $gamesdata_rows = mysqli_fetch_row($query_gamesdata);
-                                echo "<div class='pull-right col-lg-5'>
-                                    <img class='col-lg-12 resposive' src='".$gamesdata_rows[7]."'/>
+                                echo "<div id='game'>
+                                    <img src='".$gamesdata_rows[7]."'/>
                                      <p>".$gamesdata_rows[1]."</p> </div>";
                                 $i ++;
                             }
                             ?>                    
                 </div>
                 <div class="clearfix"></div>
-                <a class=" pull-right"> ver todos</a>
+                <a href='games.php?user_id=<?php echo $_SESSION["id"]; ?>' class=" pull-right"> ver todos</a>
             </aside>
             <section class="col-lg-6 pull-left" id="main">
                 
@@ -207,7 +194,7 @@ mysqli_close ($conn);
                                     }
                                     echo "<div id='dayAndTime'>".$timestamp."</div>";
                                     if ($name[0] == $himself or $rows[0] == $himself){
-                                        echo " <a id= 'del' class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."'><i class='fa fa-trash fa-lg'></i></a> ";
+                                        echo " <a id= 'del' class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."&page=-1'><i class='fa fa-trash fa-lg'></i></a> ";
                                     }
                                     echo "<div class='clearfix'></div>";
                                 echo "</div>";
@@ -221,9 +208,9 @@ mysqli_close ($conn);
                                 echo "<div class='form-group' col-lg-12' id='publFooter'>";
                                     // Verifica estado da curtida
                                     
-                                    echo "<form class='pull-left' role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."' method='POST'>";
+                                    echo "<form class='pull-left' role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."&page=-1' method='POST'>";
 
-                                            echo "<input type='hidden' name='origin_id' value=".$user_id.">";
+                                            echo "<input type='hidden' name='origin_id' value=".$rows2[1].">";
                                             echo "<button type='submit' class='btn-primary'>";
                                             if (!$like) { echo "Descurtir"; } else { echo "Curtir"; }
                                             echo "</button>";  
