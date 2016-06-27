@@ -44,10 +44,10 @@ $user_id = mysql_real_escape_string ($user_id);
             // Conecta ao banco de dados
             include './_method/mysql_connect.php';
             echo "<div class='col-lg-8 col-lg-offset-4'><p>";
-            echo "<a href='create_guild.php'>Criar Guilda</a>";
+            echo "<h3><a href='create_guild.php'>Criar Guilda</a></h3>";
             echo "</p></div>";
             
-            $query_guilds_name = "SELECT * FROM `guilds_users` WHERE `user_id` = '".$_SESSION["id"]."'";
+            $query_guilds_name = "SELECT * FROM `guilds_users` WHERE `user_id` = '".$user_id."'";
             $query_guilds      = mysqli_query ($conn, $query_guilds_name);
             
             if ($query_guilds and mysqli_num_rows ($query_guilds) > 0)
@@ -61,14 +61,17 @@ $user_id = mysql_real_escape_string ($user_id);
                       $guild_name          = $guildsid_rows[1];
                       $guild_id            = $guildsid_rows[0];
                       echo "<div class='col-lg-8 col-lg-offset-4'><p>";
-                      echo $guild_name;
+                      echo "<a href = 'show_guild.php?guild_id=".$guild_identifier."'>".$guild_name."</a>";
                       echo "</p></div>";
                   }
             }
             else
             {
                 echo "<div class='col-lg-8 col-lg-offset-2'>";
-                echo "Você não está em nenhuma guilda!";
+                if ($user_id == $_SESSION["id"])
+                    echo "Você não está em nenhuma guilda!";
+                else
+                    echo "Usuário não está em nenhuma guilda!";
                 echo "</p></div>";
             }
         ?>

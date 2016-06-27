@@ -6,10 +6,6 @@
  * mesmos
  */
 
-/*
- *  TODO: Verificar se o usuário já não está adicionado como amigo
- */
-
 // Inicia sessão
 session_start ();
 // Verifica se a variável de login está ativada
@@ -30,11 +26,9 @@ if (!$_SESSION["login_status"])
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="_bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="_css/search_game.css">
+        <link rel="stylesheet" type="text/css" href="_css/search_guild.css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <!--Não adicione nada antes disso-->
-        
-        
     </head>
     <body>
         <header>
@@ -82,16 +76,19 @@ if (!$_SESSION["login_status"])
                         // Imprime os resultados
                         while ($rows)
                         {
-                            $guild_id      = $rows[0];
-                            $guild_privacy = $rows[3];
-                            $guild_image   = $rows[4];
-                            $guild_name    = "SELECT * FROM `guilds_users` WHERE `user_id` = '".$_SESSION["id"]."' AND `guild_id` = '".$guild_id."'";
-                            $guild_query   = mysqli_query ($conn, $guild_name);
+                            $guild_id          = $rows[0];
+                            $guild_privacy     = $rows[3];
+                            $guild_image       = $rows[4];
+                            $guild_name        = "SELECT * FROM `guilds_users` WHERE `user_id` = '".$_SESSION["id"]."' AND `guild_id` = '".$guild_id."'";
+                            $guild_query       = mysqli_query ($conn, $guild_name);
+                            $guild_count_name  = "SELECT * FROM `guilds_users` WHERE `guild_id` = '".$guild_id."'";
+                            $guild_count_query = mysqli_query ($conn, $guild_count_name);
+                            $members_qty       = mysqli_num_rows ($guild_count_query);
                             echo"<div class='col-lg-12' id='results'>";
                                 echo"<div class='row'id = 'resultsHeader'>";
                                     echo"<div class='col-lg-12'>";
                                     // Mudar para o link de exibir o jogo.
-                                    echo "<a class='pull-left' href ='#'>".$rows[1]."</a>";
+                                    echo "<a class='pull-left' href ='./show_guild.php?guild_id=".$rows[0]."'>".$rows[1]."</a>";
                                     if ($guild_query and mysqli_num_rows ($guild_query))
                                     {
                                         echo "<p class='pull-right'>Já é membro!</p>";
@@ -99,7 +96,7 @@ if (!$_SESSION["login_status"])
                                     else
                                     {
                                         if (!$guild_privacy)
-                                            echo "<a class='btn-primary pull-right' href =#>Participar</a>";
+                                            echo "<a class='btn-primary pull-right' href ='./_method/join_guild.php?guild_id=".$guild_id."'>Participar</a>";
                                         else
                                             echo "Guilda privada!";
                                     }    
@@ -114,6 +111,7 @@ if (!$_SESSION["login_status"])
                                     echo"</div>";
                                     echo"<div class=''>";
                                         echo "<p>Categoria: ".$rows[2]."</p>";
+                                        echo "<p>". $members_qty . " usuário(s) faz(em) parte desta guilda</p>";
                                     echo"</div>";
                                 echo "</div>";
                             echo"</div>";
@@ -130,10 +128,7 @@ if (!$_SESSION["login_status"])
                 ?>       
             </div>
         </section>
-        
-        
         <!--Não coloque  nada abaixo disso-->
-        
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
