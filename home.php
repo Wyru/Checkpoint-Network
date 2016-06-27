@@ -16,6 +16,11 @@ if (!$_SESSION["login_status"])
     exit;
 }
 
+
+$page_id   = $_GET['page'];
+$page_id   = stripslashes ($page_id);
+$page_id   = mysql_real_escape_string ($page_id);
+
 ?>
 
 <!DOCTYPE html>
@@ -53,13 +58,14 @@ Descrição: Página que mostras as ultimas publicações dos amigos do ususári
                 </div>
                 
                 <div class="col-md-12">
-                    <p> Publicações:</p>                 
+                    <p> Publicações - Página: <?php echo $page_id+1 ?></p>                 
                     <!--Faça a magia acontecer aqui Nixon!!!-->
                     <?php
                         include './_method/mysql_connect.php';
                         $array = array();
                         $result = mysqli_query($conn, "SELECT * FROM `friends` WHERE (`user_id` = '" .$_SESSION["id"]. "' OR `friend_id` = '" .$_SESSION["id"]. "') AND `accepted` = 1  ORDER BY `user_id`");
                         // Imprime os vinte e cinco resultados em ordem de id de usuário
+                        array_push($array, $_SESSION["id"]);
                         while ($rows = mysqli_fetch_row($result)) 
                         {
                             if ($rows[2] == $_SESSION["id"])
@@ -74,110 +80,117 @@ Descrição: Página que mostras as ultimas publicações dos amigos do ususári
                         }
                         $ids = join("','", $array);
                                 include './_method/mysql_connect.php';
-                                $result2 = mysqli_query($conn, "SELECT * FROM `posts` WHERE origin IN ('$ids')  ORDER BY  `time` DESC");
-                                $j = 0;
-                                while ($rows2 = mysqli_fetch_row($result2) and $j < 20) 
+                                $j = $page_id*20;
+                                $result2 = mysqli_query($conn, "SELECT * FROM `posts` WHERE origin IN ('$ids') AND `deleted` = 0  ORDER BY  `time` DESC LIMIT 20 OFFSET " .$j."");
+                                $k = $page_id*20+20;
+                                while ($rows2 = mysqli_fetch_row($result2) and $j < $k) 
                                 {
-                                    if ($rows2[4] == 0)
-                                    {
-                                        echo "<div id='publ'>";
+                                    echo "<div id='publ'>";
 
-                                            echo "<div class='col-lg-12' id='publHeader'>";
-                                                $content = $rows2[2];
-                                                $timestamp = $rows2[3];
-                                                $likes = $rows2[6];
-                                                $himself = $_SESSION["id"];
-                                                $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
-                                                $result_3 = mysqli_query($conn, $query_name);
-                                                $name = mysqli_fetch_row($result_3);
-                                                $db_query_upvote = "SELECT * FROM `upvotes` WHERE `post_id` = " .$rows2[0]. " AND `user_id` = " .$_SESSION["id"]. "";
-                                                $query_upvote = mysqli_query($conn, $db_query_upvote);
-                                                if (!$query_upvote || mysqli_num_rows($query_upvote) == 0)
-                                                {
-                                                    $like = true;
-                                                }
-                                                else
-                                                {
-                                                    $like = false;
-                                                }
-                                                if($name[14])
-                                                    echo "<img class='responsive pull-left' id='userPic' src = '$name[14]'>";
-                                                else    
-                                                    echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
-                                                //echo "<img  class='responsive pull-left'id='userPic' src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
+                                        echo "<div class='col-lg-12' id='publHeader'>";
+                                            $content = $rows2[2];
+                                            $timestamp = $rows2[3];
+                                            $likes = $rows2[6];
+                                            $himself = $_SESSION["id"];
+                                            $query_amigo = "SELECT * FROM `users` WHERE `id` = ".$rows2[1]. "";
+                                            $query_name = "SELECT * FROM `users` WHERE `id` = " .$rows2[5]. "";
+                                            $result_3 = mysqli_query($conn, $query_name);
+                                            $result_4 = mysqli_query($conn, $query_amigo);
+                                            $amigo = mysqli_fetch_row($result_4);
+                                            $name = mysqli_fetch_row($result_3);
+                                            $db_query_upvote = "SELECT * FROM `upvotes` WHERE `post_id` = " .$rows2[0]. " AND `user_id` = " .$_SESSION["id"]. "";
+                                            $query_upvote = mysqli_query($conn, $db_query_upvote);
+                                            if (!$query_upvote || mysqli_num_rows($query_upvote) == 0)
+                                            {
+                                                $like = true;
+                                            }
+                                            else
+                                            {
+                                                $like = false;
+                                            }
+                                            if($name[14])
+                                                echo "<img class='responsive pull-left' id='userPic' src = '$name[14]'>";
+                                            else    
+                                                echo "<img class='responsive pull-left' id='userPic' src = 'http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'>";
+                                            //echo "<img  class='responsive pull-left'id='userPic' src='http://tedxnashville.com/wp-content/uploads/2015/11/profile.png'/>";
 
-                                                if ($name[1] != $rows[1] and $name[0]){
-                                                    echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a></p>";
+                                            if ($name[1] != $amigo[1] and $name[0]){
+                                                echo "<p><a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a> > <a href = 'show_profile.php?user_id=".$amigo[0]."'>".$amigo[1]."</a></p>";
+                                            }
+                                            else{
+                                                echo "<a href = 'show_profile.php?user_id=".$name[0]."'>".$name[1]."</a>";
+                                            }
+                                            echo "<div id='dayAndTime'>".$timestamp."</div>";
+                                            if ($name[0] == $himself or $rows[0] == $himself){
+                                                echo " <a id= 'del' class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."&page=".$page_id."'><i class='fa fa-trash fa-lg'></i></a> ";
+                                            }
+                                            echo "<div class='clearfix'></div>";
+                                        echo "</div>";
+
+
+                                        echo "<div class='col-lg-12' id='publBody'>";
+                                            echo $content;
+                                        echo "</div>";
+
+
+                                        echo "<div class='form-group' col-lg-12' id='publFooter'>";
+                                            // Verifica estado da curtida
+
+                                            echo "<form class='pull-left' role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."&page=".$page_id."' method='POST'>";
+
+                                                    echo "<input type='hidden' name='origin_id' value=".$friend_id.">";
+                                                    echo "<button type='submit' class='btn-primary'>";
+                                                    if (!$like) { echo "Descurtir"; } else { echo "Curtir"; }
+                                                    echo "</button>";  
+
+                                            echo "</form>";
+
+                                            echo "<form  class='pull-left' role='form' action='#' method='#' ";
+                                               echo "<input type='hidden' name='#' value='#'>"; 
+                                               echo "<button type='submit' class='btn-primary'><i class='fa fa-comment fa-lg'></i></button>";
+                                            echo "</form>";
+
+
+                                            echo "<form class='pull-left' role='form'  action='#' method='#' ";
+                                                echo "<input type='hidden' name='#' value='#'>";
+                                                echo "<button type='submit' class='btn-primary'><i class='fa fa-share-alt fa-lg'></i></button>";
+
+                                            echo "</form>";
+                                            echo"<div  class='pull-left' id=numLikes>";
+                                                if ($likes == 1){
+
+                                                    echo $likes . " pessoa curtiu essa postagem!";
+                                                }
+                                                else if ($likes == 0){
+
                                                 }
                                                 else{
-                                                    echo "<a href = 'show_profile.php?user_id=".$rows[0]."'>".$rows[1]."</a>";
+                                                    echo $likes . " pessoas curtiram essa postagem!";
                                                 }
-                                                echo "<div id='dayAndTime'>".$timestamp."</div>";
-                                                if ($name[0] == $himself or $rows[0] == $himself){
-                                                    echo " <a id= 'del' class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."'><i class='fa fa-trash fa-lg'></i></a> ";
-                                                }
-                                                echo "<div class='clearfix'></div>";
                                             echo "</div>";
 
+                                            echo "<form id='shareFace' class='pull-right' role='form'  action='#' method='#' ";
+                                                echo "<input type='hidden' name='#' value='#'>";
+                                                echo "<button type='submit' class='btn-primary'><i class=' fa fa-facebook-square fa-2x' aria-hidden='true' fa-lg'></i></button>";
 
-                                            echo "<div class='col-lg-12' id='publBody'>";
-                                                echo $content;
-                                            echo "</div>";
-
-
-                                            echo "<div class='form-group' col-lg-12' id='publFooter'>";
-                                                // Verifica estado da curtida
-
-                                                echo "<form class='pull-left' role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."' method='POST'>";
-
-                                                        echo "<input type='hidden' name='origin_id' value=".$friend_id.">";
-                                                        echo "<button type='submit' class='btn-primary'>";
-                                                        if (!$like) { echo "Descurtir"; } else { echo "Curtir"; }
-                                                        echo "</button>";  
-                                                        
-                                                echo "</form>";
-
-                                                echo "<form  class='pull-left' role='form' action='#' method='#' ";
-                                                   echo "<input type='hidden' name='#' value='#'>"; 
-                                                   echo "<button type='submit' class='btn-primary'><i class='fa fa-comment fa-lg'></i></button>";
-                                                echo "</form>";
+                                            echo "</form>";
+                                            echo "<div class='clearfix'></div>";
 
 
-                                                echo "<form class='pull-left' role='form'  action='#' method='#' ";
-                                                    echo "<input type='hidden' name='#' value='#'>";
-                                                    echo "<button type='submit' class='btn-primary'><i class='fa fa-share-alt fa-lg'></i></button>";
-
-                                                echo "</form>";
-                                                echo"<div  class='pull-left' id=numLikes>";
-                                                    if ($likes == 1){
-
-                                                        echo $likes . " pessoa curtiu essa postagem!";
-                                                    }
-                                                    else if ($likes == 0){
-
-                                                    }
-                                                    else{
-                                                        echo $likes . " pessoas curtiram essa postagem!";
-                                                    }
-                                                echo "</div>";
-
-                                                echo "<form id='shareFace' class='pull-right' role='form'  action='#' method='#' ";
-                                                    echo "<input type='hidden' name='#' value='#'>";
-                                                    echo "<button type='submit' class='btn-primary'><i class=' fa fa-facebook-square fa-2x' aria-hidden='true' fa-lg'></i></button>";
-
-                                                echo "</form>";
-                                                echo "<div class='clearfix'></div>";
-
-
-                                            echo "</div>";
                                         echo "</div>";
-                                            
-                                    }
-                                    $j++;
+                                    echo "</div>";
+                                    $j++;   
                                 }    
+                                // Encerra conexão após a query
+                                mysqli_close($conn);
+                                $next_id = $page_id+1;
+                                if($page_id > 0){
+                                    $previous_id = $page_id-1;
+                                    echo "<font size='+3'><a href='home.php?page=".$previous_id."'> PAGINA ANTERIOR       </a></font>";
+                                }
+                                echo "<font size='+3'><a href='home.php?page=".$next_id."'>PRÓXIMA PÁGINA</a></font>";
                         
-                        // Encerra conexão após a query
-                        mysqli_close($conn);
+
 
                         ?>
                     

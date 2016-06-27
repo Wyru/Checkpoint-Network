@@ -208,7 +208,7 @@ mysqli_close ($conn);
                                 echo "<div class='form-group' col-lg-12' id='publFooter'>";
                                     // Verifica estado da curtida
                                     
-                                    echo "<form class='pull-left' role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."' method='POST'>";
+                                    echo "<form class='pull-left' role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."&page=0' method='POST'>";
 
                                             echo "<input type='hidden' name='origin_id' value=".$user_id.">";
                                             echo "<button type='submit' class='btn-primary'>";

@@ -34,7 +34,7 @@
         <p id="userName"><?php echo $_SESSION["name"]; ?></p>
         </a>
         <ul id="menuOption"class="list-unstyled pull-right">
-            <a href="home.php"><li><i class="fa fa-home fa-lg" aria-hidden="true"></i>Inicio</li></a>
+            <a href="home.php?page=0"><li><i class="fa fa-home fa-lg" aria-hidden="true"></i>Inicio</li></a>
             <a href="show_profile.php?user_id=<?php echo $_SESSION["id"]; ?>"><li><i class="fa fa-user fa-lg" aria-hidden="true"></i>Meu Perfil</li></a>
             <a href="screenshots.php"><li><i class="fa fa-picture-o fa-lg" aria-hidden="true"></i>Screenshots</li></a>
             <a href="gameplays.php"><li><i class="fa fa-film fa-lg" aria-hidden="true"></i> Gameplays</li></a>

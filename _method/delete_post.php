@@ -15,6 +15,7 @@ if (!$_SESSION["login_status"])
     exit;
 }
 
+
 // Realiza a conexão com o banco de dados
 include 'mysql_connect.php';
 
@@ -26,6 +27,11 @@ $post_id = $_GET['post_id'];
 $post_id = stripslashes($post_id);
 $post_id = mysql_real_escape_string($post_id);
 
+$page_id   = $_GET['page'];
+$page_id   = stripslashes ($page_id);
+$page_id   = mysql_real_escape_string ($page_id);
+
+
 // Atualização do banco de dados
 $query_name = "UPDATE `posts` SET `deleted` = 1 WHERE id = '".$post_id."'";
 $query = mysqli_query($conn, $query_name);
@@ -36,17 +42,21 @@ $rowsNEW = mysqli_fetch_row($query2);
 
 if ($query and $query2)
 {
-    // Manda para a página do usuário
-    header("location:../show_profile.php?user_id=" .$rowsNEW[1]. "");
     mysqli_close($conn);
+    // Manda para a página do usuário
+     if ($page_id == 0)
+        header("location:../show_profile.php?user_id=" .$post_id. "");  
+    else
+        header("location:../home.php");
+
 }
 else
 {
     // Retorna o erro na deleção do post
+        mysqli_close($conn);
     echo "<script> 
             alert('Erro ao remover postagem!');
             window.location.href='../show_profile.php?user_id=" .$rowsNEW[1]. "' </script>";
-    mysqli_close($conn);
 }
 
 
