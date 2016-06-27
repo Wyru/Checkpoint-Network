@@ -1,6 +1,6 @@
 <?php
 
-/* Autor: Nixon Silva
+/* Autor: Nixon Silva e Rogério JR
  * Data: 02/06/2016
  * Função: Código acionado quando uma postagem é curtida
  */
@@ -48,10 +48,10 @@ if (!$query_1 || mysqli_num_rows($query_1) == 0) // Caso o post ainda não tenha
             window.location.href='../show_profile.php?user_id=" .$origin_id. "
         </script>";
     }
-    if ($page_id == 0)
+    if ($page_id == -1)
         header("location:../show_profile.php?user_id=" .$origin_id. "");  
     else
-        header("location:../home.php");
+        header("location:../home.php?page=".$page_id."");
 }
 else // Caso o post já tenha sido curtido
 {
@@ -61,10 +61,10 @@ else // Caso o post já tenha sido curtido
     // Query = Decrementa contagem de likes do post
     $db_query_5 = "UPDATE `posts` SET `likes` = `likes` - 1 WHERE `id` = " .$post_id. "";
     $query_5 = mysqli_query($conn, $db_query_5);
-     if ($page_id == 0)
+     if ($page_id == -1)
         header("location:../show_profile.php?user_id=" .$origin_id. "");  
     else
-        header("location:../home.php");
+        header("location:../home.php?page=".$page_id."");
 }
 
 ?>

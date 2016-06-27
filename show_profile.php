@@ -194,7 +194,7 @@ mysqli_close ($conn);
                                     }
                                     echo "<div id='dayAndTime'>".$timestamp."</div>";
                                     if ($name[0] == $himself or $rows[0] == $himself){
-                                        echo " <a id= 'del' class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."'><i class='fa fa-trash fa-lg'></i></a> ";
+                                        echo " <a id= 'del' class='btn-primary pull-right'href = './_method/delete_post.php?post_id=".$rows2[0]."&page=-1'><i class='fa fa-trash fa-lg'></i></a> ";
                                     }
                                     echo "<div class='clearfix'></div>";
                                 echo "</div>";
@@ -208,9 +208,9 @@ mysqli_close ($conn);
                                 echo "<div class='form-group' col-lg-12' id='publFooter'>";
                                     // Verifica estado da curtida
                                     
-                                    echo "<form class='pull-left' role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."&page=0' method='POST'>";
+                                    echo "<form class='pull-left' role='form' action='./_method/upvote_post.php?post_id=".$rows2[0]."&page=-1' method='POST'>";
 
-                                            echo "<input type='hidden' name='origin_id' value=".$user_id.">";
+                                            echo "<input type='hidden' name='origin_id' value=".$rows2[1].">";
                                             echo "<button type='submit' class='btn-primary'>";
                                             if (!$like) { echo "Descurtir"; } else { echo "Curtir"; }
                                             echo "</button>";  

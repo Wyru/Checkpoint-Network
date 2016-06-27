@@ -1,5 +1,5 @@
 <?php
-/* Autores: Nixon Silva e Will Saymon
+/* Autores: Nixon Silva, Will Saymon e Rogério JR.
  * Data: 19/05/2016
  * Função: Código de tratamento básico para páginas de exibição de perfil do usuário
  * logado.
@@ -59,12 +59,10 @@ Descrição: Página que mostras as ultimas publicações dos amigos do ususári
                 
                 <div class="col-md-12">
                     <p> Publicações - Página: <?php echo $page_id+1 ?></p>                 
-                    <!--Faça a magia acontecer aqui Nixon!!!-->
                     <?php
                         include './_method/mysql_connect.php';
-                        $array = array();
+                        $array = array(); // array de amigos
                         $result = mysqli_query($conn, "SELECT * FROM `friends` WHERE (`user_id` = '" .$_SESSION["id"]. "' OR `friend_id` = '" .$_SESSION["id"]. "') AND `accepted` = 1  ORDER BY `user_id`");
-                        // Imprime os vinte e cinco resultados em ordem de id de usuário
                         array_push($array, $_SESSION["id"]);
                         while ($rows = mysqli_fetch_row($result)) 
                         {
@@ -78,7 +76,7 @@ Descrição: Página que mostras as ultimas publicações dos amigos do ususári
                             }
                             array_push($array, $friend_id);
                         }
-                        $ids = join("','", $array);
+                        $ids = join("','", $array); //ids de todos os amigos, separada por ","
                                 include './_method/mysql_connect.php';
                                 $j = $page_id*20;
                                 $result2 = mysqli_query($conn, "SELECT * FROM `posts` WHERE origin IN ('$ids') AND `deleted` = 0  ORDER BY  `time` DESC LIMIT 20 OFFSET " .$j."");

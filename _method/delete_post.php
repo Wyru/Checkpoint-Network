@@ -1,6 +1,6 @@
 <?php
 
-/* Autor: Nixon Silva
+/* Autor: Nixon Silva e Rogério JR
  * Data: 20/05/2016
  * Função: Trata os casos de deleção de um post
  */
@@ -42,13 +42,17 @@ $rowsNEW = mysqli_fetch_row($query2);
 
 if ($query and $query2)
 {
-    mysqli_close($conn);
     // Manda para a página do usuário
-     if ($page_id == 0)
-        header("location:../show_profile.php?user_id=" .$post_id. "");  
-    else
-        header("location:../home.php");
-
+    $result = mysqli_query ($conn, "SELECT * FROM `posts` WHERE `id` = " .$post_id. "");
+    if ($result)
+    {
+        $rows_s = mysqli_fetch_row($result);
+        mysqli_close($conn);
+        if ($page_id == -1)
+            header("location:../show_profile.php?user_id=" .$rows_s[1]. "");  
+        else
+            header("location:../home.php?page=".$page_id);
+    }   
 }
 else
 {

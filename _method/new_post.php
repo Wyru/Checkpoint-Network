@@ -1,6 +1,6 @@
 <?php
 
-/* Autor: Nixon Silva e Will Saymon
+/* Autor: Nixon Silva, Will Saymon e Rogério JR
  * Data: 19/05/2016
  * Função: Retira as informações digitadas para a postagem na linha do tempo e
  * salva elas num banco de dados, recarregando a página logo em seguida, exibindo
@@ -59,7 +59,10 @@ if (!$result)
 mysqli_close ($conn);
 
 // Retorna à página do perfil
-header("location:../show_profile.php?user_id=" .$from_where. "");
+if($from_where == -1)
+    header("location:../home.php?page=0");
+else
+    header("location:../show_profile.php?user_id=" .$from_where. "");
 
 
 ?>
